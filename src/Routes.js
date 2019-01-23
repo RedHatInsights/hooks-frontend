@@ -18,11 +18,15 @@ import some from 'lodash/some';
  *         see the difference with DashboardMap and InventoryDeployments.
  *
  */
-const SamplePage = asyncComponent(() => import(/* webpackChunkName: "SamplePage" */ './SmartComponents/SamplePage/SamplePage'));
-const Rules = asyncComponent(() => import(/* webpackChunkName: "Rules" */ './PresentationalComponents/Rules/ListRules'));
+const NotificationsIndex = asyncComponent(() =>
+  import(/* webpackChunkName: "NotificationsIndex" */ './SmartComponents/NotificationsIndex/NotificationsIndex'));
+
+const NotificationEdit = asyncComponent(() =>
+  import(/* webpackChunkName: "NotificationEdit" */ './SmartComponents/NotificationEdit/NotificationEdit'));
+
 const paths = {
-    samplepage: '/samplepage',
-    rules: '/rules'
+    notificationsIndex: '/list',
+    notificationEdit: '/edit/:notificationId'
 };
 
 type Props = {
@@ -56,11 +60,11 @@ export const Routes = (props: Props) => {
 
     return (
         <Switch>
-            <InsightsRoute path={ paths.samplepage } component={ SamplePage } rootClass='samplepage'/>
-            <InsightsRoute path={ paths.rules } component={ Rules } rootClass='rules'/>
+            <InsightsRoute exact path={ paths.notificationsIndex } component={ NotificationsIndex } />
+            <InsightsRoute exact path={ paths.notificationEdit } component={ NotificationEdit } />
 
             { /* Finally, catch all unmatched routes */ }
-            <Route render={ () => some(paths, p => p === path) ? null : (<Redirect to={ paths.samplepage }/>) }/>
+            <Route render={ () => some(paths, p => p === path) ? null : (<Redirect to={ paths.notificationsIndex }/>) }/>
         </Switch>
     );
 };

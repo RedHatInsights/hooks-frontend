@@ -1,14 +1,18 @@
 {
-  "name": "insights-frontend-starter-app",
-  "version": "1.1.0",
+  "name": "insights-notifications",
+  "version": "0.1.0",
   "private": false,
   "dependencies": {
     "@babel/runtime": "^7.1.2",
+    "@data-driven-forms/react-form-renderer": "^1.5.4",
     "@patternfly/patternfly-next": "^1.0.41",
     "@patternfly/react-core": "1.30.0",
-    "@red-hat-insights/insights-frontend-components": "^3.11.0",
+    "@patternfly/react-table": "^0.4.4",
+    "@red-hat-insights/insights-frontend-components": "^3.33.22",
     "classnames": "^2.2.5",
-    "create-react-class": "^15.6.3"
+    "create-react-class": "^15.6.3",
+    "lodash": "^4.17.11",
+    "schema-utils": "^1.0.0"
   },
   "sassIncludes": {
     "patternfly": "node_modules/patternfly/dist/sass",
@@ -88,7 +92,7 @@
     "topojson": "^3.0.2",
     "webpack": "^4.17.2",
     "webpack-bundle-analyzer": "^2.13.1",
-    "webpack-cli": "^2.1.4",
+    "webpack-cli": "^3.2.1",
     "webpack-dev-server": "3.1.10",
     "webpack-visualizer-plugin": "^0.1.11",
     "write-file-webpack-plugin": "^4.4.0"
