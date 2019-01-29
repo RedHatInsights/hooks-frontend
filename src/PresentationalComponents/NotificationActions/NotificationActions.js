@@ -1,33 +1,58 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
     Dropdown,
     KebabToggle,
     DropdownItem
 } from '@patternfly/react-core';
 
-const NotificationActions = () => {
-    let isOpen = false;
-    const dummyDropdownItems = [
-        <DropdownItem key="edit">Edit</DropdownItem>,
-        <DropdownItem key="delete">Delete</DropdownItem>
-    ];
-    const toggle = function () {
-        console.log(isOpen);
-        if (isOpen === false) {
-            isOpen = true;
-        } else {
-            isOpen = false;
-        }
+const dummyDropdownItems = [
+    <DropdownItem key="edit">Edit</DropdownItem>,
+    <DropdownItem key="delete">Delete</DropdownItem>
+];
+
+class NotificationActions extends React.Component {
+    static propTypes = {
+        isOpen: PropTypes.bool
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isOpen: props.isOpen
+        };
+    }
+
+    componentDidMount() {
+        this.setState({
+            isOpen: false
+        });
+    }
+
+    onToggle = isOpen => {
+        this.setState({
+            isOpen
+        });
+    }
+
+    onSelect = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
     };
 
-    return (
-        <Dropdown
-            toggle={ <KebabToggle onToggle={ toggle }/> }
-            isPlain
-            isOpen={ isOpen }
-            dropdownItems={ dummyDropdownItems } />
-    );
+    render() {
+        const { isOpen } = this.state;
+        return (
+            <Dropdown
+                toggle={ <KebabToggle onToggle={ this.onToggle }/> }
+                isPlain
+                onSelect={ this.onSelect }
+                isOpen={ isOpen }
+                dropdownItems={ dummyDropdownItems } />
+        );
+    }
 };
 
-NotificationActions.displayName = 'NotificationActions';
 export default NotificationActions;
