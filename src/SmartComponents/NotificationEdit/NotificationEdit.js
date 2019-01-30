@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
-import FormRender from '@data-driven-forms/react-form-renderer';
-import { componentTypes } from '@data-driven-forms/react-form-renderer';
+import Form from 'react-jsonschema-form';
 
 import {
     Main,
@@ -10,18 +9,13 @@ import {
 } from '@red-hat-insights/insights-frontend-components';
 
 const schema = {
-    title: 'My form title',
-    description: 'My form description',
-    fields: [{
-        component: componentTypes.TEXT_FIELD,
-        name: 'first-name',
-        label: 'First name'
-    }, {
-        component: componentTypes.TEXT_FIELD,
-        type: 'password',
-        name: 'password',
-        label: 'password'
-    }]
+    title: 'Edit Notifications',
+    type: 'object',
+    required: [ 'title' ],
+    properties: {
+        title: { type: 'string', title: 'Title', default: 'A new task' },
+        done: { type: 'boolean', title: 'Done?', default: false }
+    }
 };
 
 class NotificationEdit extends Component {
@@ -32,9 +26,7 @@ class NotificationEdit extends Component {
                     <PageHeaderTitle title='Edit Notification'/>
                 </PageHeader>
                 <Main>
-                    <FormRender
-                        schema={ schema }
-                    />
+                    <Form schema={ schema } />
                 </Main>
             </Fragment>
         );
