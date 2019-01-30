@@ -13,15 +13,11 @@ const dummyDropdownItems = [
 ];
 
 class NotificationActions extends React.Component {
+    state = {
+        isOpen: this.props.isOpen
+    }
     static propTypes = {
         isOpen: PropTypes.bool
-    }
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            isOpen: props.isOpen
-        };
     }
 
     componentDidMount() {
@@ -35,12 +31,6 @@ class NotificationActions extends React.Component {
             isOpen
         });
     }
-
-    onSelect = () => {
-        this.setState({
-            isOpen: !this.state.isOpen
-        });
-    };
 
     render() {
         const { isOpen } = this.state;
