@@ -1,0 +1,21 @@
+version: '3'
+services:
+  ui:
+    build: .
+    network_mode: "host"
+    ports:
+      - "8002:8002"
+    volumes:
+      - .:/frontend:Z
+    command: /usr/bin/npm run start
+  proxy:
+    image: docker.io/redhatinsights/insights-proxy
+    network_mode: "host"
+    ports:
+      - "1337:1337"
+    environment:
+      - PLATFORM=linux
+      - PORT=8002
+      - LOCAL_CHROME=true
+    volumes:
+      - ${LOCAL_CHROME_PATH}:/chrome
