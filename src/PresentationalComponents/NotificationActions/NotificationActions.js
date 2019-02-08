@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 import {
     Dropdown,
@@ -8,8 +9,12 @@ import {
 } from '@patternfly/react-core';
 
 const dummyDropdownItems = [
-    <DropdownItem key="edit">Edit</DropdownItem>,
-    <DropdownItem key="delete">Delete</DropdownItem>
+    <DropdownItem key="edit" to="/edit/1">
+        Edit
+    </DropdownItem>,
+    <DropdownItem key="delete" to="/destroy/1">
+        Delete
+    </DropdownItem>
 ];
 
 class NotificationActions extends React.Component {
@@ -17,7 +22,10 @@ class NotificationActions extends React.Component {
         isOpen: this.props.isOpen
     }
     static propTypes = {
-        isOpen: PropTypes.bool
+        isOpen: PropTypes.bool,
+        match: PropTypes.object.isRequired,
+        location: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired
     }
 
     componentDidMount() {
@@ -45,4 +53,4 @@ class NotificationActions extends React.Component {
     }
 };
 
-export default NotificationActions;
+export default withRouter(NotificationActions);
