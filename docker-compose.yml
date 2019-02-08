@@ -7,6 +7,7 @@ services:
       - "8002:8002"
     volumes:
       - .:/frontend:Z
+      - /frontend/node_modules/
     extra_hosts:
       - prod.foo.redhat.com:127.0.0.1
       - stage.foo.redhat.com:127.0.0.1
