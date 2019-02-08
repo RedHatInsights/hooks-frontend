@@ -7,15 +7,24 @@ services:
       - "8002:8002"
     volumes:
       - .:/frontend:Z
-    command: /usr/bin/npm run start
+    extra_hosts:
+      - prod.foo.redhat.com:127.0.0.1
+      - stage.foo.redhat.com:127.0.0.1
+      - qa.foo.redhat.com:127.0.0.1
+      - ci.foo.redhat.com:127.0.0.1
   proxy:
     image: docker.io/redhatinsights/insights-proxy
     network_mode: "host"
     ports:
       - "1337:1337"
+    extra_hosts:
+      - prod.foo.redhat.com:127.0.0.1
+      - stage.foo.redhat.com:127.0.0.1
+      - qa.foo.redhat.com:127.0.0.1
+      - ci.foo.redhat.com:127.0.0.1
     environment:
       - PLATFORM=linux
       - PORT=8002
       - LOCAL_CHROME=true
     volumes:
-      - ${LOCAL_CHROME_PATH}:/chrome
+      - ${LOCAL_CHROME_PATH}:/chrome:Z

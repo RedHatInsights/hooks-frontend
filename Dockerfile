@@ -1,11 +1,13 @@
 FROM fedora:29
-RUN dnf install -y npm git
+RUN dnf install -y npm git zsh
 
 COPY . /frontend
 WORKDIR /frontend
 
-CMD ["rm", "-rf", "node-modules", "package.json"]
+RUN rm -rf node_modules/*
 
 RUN npm install
+
+CMD ["/usr/bin/npm", "run", "start"]
 
 EXPOSE 8002
