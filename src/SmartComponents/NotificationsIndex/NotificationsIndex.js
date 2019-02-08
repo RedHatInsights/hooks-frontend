@@ -22,16 +22,23 @@ import NotificationActions from '../../PresentationalComponents/NotificationActi
 class NotificationsIndex extends Component {
     componentDidMount() {
         this.props.fetchFilters();
+        this.props.fetchEndpoints();
     };
 
-    filtersInCells() {
-        return this.props.filters.map((filter) => {
-            return { cells: [ ...filter, <NotificationActions key={ filter[0] } /> ]};
+    filtersInRowsAndCells() {
+        return this.props.endpoints.map((endpoint) => {
+            return { cells: [
+                endpoint.name,
+                endpoint.url,
+                endpoint.active ? 'true' : 'false',
+                endpoint.filters.length,
+                <NotificationActions key={ `notification_actions_${endpoint.id}` } endpointId={ endpoint.id } />
+            ]};
         });
     };
 
     render() {
-        const tableColumns = [ 'Name', 'Status', 'Events', 'Active', 'Actions' ];
+        const tableColumns = [ 'Name', 'URL', 'Active', 'Filters', 'Actions' ];
 
         return (
             <Fragment>
@@ -41,7 +48,7 @@ class NotificationsIndex extends Component {
                 <Main>
                     <Table aria-label='Notifications list'
                         variant={ TableVariant.medium }
-                        rows={ this.filtersInCells() }
+                        rows={ this.filtersInRowsAndCells() }
                         header={ tableColumns }>
                         <TableHeader />
                         <TableBody />
@@ -54,18 +61,22 @@ class NotificationsIndex extends Component {
 
 NotificationsIndex.propTypes = {
     fetchFilters: PropTypes.func.isRequired,
-    filters: PropTypes.array.isRequired
+    fetchEndpoints: PropTypes.func.isRequired,
+    filters: PropTypes.array.isRequired,
+    endpoints: PropTypes.array.isRequired
 };
 
 const mapStateToProps = function(state) {
     return {
-        filters: state.filters.filters
+        filters: state.filters.filters,
+        endpoints: state.endpoints.endpoints
     };
 };
 
 const mapDispatchToProps = function (dispatch) {
     return bindActionCreators({
-        fetchFilters: actionCreators.fetchFilters
+        fetchFilters: actionCreators.fetchFilters,
+        fetchEndpoints: actionCreators.fetchEndpoints
     }, dispatch);
 };
 

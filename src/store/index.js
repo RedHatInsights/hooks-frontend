@@ -1,6 +1,6 @@
 import ReducerRegistry from '@red-hat-insights/insights-frontend-components/Utilities/ReducerRegistry';
 import promiseMiddleware from 'redux-promise-middleware';
-import { filterReducer } from './reducers';
+import { filterReducer, endpointReducer } from './reducers';
 
 let registry;
 
@@ -15,7 +15,8 @@ export function init (...middleware) {
     ]);
 
     registry.register({
-        filters: filterReducer
+        filters: filterReducer,
+        endpoints: endpointReducer
     });
 
     return registry;

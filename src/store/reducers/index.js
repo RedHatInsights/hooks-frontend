@@ -1,16 +1,53 @@
 import {
     FETCH_FILTERS,
     FETCH_FILTERS_SUCCESS,
-    FETCH_FILTERS_FAILURE
+    FETCH_FILTERS_FAILURE,
+    FETCH_ENDPOINTS,
+    FETCH_ENDPOINTS_SUCCESS,
+    FETCH_ENDPOINTS_FAILURE
 } from '../actions/index';
 
-const initialState = {
-    filters: [],
+const defaultIntialState = {
     loading: false,
     error: null
 };
 
-export const filterReducer = function(state = initialState, action) {
+const initialStateFor = function (reducerName) {
+    let initState = Object.assign({}, defaultIntialState);
+    initState[reducerName] = [];
+    return initState;
+};
+
+export const endpointReducer = function(state = initialStateFor('endpoints'), action) {
+    switch (action.type) {
+        case FETCH_ENDPOINTS:
+            return {
+                ...state,
+                loading: true,
+                error: null
+            };
+
+        case FETCH_ENDPOINTS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                endpoints: action.payload.endpoints
+            };
+
+        case FETCH_ENDPOINTS_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload.error,
+                endpoints: []
+            };
+
+        default:
+            return state;
+    }
+};
+
+export const filterReducer = function(state = initialStateFor('filters'), action) {
     switch (action.type) {
         case FETCH_FILTERS:
             return {

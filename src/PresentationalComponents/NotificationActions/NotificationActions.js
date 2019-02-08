@@ -8,15 +8,6 @@ import {
     DropdownItem
 } from '@patternfly/react-core';
 
-const dummyDropdownItems = [
-    <DropdownItem key="edit" to="/edit/1">
-        Edit
-    </DropdownItem>,
-    <DropdownItem key="delete" to="/destroy/1">
-        Delete
-    </DropdownItem>
-];
-
 class NotificationActions extends React.Component {
     state = {
         isOpen: this.props.isOpen
@@ -25,7 +16,8 @@ class NotificationActions extends React.Component {
         isOpen: PropTypes.bool,
         match: PropTypes.object.isRequired,
         location: PropTypes.object.isRequired,
-        history: PropTypes.object.isRequired
+        history: PropTypes.object.isRequired,
+        endpointId: PropTypes.number.isRequired
     }
 
     componentDidMount() {
@@ -40,6 +32,15 @@ class NotificationActions extends React.Component {
         });
     }
 
+    dropdownItems = () => ([
+        <DropdownItem key="edit" to={ `/edit/${ this.props.endpointId }` }>
+            Edit
+        </DropdownItem>,
+        <DropdownItem key="delete" to={ `/destroy/${ this.props.endpointId }` }>
+            Delete
+        </DropdownItem>
+    ])
+
     render() {
         const { isOpen } = this.state;
         return (
@@ -48,7 +49,7 @@ class NotificationActions extends React.Component {
                 isPlain
                 onSelect={ this.onSelect }
                 isOpen={ isOpen }
-                dropdownItems={ dummyDropdownItems } />
+                dropdownItems={ this.dropdownItems() } />
         );
     }
 };
