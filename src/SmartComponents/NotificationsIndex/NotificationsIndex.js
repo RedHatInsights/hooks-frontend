@@ -26,12 +26,13 @@ class NotificationsIndex extends Component {
     };
 
     filtersInRowsAndCells() {
+        console.log(this.props);
         return this.props.endpoints.map((endpoint) => {
             return { cells: [
                 endpoint.name,
                 endpoint.url,
                 endpoint.active ? 'true' : 'false',
-                endpoint.filters_count,
+                endpoint.filtersCount,
                 <NotificationActions key={ `notification_actions_${endpoint.id}` } endpointId={ endpoint.id } />
             ]};
         });
