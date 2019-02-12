@@ -4,7 +4,8 @@ import {
     FETCH_FILTERS_FAILURE,
     FETCH_ENDPOINTS,
     FETCH_ENDPOINTS_SUCCESS,
-    FETCH_ENDPOINTS_FAILURE
+    FETCH_ENDPOINTS_FAILURE,
+    FETCH_ENDPOINT_SUCCESS
 } from '../actions/index';
 
 const defaultIntialState = {
@@ -32,6 +33,13 @@ export const endpointReducer = function(state = initialStateFor('endpoints'), ac
                 ...state,
                 loading: false,
                 endpoints: action.payload.endpoints
+            };
+
+        case FETCH_ENDPOINT_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                endpoint: action.payload.endpoint
             };
 
         case FETCH_ENDPOINTS_FAILURE:

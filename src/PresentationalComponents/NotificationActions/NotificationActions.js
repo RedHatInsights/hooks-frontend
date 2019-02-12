@@ -33,10 +33,10 @@ class NotificationActions extends React.Component {
     }
 
     dropdownItems = () => ([
-        <DropdownItem key="edit" to={ `/edit/${ this.props.endpointId }` }>
+        <DropdownItem key="edit" href={ `/insights/platform/notifications/edit/${ this.props.endpointId }` }>
             Edit
         </DropdownItem>,
-        <DropdownItem key="delete" to={ `/destroy/${ this.props.endpointId }` }>
+        <DropdownItem key="delete" href={ `/insights/platform/notifications/destroy/${ this.props.endpointId }` }>
             Delete
         </DropdownItem>
     ])

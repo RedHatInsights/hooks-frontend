@@ -31,7 +31,7 @@ class NotificationsIndex extends Component {
                 endpoint.name,
                 endpoint.url,
                 endpoint.active ? 'true' : 'false',
-                endpoint.filters.length,
+                endpoint.filters_count,
                 <NotificationActions key={ `notification_actions_${endpoint.id}` } endpointId={ endpoint.id } />
             ]};
         });
