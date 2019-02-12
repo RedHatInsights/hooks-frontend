@@ -39,6 +39,17 @@ function CustomFieldTemplate(props) {
     );
 }
 
+CustomFieldTemplate.propTypes = {
+    id: PropTypes.string,
+    classNames: PropTypes.string,
+    label: PropTypes.string,
+    help: PropTypes.string,
+    required: PropTypes.bool,
+    description: PropTypes.string,
+    errors: PropTypes.string,
+    children: PropTypes.object
+};
+
 @registryDecorator()
 class NotificationEdit extends Component {
     componentDidMount() {
