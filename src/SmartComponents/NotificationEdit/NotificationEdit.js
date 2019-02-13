@@ -43,10 +43,10 @@ CustomFieldTemplate.propTypes = {
     id: PropTypes.string,
     classNames: PropTypes.string,
     label: PropTypes.string,
-    help: PropTypes.string,
+    help: PropTypes.object,
     required: PropTypes.bool,
-    description: PropTypes.string,
-    errors: PropTypes.string,
+    description: PropTypes.object,
+    errors: PropTypes.object,
     children: PropTypes.array
 };
 
