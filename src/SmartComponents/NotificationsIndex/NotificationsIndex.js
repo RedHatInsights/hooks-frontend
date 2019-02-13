@@ -26,7 +26,6 @@ class NotificationsIndex extends Component {
     };
 
     filtersInRowsAndCells() {
-        console.log(this.props);
         return this.props.endpoints.map((endpoint) => {
             return { cells: [
                 endpoint.name,

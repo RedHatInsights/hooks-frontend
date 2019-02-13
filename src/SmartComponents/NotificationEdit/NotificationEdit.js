@@ -56,9 +56,7 @@ class NotificationEdit extends Component {
         this.props.fetchEndpoint(this.props.match.params.endpointId);
     }
 
-    formChange = (formData) => {
-        console.log(formData);
-    }
+    formChange = () => {}
 
     initialFormData = () => {
         return this.props.endpoint ? {
