@@ -1,5 +1,5 @@
 FROM fedora:29
-RUN dnf install -y npm git zsh
+RUN dnf install -y npm
 
 COPY . /frontend
 WORKDIR /frontend
