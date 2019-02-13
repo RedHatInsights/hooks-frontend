@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import {
     Dropdown,
@@ -33,8 +33,8 @@ class NotificationActions extends React.Component {
     }
 
     dropdownItems = () => ([
-        <DropdownItem key="edit" href={ `/insights/platform/notifications/edit/${ this.props.endpointId }` }>
-            Edit
+        <DropdownItem key="edit">
+            <Link to={ `/edit/${ this.props.endpointId }` }>Edit</Link>
         </DropdownItem>,
         <DropdownItem key="delete" href={ `/insights/platform/notifications/destroy/${ this.props.endpointId }` }>
             Delete

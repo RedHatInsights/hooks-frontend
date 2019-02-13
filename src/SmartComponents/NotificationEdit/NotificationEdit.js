@@ -47,7 +47,7 @@ CustomFieldTemplate.propTypes = {
     required: PropTypes.bool,
     description: PropTypes.string,
     errors: PropTypes.string,
-    children: PropTypes.object
+    children: PropTypes.array
 };
 
 @registryDecorator()
