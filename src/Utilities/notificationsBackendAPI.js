@@ -12,12 +12,12 @@ export const get = (path, apiProps) => {
             method: 'get',
             headers: API_HEADERS,
             body: JSON.stringify(apiProps)
-        }).then((response) => {
-            if (!response.ok) {
-                throw new Error(response.statusText);
-            }
-
-            return response.json();
         });
+    }).then((response) => {
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+
+        return response.json();
     });
 };
