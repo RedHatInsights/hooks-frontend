@@ -1,10 +1,13 @@
+import { get } from '../../Utilities/notificationsBackendAPI';
+
 export const FETCH_FILTERS = 'FETCH_FILTERS';
 export const FETCH_FILTERS_SUCCESS = 'FETCH_FILTERS_SUCCESS';
 export const FETCH_FILTERS_FAILURE = 'FETCH_FILTERS_FAILURE';
 export const FETCH_ENDPOINTS = 'FETCH_ENDPOINTS';
-export const FETCH_ENDPOINTS_SUCCESS = 'FETCH_ENDPOINTS_SUCCESS';
+export const FETCH_ENDPOINTS_SUCCESS = FETCH_ENDPOINTS + '_FULFILLED';
+export const FETCH_ENDPOINTS_PENDING = FETCH_ENDPOINTS + '_PENDING';
+export const FETCH_ENDPOINTS_FAILURE = FETCH_ENDPOINTS + '_REJECTED';
 export const FETCH_ENDPOINT_SUCCESS = 'FETCH_ENDPOINT_SUCCESS';
-export const FETCH_ENDPOINTS_FAILURE = 'FETCH_ENDPOINTS_FAILURE';
 
 export const fetchFiltersFailure = error => ({
     type: FETCH_FILTERS_FAILURE,
@@ -31,31 +34,10 @@ export const fetchEndpointSuccess = endpoint => ({
     payload: { endpoint }
 });
 
-export const fetchEndpoints = () => {
-    return fetchEndpointsSuccess([
-        {
-            id: 1,
-            name: 'TEST Endpoint #1',
-            url: 'http://endpoint.com',
-            active: true,
-            filtersCount: 2
-        },
-        {
-            id: 2,
-            name: 'TEST Endpoint #2',
-            url: 'http://endpoint2.com',
-            active: true,
-            filtersCount: 1
-        },
-        {
-            id: 3,
-            name: 'TEST Endpoint #3',
-            url: 'http://endpoint3.com',
-            active: false,
-            filtersCount: 4
-        }
-    ]);
-};
+export const fetchEndpoints = () => ({
+    type: FETCH_ENDPOINTS,
+    payload: get('/endpoints')
+});
 
 export const fetchEndpoint = (endpointId) => {
     return fetchEndpointSuccess(fetchEndpoints().payload.endpoints.filter((endpoint) => {

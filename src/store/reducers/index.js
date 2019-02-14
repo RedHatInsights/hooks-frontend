@@ -5,6 +5,7 @@ import {
     FETCH_ENDPOINTS,
     FETCH_ENDPOINTS_SUCCESS,
     FETCH_ENDPOINTS_FAILURE,
+    FETCH_ENDPOINTS_PENDING,
     FETCH_ENDPOINT_SUCCESS
 } from '../actions/index';
 
@@ -21,7 +22,7 @@ const initialStateFor = function (reducerName) {
 
 export const endpointReducer = function(state = initialStateFor('endpoints'), action) {
     switch (action.type) {
-        case FETCH_ENDPOINTS:
+        case FETCH_ENDPOINTS_PENDING:
             return {
                 ...state,
                 loading: true,
@@ -32,21 +33,14 @@ export const endpointReducer = function(state = initialStateFor('endpoints'), ac
             return {
                 ...state,
                 loading: false,
-                endpoints: action.payload.endpoints
-            };
-
-        case FETCH_ENDPOINT_SUCCESS:
-            return {
-                ...state,
-                loading: false,
-                endpoint: action.payload.endpoint
+                endpoints: action.payload.data
             };
 
         case FETCH_ENDPOINTS_FAILURE:
             return {
                 ...state,
                 loading: false,
-                error: action.payload.error,
+                error: action.payload.message,
                 endpoints: []
             };
 
@@ -68,6 +62,7 @@ export const filterReducer = function(state = initialStateFor('filters'), action
             return {
                 ...state,
                 loading: false,
+                error: null,
                 filters: action.payload.filters
             };
 

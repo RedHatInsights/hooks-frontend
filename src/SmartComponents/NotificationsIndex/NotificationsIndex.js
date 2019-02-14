@@ -13,6 +13,7 @@ import {
     TableVariant
 } from '@red-hat-insights/insights-frontend-components';
 import registryDecorator from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
+import { Alert } from '@patternfly/react-core';
 
 import './notifications-index.scss';
 
@@ -21,7 +22,6 @@ import NotificationActions from '../../PresentationalComponents/NotificationActi
 @registryDecorator()
 export class NotificationsIndex extends Component {
     componentDidMount() {
-        this.props.fetchFilters();
         this.props.fetchEndpoints();
     };
 
@@ -40,12 +40,20 @@ export class NotificationsIndex extends Component {
     render() {
         const tableColumns = [ 'Name', 'URL', 'Active', 'Filters', 'Actions' ];
 
+        if(this.props.loading) {
+            return "Loading endpoints ..."
+        }
+        alert = ''
+        if(this.props.error) {
+            alert = <Alert variant="danger" title={ this.props.error } />
+        }
         return (
             <Fragment>
                 <PageHeader>
                     <PageHeaderTitle title='Notifications'/>
                 </PageHeader>
                 <Main>
+                    { alert }
                     <Table aria-label='Notifications list'
                         variant={ TableVariant.medium }
                         rows={ this.filtersInRowsAndCells() }
@@ -60,22 +68,20 @@ export class NotificationsIndex extends Component {
 }
 
 NotificationsIndex.propTypes = {
-    fetchFilters: PropTypes.func.isRequired,
     fetchEndpoints: PropTypes.func.isRequired,
-    filters: PropTypes.array.isRequired,
     endpoints: PropTypes.array.isRequired
 };
 
 const mapStateToProps = function(state) {
     return {
-        filters: state.filters.filters,
-        endpoints: state.endpoints.endpoints
+        endpoints: state.endpoints.endpoints,
+        loading: state.endpoints.loading,
+        error: state.endpoints.error
     };
 };
 
 const mapDispatchToProps = function (dispatch) {
     return bindActionCreators({
-        fetchFilters: actionCreators.fetchFilters,
         fetchEndpoints: actionCreators.fetchEndpoints
     }, dispatch);
 };
