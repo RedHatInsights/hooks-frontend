@@ -40,13 +40,11 @@ export class NotificationsIndex extends Component {
     render() {
         const tableColumns = [ 'Name', 'URL', 'Active', 'Filters', 'Actions' ];
 
-        if(this.props.loading) {
-            return "Loading endpoints ..."
+        if (this.props.loading) {
+            return 'Loading endpoints ...';
         }
-        alert = ''
-        if(this.props.error) {
-            alert = <Alert variant="danger" title={ this.props.error } />
-        }
+
+        let alert = this.props.error ? <Alert variant='danger' title={ this.props.error } /> : '';
         return (
             <Fragment>
                 <PageHeader>
@@ -69,7 +67,9 @@ export class NotificationsIndex extends Component {
 
 NotificationsIndex.propTypes = {
     fetchEndpoints: PropTypes.func.isRequired,
-    endpoints: PropTypes.array.isRequired
+    endpoints: PropTypes.array.isRequired,
+    error: PropTypes.string,
+    loading: PropTypes.bool
 };
 
 const mapStateToProps = function(state) {
