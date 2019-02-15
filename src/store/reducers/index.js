@@ -31,7 +31,11 @@ export const endpointReducer = function(state = initialStateFor('endpoints'), ac
             return {
                 ...state,
                 loading: false,
-                endpoints: action.payload.data
+                endpoints: action.payload.data.map((endpoint) => ({
+                    ...endpoint.attributes,
+                    id: parseInt(endpoint.id),
+                    filtersCount: endpoint.attributes.filter_count
+                }))
             };
 
         case FETCH_ENDPOINTS_FAILURE:
