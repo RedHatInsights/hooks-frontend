@@ -66,6 +66,10 @@ export class NotificationEdit extends Component {
     }
 
     render() {
+        if (this.props.loading) {
+            return 'Loading ...';
+        }
+
         return (
             <Fragment>
                 <PageHeader>
@@ -86,12 +90,14 @@ NotificationEdit.propTypes = {
     endpointId: PropTypes.number,
     endpoint: PropTypes.object,
     fetchEndpoint: PropTypes.func.isRequired,
-    match: PropTypes.object
+    match: PropTypes.object,
+    loading: PropTypes.bool
 };
 
 const mapStateToProps = function(state) {
     return {
-        endpoint: state.endpoints.endpoint
+        endpoint: state.endpoints.endpoint,
+        loading: state.endpoints.loading
     };
 };
 

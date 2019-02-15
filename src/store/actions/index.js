@@ -4,10 +4,13 @@ export const FETCH_FILTERS = 'FETCH_FILTERS';
 export const FETCH_FILTERS_SUCCESS = 'FETCH_FILTERS_SUCCESS';
 export const FETCH_FILTERS_FAILURE = 'FETCH_FILTERS_FAILURE';
 export const FETCH_ENDPOINTS = 'FETCH_ENDPOINTS';
-export const FETCH_ENDPOINTS_SUCCESS = FETCH_ENDPOINTS + '_FULFILLED';
 export const FETCH_ENDPOINTS_PENDING = FETCH_ENDPOINTS + '_PENDING';
+export const FETCH_ENDPOINTS_SUCCESS = FETCH_ENDPOINTS + '_FULFILLED';
 export const FETCH_ENDPOINTS_FAILURE = FETCH_ENDPOINTS + '_REJECTED';
-export const FETCH_ENDPOINT_SUCCESS = 'FETCH_ENDPOINT_SUCCESS';
+export const FETCH_ENDPOINT = 'FETCH_ENDPOINT';
+export const FETCH_ENDPOINT_PENDING = FETCH_ENDPOINT + '_PENDING';
+export const FETCH_ENDPOINT_SUCCESS = FETCH_ENDPOINT + '_FULFILLED';
+export const FETCH_ENDPOINT_FAILURE = FETCH_ENDPOINT + '_REJECTED';
 
 export const fetchFiltersFailure = error => ({
     type: FETCH_FILTERS_FAILURE,
@@ -39,11 +42,10 @@ export const fetchEndpoints = () => ({
     payload: get('/endpoints')
 });
 
-export const fetchEndpoint = (endpointId) => {
-    return fetchEndpointSuccess(fetchEndpoints().payload.endpoints.filter((endpoint) => {
-        return parseInt(endpoint.id) === parseInt(endpointId);
-    })[0]);
-};
+export const fetchEndpoint = (id) => ({
+    type: FETCH_ENDPOINT,
+    payload: get(`/endpoints/${ id }`)
+});
 
 export const fetchFilters = () => {
     return fetchFiltersSuccess([
