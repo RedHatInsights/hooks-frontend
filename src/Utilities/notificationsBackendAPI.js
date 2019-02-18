@@ -18,7 +18,7 @@ export const request = (path, apiProps, method) => {
             throw new Error(response.statusText);
         }
 
-        return response.json();
+        return (method !== 'delete') ? response.json() : {};
     });
 };
 
@@ -32,4 +32,8 @@ export const update = (path, apiProps) => {
 
 export const get = (path) => {
     return request(path);
+};
+
+export const destroy = (path) => {
+    return request(path, null, 'delete');
 };

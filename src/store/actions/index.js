@@ -1,4 +1,4 @@
-import { create, get, update } from '../../Utilities/notificationsBackendAPI';
+import { create, destroy, get, update } from '../../Utilities/notificationsBackendAPI';
 
 export const FETCH_FILTERS = 'FETCH_FILTERS';
 export const FETCH_FILTERS_SUCCESS = 'FETCH_FILTERS_SUCCESS';
@@ -12,9 +12,10 @@ export const FETCH_ENDPOINT_PENDING = FETCH_ENDPOINT + '_PENDING';
 export const FETCH_ENDPOINT_SUCCESS = FETCH_ENDPOINT + '_FULFILLED';
 export const FETCH_ENDPOINT_FAILURE = FETCH_ENDPOINT + '_REJECTED';
 export const SUBMIT_ENDPOINT = 'SUBMIT_ENDPOINT';
+export const DELETE_ENDPOINT = 'DELETE_ENDPOINT';
 
 export const successMessage = (base) => {
-    return base + '_SUCCESS';
+    return base + '_FULFILLED';
 };
 
 export const pendingMessage = (base) => {
@@ -73,6 +74,11 @@ export const updateEndpoint = (id, data) => {
         payload: update(`/endpoints/${ id }`, { endpoint: data })
     };
 };
+
+export const deleteEndpoint = (id) => ({
+    type: DELETE_ENDPOINT,
+    payload: destroy(`/endpoints/${ id }`).then(() => ({ id }))
+});
 
 export const fetchFilters = () => {
     return fetchFiltersSuccess([

@@ -53,7 +53,9 @@ export class NotificationsIndex extends Component {
                 endpoint.url,
                 endpoint.active ? 'true' : 'false',
                 endpoint.filtersCount,
-                <NotificationActions key={ `notification_actions_${endpoint.id}` } endpointId={ endpoint.id } />
+                <NotificationActions key={ `notification_actions_${endpoint.id}` }
+                    endpointId={ endpoint.id }
+                    onDelete={ (event) => { event.preventDefault(); this.props.deleteEndpoint(endpoint.id); } } />
             ]};
         });
     };
@@ -93,6 +95,7 @@ export class NotificationsIndex extends Component {
 
 NotificationsIndex.propTypes = {
     fetchEndpoints: PropTypes.func.isRequired,
+    deleteEndpoint: PropTypes.func,
     endpoints: PropTypes.array.isRequired,
     error: PropTypes.string,
     loading: PropTypes.bool
@@ -108,7 +111,8 @@ const mapStateToProps = function(state) {
 
 const mapDispatchToProps = function (dispatch) {
     return bindActionCreators({
-        fetchEndpoints: actionCreators.fetchEndpoints
+        fetchEndpoints: actionCreators.fetchEndpoints,
+        deleteEndpoint: actionCreators.deleteEndpoint
     }, dispatch);
 };
 

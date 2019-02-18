@@ -8,9 +8,8 @@ import {
     FETCH_ENDPOINT_SUCCESS,
     FETCH_ENDPOINT_FAILURE,
     FETCH_ENDPOINT_PENDING,
-    SUBMIT_ENDPOINT,
+    DELETE_ENDPOINT,
     successMessage,
-    pendingMessage,
     failureMessage
 } from '../actions/index';
 
@@ -77,19 +76,16 @@ export const endpointReducer = function(state = initialStateFor('endpoints'), ac
                 error: action.payload.message
             };
 
-        case successMessage(SUBMIT_ENDPOINT):
+        case failureMessage(DELETE_ENDPOINT):
             return {
-                ...state
+                ...state,
+                error: action.payload.message
             };
 
-        case pendingMessage(SUBMIT_ENDPOINT):
+        case successMessage(DELETE_ENDPOINT):
             return {
-                ...state
-            };
-
-        case failureMessage(SUBMIT_ENDPOINT):
-            return {
-                ...state
+                ...state,
+                endpoints: state.endpoints.filter(element => element.id !== action.payload.id)
             };
 
         default:
