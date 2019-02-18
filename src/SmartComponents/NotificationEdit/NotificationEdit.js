@@ -61,7 +61,9 @@ CustomFieldTemplate.propTypes = {
 @registryDecorator()
 export class NotificationEdit extends Component {
     componentDidMount() {
-        this.props.fetchEndpoint(this.props.match.params.endpointId);
+        if (this.props.endpoint) {
+            this.props.fetchEndpoint(this.props.match.params.endpointId);
+        }
     }
 
     formChange = () => {}
