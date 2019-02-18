@@ -1,4 +1,4 @@
-import { get } from '../../Utilities/notificationsBackendAPI';
+import { create, get, update } from '../../Utilities/notificationsBackendAPI';
 
 export const FETCH_FILTERS = 'FETCH_FILTERS';
 export const FETCH_FILTERS_SUCCESS = 'FETCH_FILTERS_SUCCESS';
@@ -11,6 +11,19 @@ export const FETCH_ENDPOINT = 'FETCH_ENDPOINT';
 export const FETCH_ENDPOINT_PENDING = FETCH_ENDPOINT + '_PENDING';
 export const FETCH_ENDPOINT_SUCCESS = FETCH_ENDPOINT + '_FULFILLED';
 export const FETCH_ENDPOINT_FAILURE = FETCH_ENDPOINT + '_REJECTED';
+export const SUBMIT_ENDPOINT = 'SUBMIT_ENDPOINT';
+
+export const successMessage = (base) => {
+    return base + '_SUCCESS';
+};
+
+export const pendingMessage = (base) => {
+    return base + '_PENDING';
+};
+
+export const failureMessage = (base) => {
+    return base + '_REJECTED';
+};
 
 export const fetchFiltersFailure = error => ({
     type: FETCH_FILTERS_FAILURE,
@@ -46,6 +59,20 @@ export const fetchEndpoint = (id) => ({
     type: FETCH_ENDPOINT,
     payload: get(`/endpoints/${ id }`)
 });
+
+export const createEndpoint = (data) => {
+    return {
+        type: SUBMIT_ENDPOINT,
+        payload: create('/endpoints', { endpoint: data })
+    };
+};
+
+export const updateEndpoint = (id, data) => {
+    return {
+        type: SUBMIT_ENDPOINT,
+        payload: update(`/endpoints/${ id }`, { endpoint: data })
+    };
+};
 
 export const fetchFilters = () => {
     return fetchFiltersSuccess([

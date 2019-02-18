@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import Form from 'react-jsonschema-form';
 import PropTypes from 'prop-types';
-import { fetchEndpoint } from '../../store/actions';
+import { fetchEndpoint, createEndpoint, updateEndpoint } from '../../store/actions';
 import { connect } from 'react-redux';
 import {
     Main,
@@ -15,7 +15,7 @@ import registryDecorator from '@red-hat-insights/insights-frontend-components/Ut
 const schema = {
     title: 'Edit Notifications',
     type: 'object',
-    required: [ 'title' ],
+    required: [ 'name', 'url' ],
     properties: {
         name: { type: 'string', title: 'Name', default: 'New notification endpoint name' },
         active: { type: 'boolean', title: 'Active', default: true },
@@ -57,6 +57,20 @@ export class NotificationEdit extends Component {
 
     formChange = () => {}
 
+    formSubmit = (data) => {
+        let { active, name, url } = data.formData;
+        let payload = {
+            active,
+            name,
+            url
+        };
+        if (typeof this.props.endpoint.id === 'undefined') {
+            this.props.createEndpoint(payload);
+        } else {
+            this.props.updateEndpoint(this.props.endpoint.id, payload);
+        }
+    };
+
     initialFormData = () => {
         return this.props.endpoint ? {
             name: this.props.endpoint.name,
@@ -79,6 +93,7 @@ export class NotificationEdit extends Component {
                     <Form schema={ schema } className="pf-c-form"
                         formData={ this.initialFormData() }
                         onChange={ this.formChange }
+                        onSubmit={ this.formSubmit }
                         FieldTemplate={ CustomFieldTemplate } />
                 </Main>
             </Fragment>
@@ -90,8 +105,11 @@ NotificationEdit.propTypes = {
     endpointId: PropTypes.number,
     endpoint: PropTypes.object,
     fetchEndpoint: PropTypes.func.isRequired,
+    createEndpoint: PropTypes.func,
+    updateEndpoint: PropTypes.func,
     match: PropTypes.object,
-    loading: PropTypes.bool
+    loading: PropTypes.bool,
+    create: PropTypes.bool
 };
 
 const mapStateToProps = function(state) {
@@ -103,7 +121,9 @@ const mapStateToProps = function(state) {
 
 const mapDispatchToProps = function (dispatch) {
     return bindActionCreators({
-        fetchEndpoint
+        fetchEndpoint,
+        createEndpoint,
+        updateEndpoint
     }, dispatch);
 };
 

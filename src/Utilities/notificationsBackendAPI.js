@@ -5,11 +5,11 @@ export const API_HEADERS = {
     Accept: 'application/json'
 };
 
-export const get = (path, apiProps) => {
+export const request = (path, apiProps, method) => {
     return window.insights.chrome.auth.getUser()
     .then(() => {
         return fetch(NOTIFICATIONS_API_ROOT.concat(path), {
-            method: 'get',
+            method: method || 'get',
             headers: API_HEADERS,
             body: JSON.stringify(apiProps)
         });
@@ -20,4 +20,16 @@ export const get = (path, apiProps) => {
 
         return response.json();
     });
+};
+
+export const create = (path, apiProps) => {
+    return request(path, apiProps, 'post');
+};
+
+export const update = (path, apiProps) => {
+    return request(path, apiProps, 'put');
+};
+
+export const get = (path) => {
+    return request(path);
 };
