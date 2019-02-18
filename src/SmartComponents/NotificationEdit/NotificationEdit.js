@@ -17,9 +17,18 @@ const schema = {
     type: 'object',
     required: [ 'name', 'url' ],
     properties: {
-        name: { type: 'string', title: 'Name', default: 'New notification endpoint name' },
+        name: { type: 'string', title: 'Name' },
         active: { type: 'boolean', title: 'Active', default: true },
-        url: { type: 'string', title: 'URL', default: 'https://...' }
+        url: { type: 'string', title: 'URL' }
+    }
+};
+
+const uiSchema = {
+    name: {
+        'ui:placeholder': 'New notification endpoint name'
+    },
+    url: {
+        'ui:placeholder': 'https://...'
     }
 };
 
@@ -91,6 +100,7 @@ export class NotificationEdit extends Component {
                 </PageHeader>
                 <Main>
                     <Form schema={ schema } className="pf-c-form"
+                        uiSchema={ uiSchema }
                         formData={ this.initialFormData() }
                         onChange={ this.formChange }
                         onSubmit={ this.formSubmit }
