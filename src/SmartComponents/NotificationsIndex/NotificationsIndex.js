@@ -14,10 +14,31 @@ import {
 } from '@red-hat-insights/insights-frontend-components';
 import registryDecorator from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
 import { Alert } from '@patternfly/react-core';
+import {
+    Split,
+    SplitItem,
+    Toolbar,
+    ToolbarGroup,
+    ToolbarItem
+} from '@patternfly/react-core';
+
+import { Link } from 'react-router-dom';
 
 import './notifications-index.scss';
 
 import NotificationActions from '../../PresentationalComponents/NotificationActions/NotificationActions';
+
+class MyToolbar extends Component {
+    render() {
+        return (
+            <Toolbar>
+                <ToolbarGroup>
+                    <ToolbarItem><Link to={ '/new' }>New endpoint</Link></ToolbarItem>
+                </ToolbarGroup>
+            </Toolbar>
+        );
+    }
+}
 
 @registryDecorator()
 export class NotificationsIndex extends Component {
@@ -47,8 +68,13 @@ export class NotificationsIndex extends Component {
         let alert = this.props.error ? <Alert variant='danger' title={ this.props.error } /> : '';
         return (
             <Fragment>
-                <PageHeader>
-                    <PageHeaderTitle title='Notifications'/>
+                <PageHeader >
+                    <Split>
+                        <SplitItem isMain>
+                            <PageHeaderTitle title='Notifications'/>
+                        </SplitItem>
+                        <SplitItem><MyToolbar /></SplitItem>
+                    </Split>
                 </PageHeader>
                 <Main>
                     { alert }

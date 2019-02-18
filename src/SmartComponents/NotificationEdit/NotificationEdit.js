@@ -73,10 +73,10 @@ export class NotificationEdit extends Component {
             name,
             url
         };
-        if (typeof this.props.endpoint.id === 'undefined') {
-            this.props.createEndpoint(payload);
-        } else {
+        if (this.props.endpoint) {
             this.props.updateEndpoint(this.props.endpoint.id, payload);
+        } else {
+            this.props.createEndpoint(payload);
         }
     };
 
