@@ -8,9 +8,9 @@ import {
     DropdownItem
 } from '@patternfly/react-core';
 
-class NotificationActions extends React.Component {
+export class NotificationActions extends React.Component {
     state = {
-        isOpen: this.props.isOpen
+        isOpen: (this.props.isOpen === undefined) ? false : this.props.isOpen
     }
     static propTypes = {
         isOpen: PropTypes.bool,
@@ -18,12 +18,6 @@ class NotificationActions extends React.Component {
         location: PropTypes.object.isRequired,
         history: PropTypes.object.isRequired,
         endpointId: PropTypes.number.isRequired
-    }
-
-    componentDidMount() {
-        this.setState({
-            isOpen: false
-        });
     }
 
     onToggle = isOpen => {

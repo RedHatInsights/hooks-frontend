@@ -5,7 +5,6 @@ import Form from 'react-jsonschema-form';
 import PropTypes from 'prop-types';
 import { fetchEndpoint } from '../../store/actions';
 import { connect } from 'react-redux';
-
 import {
     Main,
     PageHeader,
@@ -51,7 +50,7 @@ CustomFieldTemplate.propTypes = {
 };
 
 @registryDecorator()
-class NotificationEdit extends Component {
+export class NotificationEdit extends Component {
     componentDidMount() {
         this.props.fetchEndpoint(this.props.match.params.endpointId);
     }
@@ -87,7 +86,8 @@ NotificationEdit.propTypes = {
     endpointId: PropTypes.number,
     endpoint: PropTypes.object,
     fetchEndpoint: PropTypes.func.isRequired,
-    match: PropTypes.object
+    match: PropTypes.object,
+    store: PropTypes.object
 };
 
 const mapStateToProps = function(state) {
