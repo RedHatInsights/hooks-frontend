@@ -1,7 +1,14 @@
 import { init } from '../../store';
 import logger from 'redux-logger';
 import { NotificationEdit } from './NotificationEdit';
-import { Provider } from 'react-redux'
+
+const testEndpoint = {
+    id: 3,
+    name: 'TEST Endpoint #3',
+    url: 'http://endpoint3.com',
+    active: false,
+    filtersCount: 4
+};
 
 describe('NotificationEdit', () => {
     const store = init(logger).getStore();
@@ -21,5 +28,13 @@ describe('NotificationEdit', () => {
             <NotificationEdit { ...defaultProps }/>
         );
         expect(wrapper.find('Form').length).toBe(1);
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    it('takes an endpoint', () => {
+        const wrapper = shallow(
+            <NotificationEdit { ...defaultProps } endpoint={ testEndpoint }/>
+        );
+        expect(wrapper).toMatchSnapshot();
     });
 });

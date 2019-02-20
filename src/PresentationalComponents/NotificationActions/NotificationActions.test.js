@@ -16,6 +16,7 @@ describe('NotificationActions', () => {
             </Router>
         );
         expect(wrapper.render().find('svg').length).toBe(1);
+        expect(wrapper).toMatchSnapshot();
     });
 
     it('expect to renders edit & delete', () => {
@@ -26,5 +27,6 @@ describe('NotificationActions', () => {
         );
         expect(wrapper.render().find('a[href="/edit/1"]').text()).toBe('Edit');
         expect(wrapper.render().find('a[href="/insights/platform/notifications/destroy/1"]').text()).toBe('Delete');
+        expect(wrapper).toMatchSnapshot();
     });
 });
