@@ -10,7 +10,7 @@ import {
 
 export class NotificationActions extends React.Component {
     state = {
-        isOpen: (this.props.isOpen === undefined) ? false : this.props.isOpen
+        isOpen: this.props.isOpen
     }
     static propTypes = {
         isOpen: PropTypes.bool,

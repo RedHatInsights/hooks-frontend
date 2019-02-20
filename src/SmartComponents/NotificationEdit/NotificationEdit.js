@@ -86,8 +86,7 @@ NotificationEdit.propTypes = {
     endpointId: PropTypes.number,
     endpoint: PropTypes.object,
     fetchEndpoint: PropTypes.func.isRequired,
-    match: PropTypes.object,
-    store: PropTypes.object
+    match: PropTypes.object
 };
 
 const mapStateToProps = function(state) {
