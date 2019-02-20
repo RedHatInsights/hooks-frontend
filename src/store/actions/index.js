@@ -13,6 +13,7 @@ export const FETCH_ENDPOINT_SUCCESS = FETCH_ENDPOINT + '_FULFILLED';
 export const FETCH_ENDPOINT_FAILURE = FETCH_ENDPOINT + '_REJECTED';
 export const SUBMIT_ENDPOINT = 'SUBMIT_ENDPOINT';
 export const DELETE_ENDPOINT = 'DELETE_ENDPOINT';
+export const NEW_ENDPOINT = 'NEW_ENDPOINT';
 
 export const successMessage = (base) => {
     return base + '_FULFILLED';
@@ -78,6 +79,10 @@ export const updateEndpoint = (id, data) => {
 export const deleteEndpoint = (id) => ({
     type: DELETE_ENDPOINT,
     payload: destroy(`/endpoints/${ id }`).then(() => ({ id }))
+});
+
+export const newEndpoint = () => ({
+    type: NEW_ENDPOINT
 });
 
 export const fetchFilters = () => {

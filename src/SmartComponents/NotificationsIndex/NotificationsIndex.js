@@ -13,7 +13,6 @@ import {
     TableVariant
 } from '@red-hat-insights/insights-frontend-components';
 import registryDecorator from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
-import { Alert } from '@patternfly/react-core';
 import {
     Split,
     SplitItem,
@@ -27,18 +26,23 @@ import { Link } from 'react-router-dom';
 import './notifications-index.scss';
 
 import NotificationActions from '../../PresentationalComponents/NotificationActions/NotificationActions';
+import Messages from '../../PresentationalComponents/Messages/Messages';
 
 class MyToolbar extends Component {
     render() {
         return (
             <Toolbar>
                 <ToolbarGroup>
-                    <ToolbarItem><Link to={ '/new' }>New endpoint</Link></ToolbarItem>
+                    <ToolbarItem><Link to={ '/new' } onClick={ this.props.onClick }>New endpoint</Link></ToolbarItem>
                 </ToolbarGroup>
             </Toolbar>
         );
     }
 }
+
+MyToolbar.propTypes = {
+    onClick: PropTypes.func.isRequired
+};
 
 @registryDecorator()
 export class NotificationsIndex extends Component {
@@ -67,7 +71,7 @@ export class NotificationsIndex extends Component {
             return 'Loading endpoints ...';
         }
 
-        let alert = this.props.error ? <Alert variant='danger' title={ this.props.error } /> : '';
+        let messages = this.props.error ? [{ id: 0, variant: 'danger', title: 'Failed to get endpoints', message: this.props.error }] : [];
         return (
             <Fragment>
                 <PageHeader >
@@ -75,11 +79,11 @@ export class NotificationsIndex extends Component {
                         <SplitItem isMain>
                             <PageHeaderTitle title='Notifications'/>
                         </SplitItem>
-                        <SplitItem><MyToolbar /></SplitItem>
+                        <SplitItem><MyToolbar onClick={ this.props.newEndpoint }/></SplitItem>
                     </Split>
                 </PageHeader>
                 <Main>
-                    { alert }
+                    <Messages messages={ messages } />
                     <Table aria-label='Notifications list'
                         variant={ TableVariant.medium }
                         rows={ this.filtersInRowsAndCells() }
@@ -95,7 +99,8 @@ export class NotificationsIndex extends Component {
 
 NotificationsIndex.propTypes = {
     fetchEndpoints: PropTypes.func.isRequired,
-    deleteEndpoint: PropTypes.func,
+    deleteEndpoint: PropTypes.func.isRequired,
+    newEndpoint: PropTypes.func.isRequired,
     endpoints: PropTypes.array.isRequired,
     error: PropTypes.string,
     loading: PropTypes.bool
@@ -112,7 +117,8 @@ const mapStateToProps = function(state) {
 const mapDispatchToProps = function (dispatch) {
     return bindActionCreators({
         fetchEndpoints: actionCreators.fetchEndpoints,
-        deleteEndpoint: actionCreators.deleteEndpoint
+        deleteEndpoint: actionCreators.deleteEndpoint,
+        newEndpoint: actionCreators.newEndpoint
     }, dispatch);
 };
 

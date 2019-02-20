@@ -9,8 +9,11 @@ import {
     FETCH_ENDPOINT_FAILURE,
     FETCH_ENDPOINT_PENDING,
     DELETE_ENDPOINT,
+    SUBMIT_ENDPOINT,
+    NEW_ENDPOINT,
     successMessage,
-    failureMessage
+    failureMessage,
+    pendingMessage
 } from '../actions/index';
 
 const defaultIntialState = {
@@ -86,6 +89,35 @@ export const endpointReducer = function(state = initialStateFor('endpoints'), ac
             return {
                 ...state,
                 endpoints: state.endpoints.filter(element => element.id !== action.payload.id)
+            };
+
+        case pendingMessage(SUBMIT_ENDPOINT):
+            return {
+                ...state,
+                submitting: true
+            };
+
+        case successMessage(SUBMIT_ENDPOINT):
+            const endpoint = normalizeEndpointData(action.payload.data);
+            return {
+                ...state,
+                endpoint,
+                endpoints: [ ...state.endpoints, endpoint ],
+                submitting: false,
+                message: 'Endpoint saved'
+            };
+
+        case failureMessage(SUBMIT_ENDPOINT):
+            return {
+                ...state,
+                submitting: false,
+                error: action.payload.message
+            };
+
+        case NEW_ENDPOINT:
+            return {
+                ...state,
+                endpoint: {}
             };
 
         default:

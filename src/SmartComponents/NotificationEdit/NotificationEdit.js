@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import Form from 'react-jsonschema-form';
 import PropTypes from 'prop-types';
-import { fetchEndpoint, createEndpoint, updateEndpoint } from '../../store/actions';
+import { fetchEndpoint, createEndpoint, updateEndpoint, newEndpoint } from '../../store/actions';
 import { connect } from 'react-redux';
 import {
     Main,
@@ -11,6 +11,7 @@ import {
     PageHeaderTitle
 } from '@red-hat-insights/insights-frontend-components';
 import registryDecorator from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
+import Messages from '../../PresentationalComponents/Messages/Messages';
 
 const schema = {
     title: 'Edit Notifications',
@@ -61,8 +62,9 @@ CustomFieldTemplate.propTypes = {
 @registryDecorator()
 export class NotificationEdit extends Component {
     componentDidMount() {
-        if (this.props.endpoint) {
-            this.props.fetchEndpoint(this.props.match.params.endpointId);
+        let id = this.props.match.params.endpointId;
+        if (id) {
+            this.props.fetchEndpoint(id);
         }
     }
 
@@ -95,12 +97,23 @@ export class NotificationEdit extends Component {
             return 'Loading ...';
         }
 
+        if (this.props.submitting) {
+            return 'Submitting ...';
+        }
+
+        if (this.props.endpoint && !this.props.match.params.endpointId) {
+            return <Redirect to={ `/edit/${ this.props.endpoint.id }` } />;
+        }
+
+        let messages = this.props.error ? [{ id: 0, variant: 'danger', title: 'Failed to save endpoint', message: this.props.error }] : [];
+        messages = this.props.message ? [ ...messages, { id: 0, variant: 'success', title: 'Success', message: this.props.message }] : messages;
         return (
             <Fragment>
                 <PageHeader>
                     <PageHeaderTitle title='Edit Notification'/>
                 </PageHeader>
                 <Main>
+                    <Messages messages={ messages } />
                     <Form schema={ schema } className="pf-c-form"
                         uiSchema={ uiSchema }
                         formData={ this.initialFormData() }
@@ -121,13 +134,19 @@ NotificationEdit.propTypes = {
     updateEndpoint: PropTypes.func,
     match: PropTypes.object,
     loading: PropTypes.bool,
-    create: PropTypes.bool
+    submitting: PropTypes.bool,
+    message: PropTypes.string,
+    error: PropTypes.string
 };
 
 const mapStateToProps = function(state) {
+    let { endpoint, loading, error, message, submitting } = state.endpoints;
     return {
-        endpoint: state.endpoints.endpoint,
-        loading: state.endpoints.loading
+        endpoint,
+        loading,
+        error,
+        message,
+        submitting
     };
 };
 
@@ -135,7 +154,8 @@ const mapDispatchToProps = function (dispatch) {
     return bindActionCreators({
         fetchEndpoint,
         createEndpoint,
-        updateEndpoint
+        updateEndpoint,
+        newEndpoint
     }, dispatch);
 };
 
