@@ -1,6 +1,5 @@
 import { NotificationActions } from './NotificationActions';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 describe('NotificationActions', () => {
     const defaultProps = {

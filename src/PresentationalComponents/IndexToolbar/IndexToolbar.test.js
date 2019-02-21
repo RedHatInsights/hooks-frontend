@@ -1,5 +1,5 @@
 import { IndexToolbar } from './IndexToolbar';
-import { Link, BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('IndexToolbar', () => {
     it('expect to render', () => {
