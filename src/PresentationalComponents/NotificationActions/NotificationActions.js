@@ -28,8 +28,8 @@ export class NotificationActions extends React.Component {
     }
 
     dropdownItems = () => ([
-        <DropdownItem key="edit" component="div">
-            <Link to={ `/edit/${ this.props.endpointId }` }>Edit</Link>
+        <DropdownItem key="edit" component={ Link } to={ `/edit/${ this.props.endpointId }` }>
+            Edit
         </DropdownItem>,
         <DropdownItem key="delete" onClick={ this.props.onDelete }>
             Delete
