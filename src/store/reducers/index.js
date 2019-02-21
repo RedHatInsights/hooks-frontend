@@ -27,6 +27,17 @@ const normalizeEndpointData = (endpoint) => ({
     filtersCount: endpoint.attributes.filter_count
 });
 
+const updateEndpointInEndpoints = (state, endpoint) => {
+    const normalizedEndpoint = normalizeEndpointData(endpoint);
+    const endpoints = state.endpoints.filter(element => element.id !== normalizedEndpoint.id);
+    return {
+        ...state,
+        endpoint: normalizedEndpoint,
+        endpoints: [ ...endpoints, normalizedEndpoint ]
+    };
+
+};
+
 export const endpointReducer = function(state = initialStateFor('endpoints'), action) {
     switch (action.type) {
         case pendingMessage(FETCH_ENDPOINTS):
@@ -92,11 +103,9 @@ export const endpointReducer = function(state = initialStateFor('endpoints'), ac
             };
 
         case successMessage(SUBMIT_ENDPOINT):
-            const endpoint = normalizeEndpointData(action.payload.data);
             return {
                 ...state,
-                endpoint,
-                endpoints: [ ...state.endpoints, endpoint ],
+                ...updateEndpointInEndpoints(state, action.payload.data),
                 submitting: false,
                 message: 'Endpoint saved'
             };
@@ -111,7 +120,7 @@ export const endpointReducer = function(state = initialStateFor('endpoints'), ac
         case NEW_ENDPOINT:
             return {
                 ...state,
-                endpoint: {}
+                endpoint: null
             };
 
         default:
