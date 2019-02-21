@@ -38,6 +38,7 @@ describe('endpoint reducer', () => {
             name: 'Endpoint 1',
             url: 'http://something.somewhere.com',
             active: false,
+            // eslint-disable-next-line
             filter_count: 5
         }
     };
