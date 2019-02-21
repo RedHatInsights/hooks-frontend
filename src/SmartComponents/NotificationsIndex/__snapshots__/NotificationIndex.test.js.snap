@@ -328,7 +328,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`NotificationsIndex it takes endpoints 1`] = `
+exports[`NotificationsIndex takes endpoints 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NotificationsIndex

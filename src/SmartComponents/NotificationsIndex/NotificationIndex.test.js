@@ -45,7 +45,7 @@ describe('NotificationsIndex', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('it takes endpoints', () => {
+    it('takes endpoints', () => {
         const wrapper = shallow(
             <NotificationsIndex { ...defaultProps } endpoints={ testEndpoints }/>
         );
