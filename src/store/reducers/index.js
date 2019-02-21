@@ -1,13 +1,7 @@
 import {
     FETCH_FILTERS,
-    FETCH_FILTERS_SUCCESS,
-    FETCH_FILTERS_FAILURE,
-    FETCH_ENDPOINTS_SUCCESS,
-    FETCH_ENDPOINTS_FAILURE,
-    FETCH_ENDPOINTS_PENDING,
-    FETCH_ENDPOINT_SUCCESS,
-    FETCH_ENDPOINT_FAILURE,
-    FETCH_ENDPOINT_PENDING,
+    FETCH_ENDPOINTS,
+    FETCH_ENDPOINT,
     DELETE_ENDPOINT,
     SUBMIT_ENDPOINT,
     NEW_ENDPOINT,
@@ -35,21 +29,21 @@ const normalizeEndpointData = (endpoint) => ({
 
 export const endpointReducer = function(state = initialStateFor('endpoints'), action) {
     switch (action.type) {
-        case FETCH_ENDPOINTS_PENDING:
+        case pendingMessage(FETCH_ENDPOINTS):
             return {
                 ...state,
                 loading: true,
                 error: null
             };
 
-        case FETCH_ENDPOINTS_SUCCESS:
+        case successMessage(FETCH_ENDPOINTS):
             return {
                 ...state,
                 loading: false,
                 endpoints: action.payload.data.map(normalizeEndpointData)
             };
 
-        case FETCH_ENDPOINTS_FAILURE:
+        case failureMessage(FETCH_ENDPOINTS):
             return {
                 ...state,
                 loading: false,
@@ -57,14 +51,14 @@ export const endpointReducer = function(state = initialStateFor('endpoints'), ac
                 endpoints: []
             };
 
-        case FETCH_ENDPOINT_PENDING:
+        case pendingMessage(FETCH_ENDPOINT):
             return {
                 ...state,
                 loading: true,
                 error: null
             };
 
-        case FETCH_ENDPOINT_SUCCESS:
+        case successMessage(FETCH_ENDPOINT):
             return {
                 ...state,
                 error: null,
@@ -72,7 +66,7 @@ export const endpointReducer = function(state = initialStateFor('endpoints'), ac
                 endpoint: normalizeEndpointData(action.payload.data)
             };
 
-        case FETCH_ENDPOINT_FAILURE:
+        case failureMessage(FETCH_ENDPOINT):
             return {
                 ...state,
                 loading: false,
@@ -134,7 +128,7 @@ export const filterReducer = function(state = initialStateFor('filters'), action
                 error: null
             };
 
-        case FETCH_FILTERS_SUCCESS:
+        case successMessage(FETCH_FILTERS):
             return {
                 ...state,
                 loading: false,
@@ -142,7 +136,7 @@ export const filterReducer = function(state = initialStateFor('filters'), action
                 filters: action.payload.filters
             };
 
-        case FETCH_FILTERS_FAILURE:
+        case failureMessage(FETCH_FILTERS):
             return {
                 ...state,
                 loading: false,
