@@ -15,34 +15,14 @@ import {
 import registryDecorator from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
 import {
     Split,
-    SplitItem,
-    Toolbar,
-    ToolbarGroup,
-    ToolbarItem
+    SplitItem
 } from '@patternfly/react-core';
-
-import { Link } from 'react-router-dom';
 
 import './notifications-index.scss';
 
 import NotificationActions from '../../PresentationalComponents/NotificationActions/NotificationActions';
 import Messages from '../../PresentationalComponents/Messages/Messages';
-
-class MyToolbar extends Component {
-    render() {
-        return (
-            <Toolbar>
-                <ToolbarGroup>
-                    <ToolbarItem><Link to={ '/new' } onClick={ this.props.onClick }>New endpoint</Link></ToolbarItem>
-                </ToolbarGroup>
-            </Toolbar>
-        );
-    }
-}
-
-MyToolbar.propTypes = {
-    onClick: PropTypes.func.isRequired
-};
+import IndexToolbar from '../../PresentationalComponents/IndexToolbar/IndexToolbar';
 
 @registryDecorator()
 export class NotificationsIndex extends Component {
@@ -79,7 +59,7 @@ export class NotificationsIndex extends Component {
                         <SplitItem isMain>
                             <PageHeaderTitle title='Notifications'/>
                         </SplitItem>
-                        <SplitItem><MyToolbar onClick={ this.props.newEndpoint }/></SplitItem>
+                        <SplitItem><IndexToolbar onClick={ this.props.newEndpoint }/></SplitItem>
                     </Split>
                 </PageHeader>
                 <Main>
