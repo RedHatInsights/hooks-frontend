@@ -7,7 +7,7 @@ import {
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-class IndexToolbar extends Component {
+export class IndexToolbar extends Component {
     render() {
         return (
             <Toolbar>
