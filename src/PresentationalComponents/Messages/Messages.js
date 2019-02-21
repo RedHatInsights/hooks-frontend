@@ -5,7 +5,13 @@ import { Alert } from '@patternfly/react-core';
 
 class Messages extends React.Component {
     static propTypes = {
-        messages: PropTypes.array
+        messages: PropTypes.arrayOf(
+            PropTypes.shape({
+                id: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
+                variant: PropTypes.oneOf([ 'success', 'danger', 'warning', 'info' ]),
+                title: PropTypes.string.isRequired,
+                message: PropTypes.string.isRequired
+            }))
     }
 
     render() {
