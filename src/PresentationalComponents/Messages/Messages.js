@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Alert } from '@patternfly/react-core';
 
-class Messages extends React.Component {
+export class Messages extends React.Component {
     static propTypes = {
         messages: PropTypes.arrayOf(
             PropTypes.shape({
