@@ -24,24 +24,9 @@ export const fetchFiltersFailure = error => ({
     payload: { error }
 });
 
-export const fetchEndpointsFailure = error => ({
-    type: failureMessage(FETCH_ENDPOINTS),
-    payload: { error }
-});
-
 export const fetchFiltersSuccess = filters => ({
     type: successMessage(FETCH_FILTERS),
     payload: { filters }
-});
-
-export const fetchEndpointsSuccess = endpoints => ({
-    type: successMessage(FETCH_ENDPOINTS),
-    payload: { endpoints }
-});
-
-export const fetchEndpointSuccess = endpoint => ({
-    type: successMessage(FETCH_ENDPOINT),
-    payload: { endpoint }
 });
 
 export const fetchEndpoints = () => ({
