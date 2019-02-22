@@ -130,18 +130,14 @@ NotificationEdit.propTypes = {
     updateEndpoint: PropTypes.func.isRequired,
     match: PropTypes.object,
     loading: PropTypes.bool,
-    submitting: PropTypes.bool,
-    message: PropTypes.string,
-    error: PropTypes.string
+    submitting: PropTypes.bool
 };
 
 const mapStateToProps = function(state) {
-    let { endpoint, loading, error, message, submitting } = state.endpoints;
+    let { endpoint, loading, submitting } = state.endpoints;
     return {
         endpoint,
         loading,
-        error,
-        message,
         submitting
     };
 };
