@@ -21,7 +21,6 @@ import {
 import './notifications-index.scss';
 
 import NotificationActions from '../../PresentationalComponents/NotificationActions/NotificationActions';
-import Messages from '../../PresentationalComponents/Messages/Messages';
 import IndexToolbar from '../../PresentationalComponents/IndexToolbar/IndexToolbar';
 
 @registryDecorator()
@@ -39,7 +38,7 @@ export class NotificationsIndex extends Component {
                 endpoint.filtersCount,
                 <NotificationActions key={ `notification_actions_${endpoint.id}` }
                     endpointId={ endpoint.id }
-                    onDelete={ (event) => { event.preventDefault(); this.props.deleteEndpoint(endpoint.id); } } />
+                    onDelete={ (event) => { event.preventDefault(); this.props.deleteEndpoint(endpoint.id, endpoint.name); } } />
             ]};
         });
     };
@@ -51,7 +50,6 @@ export class NotificationsIndex extends Component {
             return 'Loading endpoints ...';
         }
 
-        let messages = this.props.error ? [{ id: 0, variant: 'danger', title: 'Failed to get endpoints', message: this.props.error }] : [];
         return (
             <Fragment>
                 <PageHeader >
@@ -63,7 +61,6 @@ export class NotificationsIndex extends Component {
                     </Split>
                 </PageHeader>
                 <Main>
-                    <Messages messages={ messages } />
                     <Table aria-label='Notifications list'
                         variant={ TableVariant.medium }
                         rows={ this.filtersInRowsAndCells() }

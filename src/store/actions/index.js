@@ -46,31 +46,83 @@ export const fetchEndpointSuccess = endpoint => ({
 
 export const fetchEndpoints = () => ({
     type: FETCH_ENDPOINTS,
-    payload: get('/endpoints')
+    payload: get('/endpoints'),
+    meta: {
+        notifications: {
+            rejected: {
+                variant: 'danger',
+                title: 'Failed to load endpoints'
+            }
+        }
+    }
 });
 
 export const fetchEndpoint = (id) => ({
     type: FETCH_ENDPOINT,
-    payload: get(`/endpoints/${ id }`)
+    payload: get(`/endpoints/${ id }`),
+    meta: {
+        notifications: {
+            rejected: {
+                variant: 'danger',
+                title: `Failed to load endpoint ${ id }`
+            }
+        }
+    }
 });
 
 export const createEndpoint = (data) => {
     return {
         type: SUBMIT_ENDPOINT,
-        payload: create('/endpoints', { endpoint: data })
+        payload: create('/endpoints', { endpoint: data }),
+        meta: {
+            notifications: {
+                rejected: {
+                    variant: 'danger',
+                    title: `Failed to create endpoint ${ data.name }`
+                },
+                fulfilled: {
+                    variant: 'success',
+                    title: `Endpoint ${ data.name } created`
+                }
+            }
+        }
     };
 };
 
 export const updateEndpoint = (id, data) => {
     return {
         type: SUBMIT_ENDPOINT,
-        payload: update(`/endpoints/${ id }`, { endpoint: data })
+        payload: update(`/endpoints/${ id }`, { endpoint: data }),
+        meta: {
+            notifications: {
+                rejected: {
+                    variant: 'danger',
+                    title: `Failed to update endpoint ${ data.name }`
+                },
+                fulfilled: {
+                    variant: 'success',
+                    title: `Endpoint ${ data.name } updated`
+                }
+            }
+        }
     };
 };
 
-export const deleteEndpoint = (id) => ({
+export const deleteEndpoint = (id, name) => ({
     type: DELETE_ENDPOINT,
-    payload: destroy(`/endpoints/${ id }`).then(() => ({ id }))
+    payload: destroy(`/endpoints/${ id }`).then(() => ({ id })),
+    meta: {
+        notifications: {
+            rejected: {
+                variant: 'danger',
+                title: `Failed to delete endpoint ${ name }`
+            },
+            fulfilled: {
+                variant: 'success',
+                title: `Endpoint ${ name } deleted`
+            }
+        }
+    }
 });
 
 export const newEndpoint = () => ({

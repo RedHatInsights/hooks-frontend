@@ -11,7 +11,6 @@ import {
     PageHeaderTitle
 } from '@red-hat-insights/insights-frontend-components';
 import registryDecorator from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
-import Messages from '../../PresentationalComponents/Messages/Messages';
 
 const schema = {
     title: 'Edit Notifications',
@@ -105,15 +104,12 @@ export class NotificationEdit extends Component {
             return <Redirect to={ `/edit/${ this.props.endpoint.id }` } />;
         }
 
-        let messages = this.props.error ? [{ id: 0, variant: 'danger', title: 'Failed to save endpoint', message: this.props.error }] : [];
-        messages = this.props.message ? [ ...messages, { id: 0, variant: 'success', title: 'Success', message: this.props.message }] : messages;
         return (
             <Fragment>
                 <PageHeader>
                     <PageHeaderTitle title='Edit Notification'/>
                 </PageHeader>
                 <Main>
-                    <Messages messages={ messages } />
                     <Form schema={ schema } className="pf-c-form"
                         uiSchema={ uiSchema }
                         formData={ this.initialFormData() }
