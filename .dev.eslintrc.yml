@@ -4,3 +4,5 @@
   # Changes will be gitignored
   # no-debugger: off
   # no-consle: off
+rules:
+  camelcase: [2, { properties: 'never' }]
