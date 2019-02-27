@@ -6,28 +6,7 @@ export const FETCH_ENDPOINT  = 'FETCH_ENDPOINT';
 export const SUBMIT_ENDPOINT = 'SUBMIT_ENDPOINT';
 export const DELETE_ENDPOINT = 'DELETE_ENDPOINT';
 export const NEW_ENDPOINT    = 'NEW_ENDPOINT';
-
-export const successMessage = (base) => {
-    return base + '_FULFILLED';
-};
-
-export const pendingMessage = (base) => {
-    return base + '_PENDING';
-};
-
-export const failureMessage = (base) => {
-    return base + '_REJECTED';
-};
-
-export const fetchFiltersFailure = error => ({
-    type: failureMessage(FETCH_FILTERS),
-    payload: { error }
-});
-
-export const fetchFiltersSuccess = filters => ({
-    type: successMessage(FETCH_FILTERS),
-    payload: { filters }
-});
+export const FETCH_APPS      = 'FETCH_APPS';
 
 export const fetchEndpoints = () => ({
     type: FETCH_ENDPOINTS,
@@ -129,22 +108,28 @@ export const newEndpoint = () => ({
     type: NEW_ENDPOINT
 });
 
-export const fetchFilters = () => {
-    return fetchFiltersSuccess([
-        {
-            id: 1,
-            eventType: 'System down',
-            severity: 'High'
-        },
-        {
-            id: 2,
-            eventType: 'System up',
-            severity: 'Normal'
-        },
-        {
-            id: 3,
-            eventType: 'System error',
-            severity: 'High'
+export const fetchFilters = (endpointId) => ({
+    type: FETCH_FILTERS,
+    payload: get(`/endpoints/${ endpointId }/filters`),
+    meta: {
+        notifications: {
+            rejected: {
+                variant: 'danger',
+                title: 'Failed to load filters'
+            }
         }
-    ]);
-};
+    }
+});
+
+export const fetchApps = () => ({
+    type: FETCH_APPS,
+    payload: get('/apps'),
+    meta: {
+        notifications: {
+            rejected: {
+                variant: 'danger',
+                title: 'Failed to load apps'
+            }
+        }
+    }
+});

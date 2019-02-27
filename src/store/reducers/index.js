@@ -4,22 +4,14 @@ import {
     FETCH_ENDPOINT,
     DELETE_ENDPOINT,
     SUBMIT_ENDPOINT,
-    NEW_ENDPOINT,
+    NEW_ENDPOINT
+} from '../actions/index';
+import {
     successMessage,
     failureMessage,
-    pendingMessage
-} from '../actions/index';
-
-const defaultIntialState = {
-    loading: false,
-    error: null
-};
-
-const initialStateFor = function (reducerName) {
-    let initState = Object.assign({}, defaultIntialState);
-    initState[reducerName] = [];
-    return initState;
-};
+    pendingMessage,
+    initialStateFor
+} from './ReducerHelper';
 
 const normalizeEndpointData = (endpoint) => ({
     ...endpoint.attributes,
@@ -142,7 +134,7 @@ export const filterReducer = function(state = initialStateFor('filters'), action
                 ...state,
                 loading: false,
                 error: null,
-                filters: action.payload.filters
+                filters: action.payload.data
             };
 
         case failureMessage(FETCH_FILTERS):

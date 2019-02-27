@@ -4,7 +4,21 @@ exports[`NotificationEdit expect to render a Form 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NotificationEdit
+    apps={Array []}
     createEndpoint={[MockFunction]}
+    fetchApps={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
     fetchEndpoint={
       [MockFunction] {
         "calls": Array [
@@ -20,6 +34,22 @@ ShallowWrapper {
         ],
       }
     }
+    fetchFilters={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            "1",
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    filters={Array []}
     match={
       Object {
         "params": Object {
@@ -105,7 +135,42 @@ ShallowWrapper {
               },
             }
           }
-        />
+        >
+          <FilterList
+            apps={Array []}
+            filters={Array []}
+          />
+          <div>
+            <Button
+              aria-label={null}
+              className=""
+              component="button"
+              isActive={false}
+              isBlock={false}
+              isDisabled={false}
+              isFocus={false}
+              isHover={false}
+              type="submit"
+              variant="primary"
+            >
+              Submit
+            </Button>
+            <Button
+              aria-label={null}
+              className=""
+              component="button"
+              isActive={false}
+              isBlock={false}
+              isDisabled={false}
+              isFocus={false}
+              isHover={false}
+              type="button"
+              variant="secondary"
+            >
+              Cancel
+            </Button>
+          </div>
+        </Form>
       </LoadingState>,
       "title": "Edit Notification",
     },
@@ -162,7 +227,42 @@ ShallowWrapper {
               },
             }
           }
-        />,
+        >
+          <FilterList
+            apps={Array []}
+            filters={Array []}
+          />
+          <div>
+            <Button
+              aria-label={null}
+              className=""
+              component="button"
+              isActive={false}
+              isBlock={false}
+              isDisabled={false}
+              isFocus={false}
+              isHover={false}
+              type="submit"
+              variant="primary"
+            >
+              Submit
+            </Button>
+            <Button
+              aria-label={null}
+              className=""
+              component="button"
+              isActive={false}
+              isBlock={false}
+              isDisabled={false}
+              isFocus={false}
+              isHover={false}
+              type="button"
+              variant="secondary"
+            >
+              Cancel
+            </Button>
+          </div>
+        </Form>,
         "loading": undefined,
         "placeholder": <Skeleton
           size="sm"
@@ -176,6 +276,42 @@ ShallowWrapper {
         "props": Object {
           "ErrorList": [Function],
           "FieldTemplate": [Function],
+          "children": Array [
+            <FilterList
+              apps={Array []}
+              filters={Array []}
+            />,
+            <div>
+              <Button
+                aria-label={null}
+                className=""
+                component="button"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                type="submit"
+                variant="primary"
+              >
+                Submit
+              </Button>
+              <Button
+                aria-label={null}
+                className=""
+                component="button"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                type="button"
+                variant="secondary"
+              >
+                Cancel
+              </Button>
+            </div>,
+          ],
           "className": "pf-c-form",
           "disabled": false,
           "formData": Object {},
@@ -218,7 +354,103 @@ ShallowWrapper {
           },
         },
         "ref": null,
-        "rendered": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "apps": Array [],
+              "filters": Array [],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Button
+                  aria-label={null}
+                  className=""
+                  component="button"
+                  isActive={false}
+                  isBlock={false}
+                  isDisabled={false}
+                  isFocus={false}
+                  isHover={false}
+                  type="submit"
+                  variant="primary"
+                >
+                  Submit
+                </Button>,
+                <Button
+                  aria-label={null}
+                  className=""
+                  component="button"
+                  isActive={false}
+                  isBlock={false}
+                  isDisabled={false}
+                  isFocus={false}
+                  isHover={false}
+                  type="button"
+                  variant="secondary"
+                >
+                  Cancel
+                </Button>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "aria-label": null,
+                  "children": "Submit",
+                  "className": "",
+                  "component": "button",
+                  "isActive": false,
+                  "isBlock": false,
+                  "isDisabled": false,
+                  "isFocus": false,
+                  "isHover": false,
+                  "type": "submit",
+                  "variant": "primary",
+                },
+                "ref": null,
+                "rendered": "Submit",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "aria-label": null,
+                  "children": "Cancel",
+                  "className": "",
+                  "component": "button",
+                  "isActive": false,
+                  "isBlock": false,
+                  "isDisabled": false,
+                  "isFocus": false,
+                  "isHover": false,
+                  "type": "button",
+                  "variant": "secondary",
+                },
+                "ref": null,
+                "rendered": "Cancel",
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
         "type": [Function],
       },
       "type": [Function],
@@ -285,7 +517,42 @@ ShallowWrapper {
                 },
               }
             }
-          />
+          >
+            <FilterList
+              apps={Array []}
+              filters={Array []}
+            />
+            <div>
+              <Button
+                aria-label={null}
+                className=""
+                component="button"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                type="submit"
+                variant="primary"
+              >
+                Submit
+              </Button>
+              <Button
+                aria-label={null}
+                className=""
+                component="button"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                type="button"
+                variant="secondary"
+              >
+                Cancel
+              </Button>
+            </div>
+          </Form>
         </LoadingState>,
         "title": "Edit Notification",
       },
@@ -342,7 +609,42 @@ ShallowWrapper {
                 },
               }
             }
-          />,
+          >
+            <FilterList
+              apps={Array []}
+              filters={Array []}
+            />
+            <div>
+              <Button
+                aria-label={null}
+                className=""
+                component="button"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                type="submit"
+                variant="primary"
+              >
+                Submit
+              </Button>
+              <Button
+                aria-label={null}
+                className=""
+                component="button"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                type="button"
+                variant="secondary"
+              >
+                Cancel
+              </Button>
+            </div>
+          </Form>,
           "loading": undefined,
           "placeholder": <Skeleton
             size="sm"
@@ -356,6 +658,42 @@ ShallowWrapper {
           "props": Object {
             "ErrorList": [Function],
             "FieldTemplate": [Function],
+            "children": Array [
+              <FilterList
+                apps={Array []}
+                filters={Array []}
+              />,
+              <div>
+                <Button
+                  aria-label={null}
+                  className=""
+                  component="button"
+                  isActive={false}
+                  isBlock={false}
+                  isDisabled={false}
+                  isFocus={false}
+                  isHover={false}
+                  type="submit"
+                  variant="primary"
+                >
+                  Submit
+                </Button>
+                <Button
+                  aria-label={null}
+                  className=""
+                  component="button"
+                  isActive={false}
+                  isBlock={false}
+                  isDisabled={false}
+                  isFocus={false}
+                  isHover={false}
+                  type="button"
+                  variant="secondary"
+                >
+                  Cancel
+                </Button>
+              </div>,
+            ],
             "className": "pf-c-form",
             "disabled": false,
             "formData": Object {},
@@ -398,7 +736,103 @@ ShallowWrapper {
             },
           },
           "ref": null,
-          "rendered": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "apps": Array [],
+                "filters": Array [],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Button
+                    aria-label={null}
+                    className=""
+                    component="button"
+                    isActive={false}
+                    isBlock={false}
+                    isDisabled={false}
+                    isFocus={false}
+                    isHover={false}
+                    type="submit"
+                    variant="primary"
+                  >
+                    Submit
+                  </Button>,
+                  <Button
+                    aria-label={null}
+                    className=""
+                    component="button"
+                    isActive={false}
+                    isBlock={false}
+                    isDisabled={false}
+                    isFocus={false}
+                    isHover={false}
+                    type="button"
+                    variant="secondary"
+                  >
+                    Cancel
+                  </Button>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "aria-label": null,
+                    "children": "Submit",
+                    "className": "",
+                    "component": "button",
+                    "isActive": false,
+                    "isBlock": false,
+                    "isDisabled": false,
+                    "isFocus": false,
+                    "isHover": false,
+                    "type": "submit",
+                    "variant": "primary",
+                  },
+                  "ref": null,
+                  "rendered": "Submit",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "aria-label": null,
+                    "children": "Cancel",
+                    "className": "",
+                    "component": "button",
+                    "isActive": false,
+                    "isBlock": false,
+                    "isDisabled": false,
+                    "isFocus": false,
+                    "isHover": false,
+                    "type": "button",
+                    "variant": "secondary",
+                  },
+                  "ref": null,
+                  "rendered": "Cancel",
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
           "type": [Function],
         },
         "type": [Function],
@@ -432,6 +866,7 @@ exports[`NotificationEdit takes an endpoint 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NotificationEdit
+    apps={Array []}
     createEndpoint={[MockFunction]}
     endpoint={
       Object {
@@ -440,6 +875,24 @@ ShallowWrapper {
         "id": 3,
         "name": "TEST Endpoint #3",
         "url": "http://endpoint3.com",
+      }
+    }
+    fetchApps={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
       }
     }
     fetchEndpoint={
@@ -464,6 +917,29 @@ ShallowWrapper {
         ],
       }
     }
+    fetchFilters={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            "1",
+          ],
+          Array [
+            "1",
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    filters={Array []}
     match={
       Object {
         "params": Object {
@@ -555,7 +1031,42 @@ ShallowWrapper {
               },
             }
           }
-        />
+        >
+          <FilterList
+            apps={Array []}
+            filters={Array []}
+          />
+          <div>
+            <Button
+              aria-label={null}
+              className=""
+              component="button"
+              isActive={false}
+              isBlock={false}
+              isDisabled={false}
+              isFocus={false}
+              isHover={false}
+              type="submit"
+              variant="primary"
+            >
+              Submit
+            </Button>
+            <Button
+              aria-label={null}
+              className=""
+              component="button"
+              isActive={false}
+              isBlock={false}
+              isDisabled={false}
+              isFocus={false}
+              isHover={false}
+              type="button"
+              variant="secondary"
+            >
+              Cancel
+            </Button>
+          </div>
+        </Form>
       </LoadingState>,
       "title": "Edit Notification",
     },
@@ -618,7 +1129,42 @@ ShallowWrapper {
               },
             }
           }
-        />,
+        >
+          <FilterList
+            apps={Array []}
+            filters={Array []}
+          />
+          <div>
+            <Button
+              aria-label={null}
+              className=""
+              component="button"
+              isActive={false}
+              isBlock={false}
+              isDisabled={false}
+              isFocus={false}
+              isHover={false}
+              type="submit"
+              variant="primary"
+            >
+              Submit
+            </Button>
+            <Button
+              aria-label={null}
+              className=""
+              component="button"
+              isActive={false}
+              isBlock={false}
+              isDisabled={false}
+              isFocus={false}
+              isHover={false}
+              type="button"
+              variant="secondary"
+            >
+              Cancel
+            </Button>
+          </div>
+        </Form>,
         "loading": undefined,
         "placeholder": <Skeleton
           size="sm"
@@ -632,6 +1178,42 @@ ShallowWrapper {
         "props": Object {
           "ErrorList": [Function],
           "FieldTemplate": [Function],
+          "children": Array [
+            <FilterList
+              apps={Array []}
+              filters={Array []}
+            />,
+            <div>
+              <Button
+                aria-label={null}
+                className=""
+                component="button"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                type="submit"
+                variant="primary"
+              >
+                Submit
+              </Button>
+              <Button
+                aria-label={null}
+                className=""
+                component="button"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                type="button"
+                variant="secondary"
+              >
+                Cancel
+              </Button>
+            </div>,
+          ],
           "className": "pf-c-form",
           "disabled": false,
           "formData": Object {
@@ -678,7 +1260,103 @@ ShallowWrapper {
           },
         },
         "ref": null,
-        "rendered": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "apps": Array [],
+              "filters": Array [],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Button
+                  aria-label={null}
+                  className=""
+                  component="button"
+                  isActive={false}
+                  isBlock={false}
+                  isDisabled={false}
+                  isFocus={false}
+                  isHover={false}
+                  type="submit"
+                  variant="primary"
+                >
+                  Submit
+                </Button>,
+                <Button
+                  aria-label={null}
+                  className=""
+                  component="button"
+                  isActive={false}
+                  isBlock={false}
+                  isDisabled={false}
+                  isFocus={false}
+                  isHover={false}
+                  type="button"
+                  variant="secondary"
+                >
+                  Cancel
+                </Button>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "aria-label": null,
+                  "children": "Submit",
+                  "className": "",
+                  "component": "button",
+                  "isActive": false,
+                  "isBlock": false,
+                  "isDisabled": false,
+                  "isFocus": false,
+                  "isHover": false,
+                  "type": "submit",
+                  "variant": "primary",
+                },
+                "ref": null,
+                "rendered": "Submit",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "aria-label": null,
+                  "children": "Cancel",
+                  "className": "",
+                  "component": "button",
+                  "isActive": false,
+                  "isBlock": false,
+                  "isDisabled": false,
+                  "isFocus": false,
+                  "isHover": false,
+                  "type": "button",
+                  "variant": "secondary",
+                },
+                "ref": null,
+                "rendered": "Cancel",
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
         "type": [Function],
       },
       "type": [Function],
@@ -751,7 +1429,42 @@ ShallowWrapper {
                 },
               }
             }
-          />
+          >
+            <FilterList
+              apps={Array []}
+              filters={Array []}
+            />
+            <div>
+              <Button
+                aria-label={null}
+                className=""
+                component="button"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                type="submit"
+                variant="primary"
+              >
+                Submit
+              </Button>
+              <Button
+                aria-label={null}
+                className=""
+                component="button"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                type="button"
+                variant="secondary"
+              >
+                Cancel
+              </Button>
+            </div>
+          </Form>
         </LoadingState>,
         "title": "Edit Notification",
       },
@@ -814,7 +1527,42 @@ ShallowWrapper {
                 },
               }
             }
-          />,
+          >
+            <FilterList
+              apps={Array []}
+              filters={Array []}
+            />
+            <div>
+              <Button
+                aria-label={null}
+                className=""
+                component="button"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                type="submit"
+                variant="primary"
+              >
+                Submit
+              </Button>
+              <Button
+                aria-label={null}
+                className=""
+                component="button"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                type="button"
+                variant="secondary"
+              >
+                Cancel
+              </Button>
+            </div>
+          </Form>,
           "loading": undefined,
           "placeholder": <Skeleton
             size="sm"
@@ -828,6 +1576,42 @@ ShallowWrapper {
           "props": Object {
             "ErrorList": [Function],
             "FieldTemplate": [Function],
+            "children": Array [
+              <FilterList
+                apps={Array []}
+                filters={Array []}
+              />,
+              <div>
+                <Button
+                  aria-label={null}
+                  className=""
+                  component="button"
+                  isActive={false}
+                  isBlock={false}
+                  isDisabled={false}
+                  isFocus={false}
+                  isHover={false}
+                  type="submit"
+                  variant="primary"
+                >
+                  Submit
+                </Button>
+                <Button
+                  aria-label={null}
+                  className=""
+                  component="button"
+                  isActive={false}
+                  isBlock={false}
+                  isDisabled={false}
+                  isFocus={false}
+                  isHover={false}
+                  type="button"
+                  variant="secondary"
+                >
+                  Cancel
+                </Button>
+              </div>,
+            ],
             "className": "pf-c-form",
             "disabled": false,
             "formData": Object {
@@ -874,7 +1658,103 @@ ShallowWrapper {
             },
           },
           "ref": null,
-          "rendered": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "apps": Array [],
+                "filters": Array [],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Button
+                    aria-label={null}
+                    className=""
+                    component="button"
+                    isActive={false}
+                    isBlock={false}
+                    isDisabled={false}
+                    isFocus={false}
+                    isHover={false}
+                    type="submit"
+                    variant="primary"
+                  >
+                    Submit
+                  </Button>,
+                  <Button
+                    aria-label={null}
+                    className=""
+                    component="button"
+                    isActive={false}
+                    isBlock={false}
+                    isDisabled={false}
+                    isFocus={false}
+                    isHover={false}
+                    type="button"
+                    variant="secondary"
+                  >
+                    Cancel
+                  </Button>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "aria-label": null,
+                    "children": "Submit",
+                    "className": "",
+                    "component": "button",
+                    "isActive": false,
+                    "isBlock": false,
+                    "isDisabled": false,
+                    "isFocus": false,
+                    "isHover": false,
+                    "type": "submit",
+                    "variant": "primary",
+                  },
+                  "ref": null,
+                  "rendered": "Submit",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "aria-label": null,
+                    "children": "Cancel",
+                    "className": "",
+                    "component": "button",
+                    "isActive": false,
+                    "isBlock": false,
+                    "isDisabled": false,
+                    "isFocus": false,
+                    "isHover": false,
+                    "type": "button",
+                    "variant": "secondary",
+                  },
+                  "ref": null,
+                  "rendered": "Cancel",
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
           "type": [Function],
         },
         "type": [Function],

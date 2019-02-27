@@ -1,16 +1,31 @@
 import React, { Component } from 'react';
+import { Button } from '@patternfly/react-core';
+
 import { bindActionCreators } from 'redux';
 import { withRouter, Redirect } from 'react-router-dom';
 import Form from 'react-jsonschema-form';
 import PropTypes from 'prop-types';
-import { fetchEndpoint, createEndpoint, updateEndpoint, newEndpoint } from '../../store/actions';
 import { connect } from 'react-redux';
-import { Skeleton, SkeletonSize } from '@red-hat-insights/insights-frontend-components';
+
+import {
+    fetchEndpoint,
+    createEndpoint,
+    updateEndpoint,
+    newEndpoint,
+    fetchFilters,
+    fetchApps
+} from '../../store/actions';
+import {
+    Skeleton,
+    SkeletonSize
+} from '@red-hat-insights/insights-frontend-components';
 import registryDecorator from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
 import {
     LoadingState,
     NotificationsPage
 } from '../../';
+
+import FilterList from '../../PresentationalComponents/FilterList/FilterList';
 
 const schema = {
     title: 'Edit Notifications',
@@ -64,6 +79,8 @@ export class NotificationEdit extends Component {
         let id = this.props.match.params.endpointId;
         if (id) {
             this.props.fetchEndpoint(id);
+            this.props.fetchFilters(id);
+            this.props.fetchApps();
         }
     }
 
@@ -112,7 +129,16 @@ export class NotificationEdit extends Component {
                         formData={ this.initialFormData() }
                         onChange={ this.formChange }
                         onSubmit={ this.formSubmit }
-                        FieldTemplate={ CustomFieldTemplate } />
+                        FieldTemplate={ CustomFieldTemplate }>
+
+                        <FilterList apps={ this.props.apps }
+                            filters={ this.props.filters } />
+
+                        <div>
+                            <Button type='submit' variant="primary">Submit</Button>
+                            <Button variant="secondary">Cancel</Button>
+                        </div>
+                    </Form>
                 </LoadingState>
             </NotificationsPage>
         );
@@ -122,9 +148,13 @@ export class NotificationEdit extends Component {
 NotificationEdit.propTypes = {
     endpointId: PropTypes.number,
     endpoint: PropTypes.object,
+    filters: PropTypes.array.isRequired,
+    apps: PropTypes.array.isRequired,
     fetchEndpoint: PropTypes.func.isRequired,
     createEndpoint: PropTypes.func.isRequired,
     updateEndpoint: PropTypes.func.isRequired,
+    fetchFilters: PropTypes.func.isRequired,
+    fetchApps: PropTypes.func.isRequired,
     match: PropTypes.object,
     loading: PropTypes.bool,
     submitting: PropTypes.bool
@@ -132,10 +162,17 @@ NotificationEdit.propTypes = {
 
 const mapStateToProps = function(state) {
     let { endpoint, loading, submitting } = state.endpoints;
+    let { apps, loading: appsLoading } = state.apps;
+    let { filters, loading: filtersLoading } = state.filters;
+
     return {
         endpoint,
+        apps,
+        filters,
         loading,
-        submitting
+        submitting,
+        appsLoading,
+        filtersLoading
     };
 };
 
@@ -144,7 +181,9 @@ const mapDispatchToProps = function (dispatch) {
         fetchEndpoint,
         createEndpoint,
         updateEndpoint,
-        newEndpoint
+        newEndpoint,
+        fetchFilters,
+        fetchApps
     }, dispatch);
 };
 
