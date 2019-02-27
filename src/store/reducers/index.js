@@ -11,7 +11,7 @@ import {
     failureMessage,
     pendingMessage,
     initialStateFor
-} from './ReducerHelper';
+} from './reducerHelper';
 
 const normalizeEndpointData = (endpoint) => ({
     ...endpoint.attributes,

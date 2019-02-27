@@ -5,7 +5,7 @@ import {
     successMessage,
     failureMessage,
     initialStateFor
-} from './ReducerHelper';
+} from './reducerHelper';
 
 const filterIncluded = (payload, id, type) =>
     payload.included.filter(item => (item.id === id && item.type === type))[0];
