@@ -80,8 +80,9 @@ export class NotificationEdit extends Component {
         if (id) {
             this.props.fetchEndpoint(id);
             this.props.fetchFilters(id);
-            this.props.fetchApps();
         }
+
+        this.props.fetchApps();
     }
 
     formChange = () => {}
