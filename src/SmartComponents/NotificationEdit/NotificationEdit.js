@@ -111,7 +111,7 @@ export class NotificationEdit extends Component {
     };
 
     selectedAppEventTypes = () => {
-        if (this.props.endpoint && this.endpoint.filters && this.endpoint.filters.length > 0) {
+        if (this.props.endpoint && this.props.endpoint.filters && this.props.endpoint.filters.length > 0) {
             return {
                 appIds: this.props.endpoint.filters[0].app_ids,
                 eventTypeIds: this.props.endpoint.filters[0].event_type_ids
