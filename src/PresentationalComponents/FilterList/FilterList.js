@@ -19,10 +19,10 @@ export class FilterList extends Component {
         selectedAppEventTypes: PropTypes.object,
         onChange: PropTypes.func
     };
-    constructor(props) {
-        super(props);
+
+    componentDidMount = () => {
         this.setState({
-            selectedAppEventTypes: props.selectedAppEventTypes
+            selectedAppEventTypes: this.props.selectedAppEventTypes
         });
     }
 
