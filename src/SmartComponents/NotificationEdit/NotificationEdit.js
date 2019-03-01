@@ -102,7 +102,7 @@ export class NotificationEdit extends Component {
             url,
             filters
         };
-        console.log(payload);
+
         if (this.props.endpoint) {
             this.props.updateEndpoint(this.props.endpoint.id, payload);
         } else {
