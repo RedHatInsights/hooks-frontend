@@ -8,7 +8,7 @@ import {
 } from './reducerHelper';
 
 const filterIncluded = (payload, id, type) =>
-    payload.included.filter(item => (item.id === id && item.type === type))[0];
+    payload.included.find(item => (item.id === id && item.type === type));
 
 const normalizeAppData = (app) => ({
     ...app.attributes,
