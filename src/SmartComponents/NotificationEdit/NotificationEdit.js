@@ -75,6 +75,11 @@ CustomFieldTemplate.propTypes = {
 
 @registryDecorator()
 export class NotificationEdit extends Component {
+    constructor(props) {
+        super(props);
+        this.filterList = React.createRef();
+    }
+
     componentDidMount() {
         let id = this.props.match.params.endpointId;
         if (id) {
@@ -85,21 +90,39 @@ export class NotificationEdit extends Component {
         this.props.fetchApps();
     }
 
-    formChange = () => {}
-
     formSubmit = (data) => {
         let { active, name, url } = data.formData;
+        let filters = [{
+            app_ids: this.filterList.current.state.selectedAppEventTypes.appIds,
+            event_type_ids: this.filterList.current.state.selectedAppEventTypes.eventTypeIds
+        }];
         let payload = {
             active,
             name,
-            url
+            url,
+            filters
         };
+        console.log(payload);
         if (this.props.endpoint) {
             this.props.updateEndpoint(this.props.endpoint.id, payload);
         } else {
             this.props.createEndpoint(payload);
         }
     };
+
+    selectedAppEventTypes = () => {
+        if (this.props.endpoint && this.endpoint.filters && this.endpoint.filters.length > 0) {
+            return {
+                appIds: this.props.endpoint.filters[0].app_ids,
+                eventTypeIds: this.props.endpoint.filters[0].event_type_ids
+            };
+        } else {
+            return {
+                appIds: [],
+                eventTypeIds: []
+            };
+        }
+    }
 
     initialFormData = () => {
         return this.props.endpoint ? {
@@ -128,12 +151,12 @@ export class NotificationEdit extends Component {
                     <Form schema={ schema } className="pf-c-form"
                         uiSchema={ uiSchema }
                         formData={ this.initialFormData() }
-                        onChange={ this.formChange }
                         onSubmit={ this.formSubmit }
                         FieldTemplate={ CustomFieldTemplate }>
 
-                        <FilterList apps={ this.props.apps }
-                            filters={ this.props.filters } />
+                        <FilterList ref={ this.filterList }
+                            apps={ this.props.apps }
+                            selectedAppEventTypes={ this.selectedAppEventTypes() } />
 
                         <div>
                             <Button type='submit' variant="primary">Submit</Button>
