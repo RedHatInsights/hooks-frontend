@@ -78,9 +78,7 @@ export class NotificationEdit extends Component {
     constructor(props) {
         super(props);
         this.filterList = React.createRef();
-    }
 
-    componentDidMount() {
         let id = this.props.match.params.endpointId;
         if (id) {
             this.props.fetchEndpoint(id);
@@ -94,7 +92,8 @@ export class NotificationEdit extends Component {
         let { active, name, url } = data.formData;
         let filters = [{
             app_ids: this.filterList.current.state.selectedAppEventTypes.appIds,
-            event_type_ids: this.filterList.current.state.selectedAppEventTypes.eventTypeIds
+            event_type_ids: this.filterList.current.state.selectedAppEventTypes.eventTypeIds,
+            severity_filters: []
         }];
         let payload = {
             active,
@@ -111,10 +110,12 @@ export class NotificationEdit extends Component {
     };
 
     selectedAppEventTypes = () => {
-        if (this.props.endpoint && this.props.endpoint.filters && this.props.endpoint.filters.length > 0) {
+        if (this.props.filters && this.props.filters.length > 0) {
             return {
-                appIds: this.props.endpoint.filters[0].app_ids,
-                eventTypeIds: this.props.endpoint.filters[0].event_type_ids
+                appIds: this.props.filters.map((filter) =>
+                    filter.relationships.apps.data.map((app) => parseInt(app.id))).flat(),
+                eventTypeIds: this.props.filters.map((filter) =>
+                    filter.relationships.event_types.data.map((eventType) => parseInt(eventType.id))).flat()
             };
         } else {
             return {

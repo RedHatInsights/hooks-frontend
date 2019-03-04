@@ -97,7 +97,6 @@ ShallowWrapper {
           liveValidate={false}
           noHtml5Validate={false}
           noValidate={false}
-          onChange={[Function]}
           onSubmit={[Function]}
           safeRenderCompletion={false}
           schema={
@@ -138,7 +137,12 @@ ShallowWrapper {
         >
           <FilterList
             apps={Array []}
-            filters={Array []}
+            selectedAppEventTypes={
+              Object {
+                "appIds": Array [],
+                "eventTypeIds": Array [],
+              }
+            }
           />
           <div>
             <Button
@@ -189,7 +193,6 @@ ShallowWrapper {
           liveValidate={false}
           noHtml5Validate={false}
           noValidate={false}
-          onChange={[Function]}
           onSubmit={[Function]}
           safeRenderCompletion={false}
           schema={
@@ -230,7 +233,12 @@ ShallowWrapper {
         >
           <FilterList
             apps={Array []}
-            filters={Array []}
+            selectedAppEventTypes={
+              Object {
+                "appIds": Array [],
+                "eventTypeIds": Array [],
+              }
+            }
           />
           <div>
             <Button
@@ -279,7 +287,12 @@ ShallowWrapper {
           "children": Array [
             <FilterList
               apps={Array []}
-              filters={Array []}
+              selectedAppEventTypes={
+                Object {
+                  "appIds": Array [],
+                  "eventTypeIds": Array [],
+                }
+              }
             />,
             <div>
               <Button
@@ -318,7 +331,6 @@ ShallowWrapper {
           "liveValidate": false,
           "noHtml5Validate": false,
           "noValidate": false,
-          "onChange": [Function],
           "onSubmit": [Function],
           "safeRenderCompletion": false,
           "schema": Object {
@@ -361,9 +373,14 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "apps": Array [],
-              "filters": Array [],
+              "selectedAppEventTypes": Object {
+                "appIds": Array [],
+                "eventTypeIds": Array [],
+              },
             },
-            "ref": null,
+            "ref": Object {
+              "current": null,
+            },
             "rendered": null,
             "type": [Function],
           },
@@ -479,7 +496,6 @@ ShallowWrapper {
             liveValidate={false}
             noHtml5Validate={false}
             noValidate={false}
-            onChange={[Function]}
             onSubmit={[Function]}
             safeRenderCompletion={false}
             schema={
@@ -520,7 +536,12 @@ ShallowWrapper {
           >
             <FilterList
               apps={Array []}
-              filters={Array []}
+              selectedAppEventTypes={
+                Object {
+                  "appIds": Array [],
+                  "eventTypeIds": Array [],
+                }
+              }
             />
             <div>
               <Button
@@ -571,7 +592,6 @@ ShallowWrapper {
             liveValidate={false}
             noHtml5Validate={false}
             noValidate={false}
-            onChange={[Function]}
             onSubmit={[Function]}
             safeRenderCompletion={false}
             schema={
@@ -612,7 +632,12 @@ ShallowWrapper {
           >
             <FilterList
               apps={Array []}
-              filters={Array []}
+              selectedAppEventTypes={
+                Object {
+                  "appIds": Array [],
+                  "eventTypeIds": Array [],
+                }
+              }
             />
             <div>
               <Button
@@ -661,7 +686,12 @@ ShallowWrapper {
             "children": Array [
               <FilterList
                 apps={Array []}
-                filters={Array []}
+                selectedAppEventTypes={
+                  Object {
+                    "appIds": Array [],
+                    "eventTypeIds": Array [],
+                  }
+                }
               />,
               <div>
                 <Button
@@ -700,7 +730,6 @@ ShallowWrapper {
             "liveValidate": false,
             "noHtml5Validate": false,
             "noValidate": false,
-            "onChange": [Function],
             "onSubmit": [Function],
             "safeRenderCompletion": false,
             "schema": Object {
@@ -743,9 +772,14 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "apps": Array [],
-                "filters": Array [],
+                "selectedAppEventTypes": Object {
+                  "appIds": Array [],
+                  "eventTypeIds": Array [],
+                },
               },
-              "ref": null,
+              "ref": Object {
+                "current": null,
+              },
               "rendered": null,
               "type": [Function],
             },
@@ -993,7 +1027,6 @@ ShallowWrapper {
           liveValidate={false}
           noHtml5Validate={false}
           noValidate={false}
-          onChange={[Function]}
           onSubmit={[Function]}
           safeRenderCompletion={false}
           schema={
@@ -1034,7 +1067,12 @@ ShallowWrapper {
         >
           <FilterList
             apps={Array []}
-            filters={Array []}
+            selectedAppEventTypes={
+              Object {
+                "appIds": Array [],
+                "eventTypeIds": Array [],
+              }
+            }
           />
           <div>
             <Button
@@ -1091,7 +1129,6 @@ ShallowWrapper {
           liveValidate={false}
           noHtml5Validate={false}
           noValidate={false}
-          onChange={[Function]}
           onSubmit={[Function]}
           safeRenderCompletion={false}
           schema={
@@ -1132,7 +1169,12 @@ ShallowWrapper {
         >
           <FilterList
             apps={Array []}
-            filters={Array []}
+            selectedAppEventTypes={
+              Object {
+                "appIds": Array [],
+                "eventTypeIds": Array [],
+              }
+            }
           />
           <div>
             <Button
@@ -1181,7 +1223,12 @@ ShallowWrapper {
           "children": Array [
             <FilterList
               apps={Array []}
-              filters={Array []}
+              selectedAppEventTypes={
+                Object {
+                  "appIds": Array [],
+                  "eventTypeIds": Array [],
+                }
+              }
             />,
             <div>
               <Button
@@ -1224,7 +1271,6 @@ ShallowWrapper {
           "liveValidate": false,
           "noHtml5Validate": false,
           "noValidate": false,
-          "onChange": [Function],
           "onSubmit": [Function],
           "safeRenderCompletion": false,
           "schema": Object {
@@ -1267,9 +1313,14 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "apps": Array [],
-              "filters": Array [],
+              "selectedAppEventTypes": Object {
+                "appIds": Array [],
+                "eventTypeIds": Array [],
+              },
             },
-            "ref": null,
+            "ref": Object {
+              "current": null,
+            },
             "rendered": null,
             "type": [Function],
           },
@@ -1391,7 +1442,6 @@ ShallowWrapper {
             liveValidate={false}
             noHtml5Validate={false}
             noValidate={false}
-            onChange={[Function]}
             onSubmit={[Function]}
             safeRenderCompletion={false}
             schema={
@@ -1432,7 +1482,12 @@ ShallowWrapper {
           >
             <FilterList
               apps={Array []}
-              filters={Array []}
+              selectedAppEventTypes={
+                Object {
+                  "appIds": Array [],
+                  "eventTypeIds": Array [],
+                }
+              }
             />
             <div>
               <Button
@@ -1489,7 +1544,6 @@ ShallowWrapper {
             liveValidate={false}
             noHtml5Validate={false}
             noValidate={false}
-            onChange={[Function]}
             onSubmit={[Function]}
             safeRenderCompletion={false}
             schema={
@@ -1530,7 +1584,12 @@ ShallowWrapper {
           >
             <FilterList
               apps={Array []}
-              filters={Array []}
+              selectedAppEventTypes={
+                Object {
+                  "appIds": Array [],
+                  "eventTypeIds": Array [],
+                }
+              }
             />
             <div>
               <Button
@@ -1579,7 +1638,12 @@ ShallowWrapper {
             "children": Array [
               <FilterList
                 apps={Array []}
-                filters={Array []}
+                selectedAppEventTypes={
+                  Object {
+                    "appIds": Array [],
+                    "eventTypeIds": Array [],
+                  }
+                }
               />,
               <div>
                 <Button
@@ -1622,7 +1686,6 @@ ShallowWrapper {
             "liveValidate": false,
             "noHtml5Validate": false,
             "noValidate": false,
-            "onChange": [Function],
             "onSubmit": [Function],
             "safeRenderCompletion": false,
             "schema": Object {
@@ -1665,9 +1728,14 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "apps": Array [],
-                "filters": Array [],
+                "selectedAppEventTypes": Object {
+                  "appIds": Array [],
+                  "eventTypeIds": Array [],
+                },
               },
-              "ref": null,
+              "ref": Object {
+                "current": null,
+              },
               "rendered": null,
               "type": [Function],
             },

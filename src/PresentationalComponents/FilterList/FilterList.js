@@ -46,7 +46,7 @@ export class FilterList extends Component {
     }
 
     isEventTypeEnabled = (eventTypeId) =>
-        this.state.selectedAppEventTypes.eventTypeIds.indexOf(eventTypeId) !== -1;
+        this.props.selectedAppEventTypes.eventTypeIds.indexOf(parseInt(eventTypeId)) !== -1;
 
     eventTypesListItem = (eventType, appId) =>
         <ListItem key={ `event-type-${ eventType.id}` }>
