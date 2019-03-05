@@ -10,7 +10,7 @@ describe('FilterList', () => {
             eventTypeIds: [ 11 ]
         };
         const wrapper = shallow(
-            <FilterList filters={ filters } apps={ apps } selectedAppEventTypes={ selectedAppEventTypes } />
+            <FilterList filters={ filters } apps={ apps.data } selectedAppEventTypes={ selectedAppEventTypes } />
         );
 
         expect(wrapper.render()).toMatchSnapshot();

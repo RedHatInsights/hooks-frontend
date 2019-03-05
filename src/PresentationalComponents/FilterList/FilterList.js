@@ -59,11 +59,12 @@ export class FilterList extends Component {
         </ListItem>;
 
     eventTypesList = (eventTypes, appId) =>
-        <List>
-            { eventTypes.map((eventType) =>
-                this.eventTypesListItem(eventType, appId)
-            ) }
-        </List>;
+        eventTypes && eventTypes.length > 0 ?
+            <List>
+                { eventTypes.map((eventType) =>
+                    this.eventTypesListItem(eventType, appId)
+                ) }
+            </List> : '';
 
     render = () =>
         <List>

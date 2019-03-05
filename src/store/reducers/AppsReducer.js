@@ -15,11 +15,11 @@ const normalizeAppData = (app) => ({
     id: parseInt(app.id)
 });
 
-const normalizeAppsData = (payload) =>
+export const normalizeAppsData = (payload) =>
     payload.data.map((app) => {
         let eventTypes = app.relationships.event_types.data.map((eventType) => {
             let additionalInfo = filterIncluded(payload, eventType.id, 'event_type');
-            return { ...eventType, ...additionalInfo.attributes };
+            return additionalInfo ? { ...eventType, ...additionalInfo.attributes } : eventType;
         });
         return { ...normalizeAppData(app), event_types: eventTypes };
     });
@@ -45,7 +45,7 @@ export const appsReducer = function(state = initialStateFor('apps'), action) {
             return {
                 ...state,
                 loading: false,
-                error: action.payload.error,
+                error: action.payload.message,
                 apps: []
             };
 
