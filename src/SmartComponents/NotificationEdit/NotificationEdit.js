@@ -133,6 +133,10 @@ export class NotificationEdit extends Component {
         } : {};
     }
 
+    onCancel = () => {
+        this.props.history.push('/list');
+    }
+
     render() {
         const action = this.props.match.params.endpointId ? 'Edit' : 'New';
 
@@ -161,7 +165,7 @@ export class NotificationEdit extends Component {
 
                         <div>
                             <Button type='submit' variant="primary">Submit</Button>
-                            <Button variant="secondary">Cancel</Button>
+                            <Button onClick={ this.onCancel } variant="secondary">Cancel</Button>
                         </div>
                     </Form>
                 </LoadingState>
@@ -181,6 +185,7 @@ NotificationEdit.propTypes = {
     fetchFilters: PropTypes.func.isRequired,
     fetchApps: PropTypes.func.isRequired,
     match: PropTypes.object,
+    history: PropTypes.object,
     loading: PropTypes.bool,
     submitting: PropTypes.bool
 };
