@@ -16,7 +16,10 @@ export class FilterList extends Component {
 
     static propTypes = {
         apps: PropTypes.array.isRequired,
-        selectedAppEventTypes: PropTypes.object,
+        selectedAppEventTypes: PropTypes.shape({
+            appIds: PropTypes.array,
+            eventTypeIds: PropTypes.array
+        }),
         onChange: PropTypes.func
     };
 
