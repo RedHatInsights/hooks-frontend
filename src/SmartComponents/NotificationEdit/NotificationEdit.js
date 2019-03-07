@@ -78,21 +78,14 @@ export class NotificationEdit extends Component {
     constructor(props) {
         super(props);
         this.filterList = React.createRef();
-
-        let id = this.props.match.params.endpointId;
-        if (id) {
-            this.props.fetchEndpoint(id);
-            this.props.fetchFilters(id);
-        }
-
-        this.props.fetchApps();
+        this.fetchData();
     }
 
     formSubmit = (data) => {
         let { active, name, url } = data.formData;
         let filters = [{
-            app_ids: this.filterList.current.state.selectedAppEventTypes.appIds,
-            event_type_ids: this.filterList.current.state.selectedAppEventTypes.eventTypeIds,
+            app_ids: this.filterList.current.props.selectedAppEventTypes.appIds,
+            event_type_ids: this.filterList.current.props.selectedAppEventTypes.eventTypeIds,
             severity_filters: []
         }];
         let payload = {
@@ -107,7 +100,20 @@ export class NotificationEdit extends Component {
         } else {
             this.props.createEndpoint(payload);
         }
+
+        this.fetchData();
     };
+
+    fetchData = () => {
+        let id = this.props.match.params.endpointId;
+
+        if (id) {
+            this.props.fetchEndpoint(id);
+            this.props.fetchFilters(id);
+        }
+
+        this.props.fetchApps();
+    }
 
     selectedAppEventTypes = () => {
         if (this.props.filters && this.props.filters.length > 0) {
@@ -139,10 +145,6 @@ export class NotificationEdit extends Component {
 
     render() {
         const action = this.props.match.params.endpointId ? 'Edit' : 'New';
-
-        if (this.props.submitting) {
-            return 'Submitting ...';
-        }
 
         if (this.props.endpoint && !this.props.match.params.endpointId) {
             return <Redirect to={ `/edit/${ this.props.endpoint.id }` } />;

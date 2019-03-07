@@ -7,35 +7,22 @@ import {
 } from '@patternfly/react-core';
 
 export class FilterList extends Component {
-    state = {
-        selectedAppEventTypes: {
-            appIds: [],
-            eventTypeIds: []
-        }
-    }
-
     static propTypes = {
         apps: PropTypes.array.isRequired,
         selectedAppEventTypes: PropTypes.shape({
             appIds: PropTypes.array,
             eventTypeIds: PropTypes.array
-        }),
-        onChange: PropTypes.func
+        })
     };
 
-    componentDidMount = () => {
-        this.setState({
-            selectedAppEventTypes: this.props.selectedAppEventTypes
-        });
-    }
-
     eventTypeCheckboxChange = (id, appId) => {
-        this.setState({
+        this.props = {
+            ...this.props,
             selectedAppEventTypes: {
-                appIds: this.removeOrAddId(this.state.selectedAppEventTypes.appIds, appId),
-                eventTypeIds: this.removeOrAddId(this.state.selectedAppEventTypes.eventTypeIds, id)
+                appIds: this.removeOrAddId(this.props.selectedAppEventTypes.appIds, appId),
+                eventTypeIds: this.removeOrAddId(this.props.selectedAppEventTypes.eventTypeIds, id)
             }
-        });
+        };
     }
 
     removeOrAddId = (array, id) => {
@@ -49,7 +36,7 @@ export class FilterList extends Component {
     }
 
     isEventTypeEnabled = (eventTypeId) =>
-        this.props.selectedAppEventTypes.eventTypeIds.indexOf(parseInt(eventTypeId)) !== -1;
+        this.props.selectedAppEventTypes.eventTypeIds.indexOf(parseInt(eventTypeId)) !== -1
 
     eventTypesListItem = (eventType, appId) =>
         <ListItem key={ `event-type-${ eventType.id}` }>
