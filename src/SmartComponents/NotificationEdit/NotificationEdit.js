@@ -22,10 +22,9 @@ import {
 import registryDecorator from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
 import {
     LoadingState,
-    NotificationsPage
+    NotificationsPage,
+    FilterList
 } from '../../';
-
-import FilterList from '../../PresentationalComponents/FilterList/FilterList';
 
 const schema = {
     title: 'Edit Notifications',
