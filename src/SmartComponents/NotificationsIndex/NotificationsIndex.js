@@ -67,7 +67,7 @@ export class NotificationsIndex extends Component {
                 <EmptyStateBody>
                     There are no endpoints configured yet.
                 </EmptyStateBody>
-                <Button variant="primary" to={ '/new' } component={ Link }>New endpoint</Button>
+                <Button variant="primary" to={ '/new' } component={ Link } onClick={ this.props.newEndpoint }>New endpoint</Button>
             </EmptyState>
         </Bullseye>;
     }
