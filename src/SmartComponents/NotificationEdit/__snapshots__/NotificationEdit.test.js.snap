@@ -168,6 +168,7 @@ ShallowWrapper {
               isDisabled={false}
               isFocus={false}
               isHover={false}
+              onClick={[Function]}
               type="button"
               variant="secondary"
             >
@@ -264,6 +265,7 @@ ShallowWrapper {
               isDisabled={false}
               isFocus={false}
               isHover={false}
+              onClick={[Function]}
               type="button"
               variant="secondary"
             >
@@ -318,6 +320,7 @@ ShallowWrapper {
                 isDisabled={false}
                 isFocus={false}
                 isHover={false}
+                onClick={[Function]}
                 type="button"
                 variant="secondary"
               >
@@ -413,6 +416,7 @@ ShallowWrapper {
                   isDisabled={false}
                   isFocus={false}
                   isHover={false}
+                  onClick={[Function]}
                   type="button"
                   variant="secondary"
                 >
@@ -457,6 +461,7 @@ ShallowWrapper {
                   "isDisabled": false,
                   "isFocus": false,
                   "isHover": false,
+                  "onClick": [Function],
                   "type": "button",
                   "variant": "secondary",
                 },
@@ -567,6 +572,7 @@ ShallowWrapper {
                 isDisabled={false}
                 isFocus={false}
                 isHover={false}
+                onClick={[Function]}
                 type="button"
                 variant="secondary"
               >
@@ -663,6 +669,7 @@ ShallowWrapper {
                 isDisabled={false}
                 isFocus={false}
                 isHover={false}
+                onClick={[Function]}
                 type="button"
                 variant="secondary"
               >
@@ -717,6 +724,7 @@ ShallowWrapper {
                   isDisabled={false}
                   isFocus={false}
                   isHover={false}
+                  onClick={[Function]}
                   type="button"
                   variant="secondary"
                 >
@@ -812,6 +820,7 @@ ShallowWrapper {
                     isDisabled={false}
                     isFocus={false}
                     isHover={false}
+                    onClick={[Function]}
                     type="button"
                     variant="secondary"
                   >
@@ -856,6 +865,7 @@ ShallowWrapper {
                     "isDisabled": false,
                     "isFocus": false,
                     "isHover": false,
+                    "onClick": [Function],
                     "type": "button",
                     "variant": "secondary",
                   },
@@ -1098,6 +1108,7 @@ ShallowWrapper {
               isDisabled={false}
               isFocus={false}
               isHover={false}
+              onClick={[Function]}
               type="button"
               variant="secondary"
             >
@@ -1200,6 +1211,7 @@ ShallowWrapper {
               isDisabled={false}
               isFocus={false}
               isHover={false}
+              onClick={[Function]}
               type="button"
               variant="secondary"
             >
@@ -1254,6 +1266,7 @@ ShallowWrapper {
                 isDisabled={false}
                 isFocus={false}
                 isHover={false}
+                onClick={[Function]}
                 type="button"
                 variant="secondary"
               >
@@ -1353,6 +1366,7 @@ ShallowWrapper {
                   isDisabled={false}
                   isFocus={false}
                   isHover={false}
+                  onClick={[Function]}
                   type="button"
                   variant="secondary"
                 >
@@ -1397,6 +1411,7 @@ ShallowWrapper {
                   "isDisabled": false,
                   "isFocus": false,
                   "isHover": false,
+                  "onClick": [Function],
                   "type": "button",
                   "variant": "secondary",
                 },
@@ -1513,6 +1528,7 @@ ShallowWrapper {
                 isDisabled={false}
                 isFocus={false}
                 isHover={false}
+                onClick={[Function]}
                 type="button"
                 variant="secondary"
               >
@@ -1615,6 +1631,7 @@ ShallowWrapper {
                 isDisabled={false}
                 isFocus={false}
                 isHover={false}
+                onClick={[Function]}
                 type="button"
                 variant="secondary"
               >
@@ -1669,6 +1686,7 @@ ShallowWrapper {
                   isDisabled={false}
                   isFocus={false}
                   isHover={false}
+                  onClick={[Function]}
                   type="button"
                   variant="secondary"
                 >
@@ -1768,6 +1786,7 @@ ShallowWrapper {
                     isDisabled={false}
                     isFocus={false}
                     isHover={false}
+                    onClick={[Function]}
                     type="button"
                     variant="secondary"
                   >
@@ -1812,6 +1831,7 @@ ShallowWrapper {
                     "isDisabled": false,
                     "isFocus": false,
                     "isHover": false,
+                    "onClick": [Function],
                     "type": "button",
                     "variant": "secondary",
                   },
