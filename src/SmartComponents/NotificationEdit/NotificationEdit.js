@@ -25,7 +25,7 @@ import {
     NotificationsPage
 } from '../../';
 
-import FilterList from 'PresentationalComponents/FilterList/FilterList';
+import FilterList from '../../PresentationalComponents/FilterList/FilterList';
 
 const schema = {
     title: 'Edit Notifications',

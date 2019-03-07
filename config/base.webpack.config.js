@@ -30,12 +30,6 @@ const webpackConfig = {
         publicPath: config.paths.publicPath,
         chunkFilename: 'js/[name].js'
     },
-    resolve: {
-        alias: {
-            PresentationalComponents: config.paths.presentationalComponents,
-            SmartComponents: config.paths.smartComponents
-        }
-    },
     module: {
         rules: [{
             test: /\.js$/,
