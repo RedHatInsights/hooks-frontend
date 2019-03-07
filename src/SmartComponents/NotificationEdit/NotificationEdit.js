@@ -100,7 +100,7 @@ export class NotificationEdit extends Component {
             this.props.createEndpoint(payload);
         }
 
-        this.fetchData();
+        this.toIndex();
     };
 
     fetchData = () => {
@@ -138,7 +138,7 @@ export class NotificationEdit extends Component {
         } : {};
     }
 
-    onCancel = () => {
+    toIndex = () => {
         this.props.history.push('/list');
     }
 
@@ -166,7 +166,7 @@ export class NotificationEdit extends Component {
 
                         <div>
                             <Button type='submit' variant="primary">Submit</Button>
-                            <Button onClick={ this.onCancel } variant="secondary">Cancel</Button>
+                            <Button onClick={ this.toIndex } variant="secondary">Cancel</Button>
                         </div>
                     </Form>
                 </LoadingState>
