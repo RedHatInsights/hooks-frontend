@@ -43,6 +43,6 @@ export class NotificationActions extends React.Component {
             onSelect={ this.onSelect }
             isOpen={ this.state.isOpen }
             dropdownItems={ this.dropdownItems() } />
-};
+}
 
 export default withRouter(NotificationActions);
