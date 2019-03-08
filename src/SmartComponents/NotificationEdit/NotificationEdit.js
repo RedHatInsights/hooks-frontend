@@ -89,7 +89,7 @@ export class NotificationEdit extends Component {
         } else {
             this.props.createEndpoint(payload).then(this.toIndex);
         }
-    };
+    }
 
     fetchData = () => {
         let id = this.props.match.params.endpointId;
@@ -111,17 +111,17 @@ export class NotificationEdit extends Component {
         } : {
             appIds: [],
             eventTypeIds: []
-        };
+        }
 
     initialFormData = () =>
         this.props.endpoint ? {
             name: this.props.endpoint.name,
             url: this.props.endpoint.url,
             active: this.props.endpoint.active
-        } : {};
+        } : {}
 
     toIndex = () =>
-        this.props.history.push('/list');
+        this.props.history.push('/list')
 
     render() {
         const action = this.props.match.params.endpointId ? 'Edit' : 'New';
@@ -156,7 +156,7 @@ export class NotificationEdit extends Component {
     }
 }
 
-const mapStateToProps = function(state) {
+const mapStateToProps = (state)  => {
     let { endpoint, loading, submitting } = state.endpoints;
     let { apps, loading: appsLoading } = state.apps;
     let { filters, loading: filtersLoading } = state.filters;
@@ -172,7 +172,7 @@ const mapStateToProps = function(state) {
     };
 };
 
-const mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         fetchEndpoint,
         createEndpoint,
