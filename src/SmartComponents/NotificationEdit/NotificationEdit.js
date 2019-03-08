@@ -23,7 +23,8 @@ import registryDecorator from '@red-hat-insights/insights-frontend-components/Ut
 import {
     LoadingState,
     NotificationsPage,
-    FilterList
+    FilterList,
+    CustomFieldTemplate
 } from '../../';
 
 const schema = {
@@ -44,32 +45,6 @@ const uiSchema = {
     url: {
         'ui:placeholder': 'https://...'
     }
-};
-
-function CustomFieldTemplate(props) {
-    const { id, classNames, label, help, required, description, errors, children } = props;
-    let allClassNames = classNames.concat([ ' pf-c-form__group' ]);
-
-    return (
-        <div className={ allClassNames }>
-            <label htmlFor={ id }>{ label } { required ? '*' : null }</label>
-            { description }
-            { children }
-            { errors }
-            { help }
-        </div>
-    );
-}
-
-CustomFieldTemplate.propTypes = {
-    id: PropTypes.string,
-    classNames: PropTypes.string,
-    label: PropTypes.string,
-    help: PropTypes.object,
-    required: PropTypes.bool,
-    description: PropTypes.object,
-    errors: PropTypes.object,
-    children: PropTypes.array
 };
 
 @registryDecorator()
