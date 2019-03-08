@@ -36,13 +36,14 @@ export class NotificationActions extends React.Component {
         </DropdownItem>
     ])
 
-    render = () =>
-        <Dropdown
+    render() {
+        return <Dropdown
             toggle={ <KebabToggle onToggle={ this.onToggle }/> }
             isPlain
             onSelect={ this.onSelect }
             isOpen={ this.state.isOpen }
-            dropdownItems={ this.dropdownItems() } />
-}
+            dropdownItems={ this.dropdownItems() } />;
+    }
+};
 
 export default withRouter(NotificationActions);

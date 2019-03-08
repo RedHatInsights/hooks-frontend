@@ -35,7 +35,7 @@ import {
 
 @registryDecorator()
 export class NotificationsIndex extends Component {
-    componentDidMount = () => {
+    componentDidMount() {
         this.props.fetchEndpoints();
     }
 
@@ -86,7 +86,7 @@ export class NotificationsIndex extends Component {
         </Table>;
     }
 
-    render = () => {
+    render() {
         const placeholder = <Skeleton size={ SkeletonSize.lg } />;
         return (
             <NotificationsPage

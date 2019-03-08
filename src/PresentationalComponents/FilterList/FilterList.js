@@ -48,15 +48,16 @@ export class FilterList extends Component {
                 ) }
             </List> : ''
 
-    render = () =>
-        <List>
+    render() {
+        return <List>
             { this.props.apps.map((app) =>
                 <ListItem key={ `app-${ app.id }` }>
                     <strong>{ app.name }</strong>
                     { this.eventTypesList(app.event_types, app.id) }
                 </ListItem>
             ) }
-        </List>
+        </List>;
+    }
 }
 
 export default FilterList;
