@@ -35,12 +35,12 @@ import {
 
 @registryDecorator()
 export class NotificationsIndex extends Component {
-    componentDidMount() {
+    componentDidMount = () => {
         this.props.fetchEndpoints();
-    };
+    }
 
-    filtersInRowsAndCells() {
-        return this.props.endpoints.map(({ id, active, name, url, filtersCount }) => ({
+    filtersInRowsAndCells = () =>
+        this.props.endpoints.map(({ id, active, name, url, filtersCount }) => ({
             cells: [
                 name,
                 url,
@@ -52,14 +52,13 @@ export class NotificationsIndex extends Component {
                 <NotificationActions key={ `notification_actions_${id}` }
                     endpointId={ id }
                     onDelete={ this.onDelete(id, name) } />
-            ]}));
-    };
+            ]}))
 
     onDelete = (id, name) =>
         event => {
             event.preventDefault();
             this.props.deleteEndpoint(id, name);
-        };
+        }
 
     noResults = () =>
         <Bullseye>
@@ -73,7 +72,7 @@ export class NotificationsIndex extends Component {
                 </EmptyStateBody>
                 <Button variant="primary" to={ '/new' } component={ Link } onClick={ this.props.newEndpoint }>New endpoint</Button>
             </EmptyState>
-        </Bullseye>;
+        </Bullseye>
 
     resultsTable = () => {
         const tableColumns = [ 'Name', 'URL', 'Active', 'Filters', 'Actions' ];
@@ -87,7 +86,7 @@ export class NotificationsIndex extends Component {
         </Table>;
     }
 
-    render() {
+    render = () => {
         const placeholder = <Skeleton size={ SkeletonSize.lg } />;
         return (
             <NotificationsPage
@@ -113,21 +112,18 @@ NotificationsIndex.propTypes = {
     loading: PropTypes.bool
 };
 
-const mapStateToProps = function(state) {
-    return {
-        endpoints: state.endpoints.endpoints,
-        loading: state.endpoints.loading,
-        error: state.endpoints.error
-    };
-};
+const mapStateToProps = ({ endpoints: { endpoints, loading, error }}) => ({
+    endpoints,
+    loading,
+    error
+});
 
-const mapDispatchToProps = function (dispatch) {
-    return bindActionCreators({
+const mapDispatchToProps = (dispatch) =>
+    bindActionCreators({
         fetchEndpoints: actionCreators.fetchEndpoints,
         deleteEndpoint: actionCreators.deleteEndpoint,
         newEndpoint: actionCreators.newEndpoint,
         toggleEndpoint: actionCreators.toggleEndpoint
     }, dispatch);
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NotificationsIndex);
