@@ -40,9 +40,8 @@ export class NotificationsIndex extends Component {
     };
 
     filtersInRowsAndCells() {
-        return this.props.endpoints.map((endpoint) => {
-            const { id, active, name, url, filtersCount } = endpoint;
-            return { cells: [
+        return this.props.endpoints.map(({ id, active, name, url, filtersCount }) => ({
+            cells: [
                 name,
                 url,
                 <EndpointToggle key={ `notification_switch_${id}` }
@@ -52,13 +51,18 @@ export class NotificationsIndex extends Component {
                 filtersCount,
                 <NotificationActions key={ `notification_actions_${id}` }
                     endpointId={ id }
-                    onDelete={ (event) => { event.preventDefault(); this.props.deleteEndpoint(id, name); } } />
-            ]};
-        });
+                    onDelete={ this.onDelete(id, name) } />
+            ]}));
     };
 
-    noResults = () => {
-        return <Bullseye>
+    onDelete = (id, name) =>
+        event => {
+            event.preventDefault();
+            this.props.deleteEndpoint(id, name);
+        };
+
+    noResults = () =>
+        <Bullseye>
             <EmptyState>
                 <p>
                     <EmptyStateIcon icon={ CubesIcon } />
@@ -70,7 +74,6 @@ export class NotificationsIndex extends Component {
                 <Button variant="primary" to={ '/new' } component={ Link } onClick={ this.props.newEndpoint }>New endpoint</Button>
             </EmptyState>
         </Bullseye>;
-    }
 
     resultsTable = () => {
         const tableColumns = [ 'Name', 'URL', 'Active', 'Filters', 'Actions' ];
@@ -85,13 +88,14 @@ export class NotificationsIndex extends Component {
     }
 
     render() {
+        const placeholder = <Skeleton size={ SkeletonSize.lg } />;
         return (
             <NotificationsPage
                 title='Notifications'
                 rightBar={ <IndexToolbar onClick={ this.props.newEndpoint }/> }>
                 <LoadingState
                     loading={ this.props.loading }
-                    placeholder={ <Skeleton size={ SkeletonSize.lg } /> }>
+                    placeholder={ placeholder } >
                     { this.props.endpoints.length > 0 ? this.resultsTable() : this.noResults() }
                 </LoadingState>
             </NotificationsPage>
