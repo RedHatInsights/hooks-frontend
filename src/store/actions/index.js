@@ -39,6 +39,7 @@ export const createEndpoint = (data) => {
         type: SUBMIT_ENDPOINT,
         payload: create('/endpoints', { endpoint: data }),
         meta: {
+            data,
             notifications: {
                 rejected: {
                     variant: 'danger',
@@ -58,6 +59,7 @@ export const updateEndpoint = (id, data) => {
         type: SUBMIT_ENDPOINT,
         payload: update(`/endpoints/${ id }`, { endpoint: data }),
         meta: {
+            data,
             notifications: {
                 rejected: {
                     variant: 'danger',

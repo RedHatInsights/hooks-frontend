@@ -106,6 +106,7 @@ export const endpointReducer = function(state = initialStateFor('endpoints'), ac
             return {
                 ...state,
                 submitting: false,
+                endpoint: action.meta.data,
                 error: action.payload.message
             };
 

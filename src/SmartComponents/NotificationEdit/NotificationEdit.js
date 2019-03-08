@@ -95,12 +95,10 @@ export class NotificationEdit extends Component {
         };
 
         if (this.props.endpoint) {
-            this.props.updateEndpoint(this.props.endpoint.id, payload);
+            this.props.updateEndpoint(this.props.endpoint.id, payload).then(this.toIndex);
         } else {
-            this.props.createEndpoint(payload);
+            this.props.createEndpoint(payload).then(this.toIndex);
         }
-
-        this.toIndex();
     };
 
     fetchData = () => {
