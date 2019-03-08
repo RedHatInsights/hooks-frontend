@@ -12,7 +12,7 @@ import { CubesIcon } from '@patternfly/react-icons';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import * as actionCreators from '../../store/actions';
+import * as actionCreators from 'Store/actions';
 import {
     Table,
     TableHeader,
@@ -31,7 +31,7 @@ import {
     LoadingState,
     NotificationActions,
     NotificationsPage
-} from '../../';
+} from 'PresentationalComponents';
 
 @registryDecorator()
 export class NotificationsIndex extends Component {

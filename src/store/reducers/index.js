@@ -5,7 +5,7 @@ import {
     DELETE_ENDPOINT,
     SUBMIT_ENDPOINT,
     NEW_ENDPOINT
-} from '../actions/index';
+} from 'Store/actions/index';
 import {
     successMessage,
     failureMessage,

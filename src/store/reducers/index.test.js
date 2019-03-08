@@ -2,7 +2,7 @@ import { endpointReducer, filterReducer } from './index';
 import {
     DELETE_ENDPOINT,
     FETCH_ENDPOINTS
-} from '../actions/index';
+} from 'Store/actions/index';
 import {
     successMessage,
     failureMessage

@@ -14,7 +14,7 @@ import {
     newEndpoint,
     fetchFilters,
     fetchApps
-} from '../../store/actions';
+} from 'Store/actions';
 import {
     Skeleton,
     SkeletonSize
@@ -23,9 +23,9 @@ import registryDecorator from '@red-hat-insights/insights-frontend-components/Ut
 import {
     LoadingState,
     NotificationsPage,
-    FilterList,
-    CustomFieldTemplate
-} from '../../';
+    CustomFieldTemplate,
+    FilterList
+} from 'PresentationalComponents';
 
 const schema = {
     title: 'Edit Notifications',

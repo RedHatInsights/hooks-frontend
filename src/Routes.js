@@ -12,10 +12,10 @@ import some from 'lodash/some';
  **/
 
 const NotificationsIndex = asyncComponent(() =>
-  import(/* webpackChunkName: "NotificationsIndex" */ './SmartComponents/NotificationsIndex/NotificationsIndex'));
+  import(/* webpackChunkName: "NotificationsIndex" */ 'SmartComponents/NotificationsIndex'));
 
 const NotificationEdit = asyncComponent(() =>
-  import(/* webpackChunkName: "NotificationEdit" */ './SmartComponents/NotificationEdit/NotificationEdit'));
+  import(/* webpackChunkName: "NotificationEdit" */ 'SmartComponents/NotificationEdit'));
 
 const paths = {
     notificationsIndex: '/list',
