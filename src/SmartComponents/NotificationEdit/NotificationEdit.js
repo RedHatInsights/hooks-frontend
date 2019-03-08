@@ -102,33 +102,26 @@ export class NotificationEdit extends Component {
         this.props.fetchApps();
     }
 
-    selectedAppEventTypes = () => {
-        if (this.props.filters && this.props.filters.length > 0) {
-            return {
-                appIds: this.props.filters.map((filter) =>
-                    filter.relationships.apps.data.map((app) => parseInt(app.id))).flat(),
-                eventTypeIds: this.props.filters.map((filter) =>
-                    filter.relationships.event_types.data.map((eventType) => parseInt(eventType.id))).flat()
-            };
-        } else {
-            return {
-                appIds: [],
-                eventTypeIds: []
-            };
-        }
-    }
+    selectedAppEventTypes = () =>
+        this.props.filters && this.props.filters.length > 0 ? {
+            appIds: this.props.filters.map((filter) =>
+                filter.relationships.apps.data.map((app) => parseInt(app.id))).flat(),
+            eventTypeIds: this.props.filters.map((filter) =>
+                filter.relationships.event_types.data.map((eventType) => parseInt(eventType.id))).flat()
+        } : {
+            appIds: [],
+            eventTypeIds: []
+        };
 
-    initialFormData = () => {
-        return this.props.endpoint ? {
+    initialFormData = () =>
+        this.props.endpoint ? {
             name: this.props.endpoint.name,
             url: this.props.endpoint.url,
             active: this.props.endpoint.active
         } : {};
-    }
 
-    toIndex = () => {
+    toIndex = () =>
         this.props.history.push('/list');
-    }
 
     render() {
         const action = this.props.match.params.endpointId ? 'Edit' : 'New';
