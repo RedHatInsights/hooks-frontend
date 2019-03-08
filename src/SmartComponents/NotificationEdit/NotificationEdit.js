@@ -65,7 +65,7 @@ export class NotificationEdit extends Component {
         submitting: PropTypes.bool
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.filterList = React.createRef();
         this.fetchData();
     }
