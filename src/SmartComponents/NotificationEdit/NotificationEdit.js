@@ -123,7 +123,7 @@ export class NotificationEdit extends Component {
     toIndex = () =>
         this.props.history.push('/list')
 
-    render() {
+    render = () => {
         const action = this.props.match.params.endpointId ? 'Edit' : 'New';
 
         if (this.props.endpoint && !this.props.match.params.endpointId) {
