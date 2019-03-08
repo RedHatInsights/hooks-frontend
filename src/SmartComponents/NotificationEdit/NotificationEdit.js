@@ -49,8 +49,23 @@ const uiSchema = {
 
 @registryDecorator()
 export class NotificationEdit extends Component {
-    constructor(props) {
-        super(props);
+    static propTypes = {
+        endpointId: PropTypes.number,
+        endpoint: PropTypes.object,
+        filters: PropTypes.array.isRequired,
+        apps: PropTypes.array.isRequired,
+        fetchEndpoint: PropTypes.func.isRequired,
+        createEndpoint: PropTypes.func.isRequired,
+        updateEndpoint: PropTypes.func.isRequired,
+        fetchFilters: PropTypes.func.isRequired,
+        fetchApps: PropTypes.func.isRequired,
+        match: PropTypes.object,
+        history: PropTypes.object,
+        loading: PropTypes.bool,
+        submitting: PropTypes.bool
+    }
+
+    componentDidMount() {
         this.filterList = React.createRef();
         this.fetchData();
     }
@@ -147,22 +162,6 @@ export class NotificationEdit extends Component {
         );
     }
 }
-
-NotificationEdit.propTypes = {
-    endpointId: PropTypes.number,
-    endpoint: PropTypes.object,
-    filters: PropTypes.array.isRequired,
-    apps: PropTypes.array.isRequired,
-    fetchEndpoint: PropTypes.func.isRequired,
-    createEndpoint: PropTypes.func.isRequired,
-    updateEndpoint: PropTypes.func.isRequired,
-    fetchFilters: PropTypes.func.isRequired,
-    fetchApps: PropTypes.func.isRequired,
-    match: PropTypes.object,
-    history: PropTypes.object,
-    loading: PropTypes.bool,
-    submitting: PropTypes.bool
-};
 
 const mapStateToProps = function(state) {
     let { endpoint, loading, submitting } = state.endpoints;
