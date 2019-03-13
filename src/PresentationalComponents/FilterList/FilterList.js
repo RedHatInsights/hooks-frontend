@@ -5,55 +5,93 @@ import {
     List,
     ListItem
 } from '@patternfly/react-core';
+import _ from 'lodash';
 
 export class FilterList extends Component {
     static propTypes = {
-        apps: PropTypes.array.isRequired,
+        apps: PropTypes.object.isRequired,
         selectedAppEventTypes: PropTypes.shape({
             appIds: PropTypes.array,
-            eventTypeIds: PropTypes.array
+            eventTypeIds: PropTypes.array,
+            levelIds: PropTypes.array
         })
     };
-
-    eventTypeCheckboxChange = (id, appId) =>
-        this.props = {
-            ...this.props,
-            selectedAppEventTypes: {
-                appIds: this.removeOrAddId(this.props.selectedAppEventTypes.appIds, appId),
-                eventTypeIds: this.removeOrAddId(this.props.selectedAppEventTypes.eventTypeIds, id)
-            }
-        }
 
     removeOrAddId = (array: [], id) =>
         array.indexOf(id) !== -1 ? array.filter((currentId) => currentId !== id) : [ ...array, id ]
 
+    eventTypeCheckboxChange = (eventTypeId) =>
+        this.props.selectedAppEventTypes.eventTypeIds = this.removeOrAddId(this.props.selectedAppEventTypes.eventTypeIds, eventTypeId)
+
+    appCheckboxChange = (appId) =>
+        this.props.selectedAppEventTypes.appIds = this.removeOrAddId(this.props.selectedAppEventTypes.appIds, appId)
+
+    levelCheckboxChange = (levelId) =>
+        this.props.selectedAppEventTypes.levelIds = this.removeOrAddId(this.props.selectedAppEventTypes.levelIds, levelId)
+
     isEventTypeEnabled = (eventTypeId) =>
-        this.props.selectedAppEventTypes.eventTypeIds.indexOf(parseInt(eventTypeId)) !== -1
+        _.includes(this.props.selectedAppEventTypes.eventTypeIds, parseInt(eventTypeId))
 
-    eventTypesListItem = (eventType, appId) =>
-        <ListItem key={ `event-type-${ eventType.id}` }>
-            <Checkbox id={ `event-type-check-${ eventType.id}` }
-                data-event-type-id={ eventType.id }
-                label={ eventType.name }
-                aria-label={ eventType.name }
-                onChange={ () => this.eventTypeCheckboxChange(eventType.id, appId) }
-                isChecked={ this.isEventTypeEnabled(eventType.id) } />
-        </ListItem>
+    isAppEnabled = (appId) =>
+        _.includes(this.props.selectedAppEventTypes.appIds, parseInt(appId))
 
-    eventTypesList = (eventTypes, appId) =>
-        eventTypes && eventTypes.length > 0 ?
+    isLevelEnabled = (levelId) =>
+        _.includes(this.props.selectedAppEventTypes.levelIds, parseInt(levelId))
+
+    renderLevel = (level) =>
+        level.attributes ?
+            <ListItem key={ `level-${ level.id}` }>
+                <Checkbox id={ `level-check-${ level.id}` }
+                    data-event-type-id={ level.id }
+                    label={ level.attributes.title }
+                    aria-label={ level.attributes.title }
+                    onChange={ () => this.levelCheckboxChange(level.id) }
+                    isChecked={ this.isLevelEnabled(level.id) } />
+            </ListItem> : '';
+
+    renderLevels = (levels) =>
+        levels && levels.length > 0 ?
             <List>
-                { eventTypes.map((eventType) =>
-                    this.eventTypesListItem(eventType, appId)
+                { levels.map((level) =>
+                    this.renderLevel(level)
                 ) }
-            </List> : ''
+            </List> : '';
+
+    eventTypesListItem = (eventType) =>
+        eventType.attributes ?
+            <ListItem key={ `event-type-${ eventType.id}` }>
+                <Checkbox id={ `event-type-check-${ eventType.id}` }
+                    data-event-type-id={ eventType.id }
+                    label={ eventType.attributes.name }
+                    aria-label={ eventType.attributes.name }
+                    onChange={ () => this.eventTypeCheckboxChange(eventType.id) }
+                    isChecked={ this.isEventTypeEnabled(eventType.id) } />
+                { this.renderLevels(Object.values(eventType.levels)) }
+            </ListItem> : '';
+
+    eventTypesList = (eventTypes) => {
+        let eventTypesArray = eventTypes ? Object.values(eventTypes) : [];
+        return eventTypesArray.length > 0 ?
+            <List>
+                { eventTypesArray.map((eventType) =>
+                    this.eventTypesListItem(eventType)
+                ) }
+            </List> : '';
+    }
 
     render() {
+        const apps = Object.values(this.props.apps);
+
         return <List>
-            { this.props.apps.map((app) =>
+            { apps.map((app) =>
                 <ListItem key={ `app-${ app.id }` }>
-                    <strong>{ app.name }</strong>
-                    { this.eventTypesList(app.event_types, app.id) }
+                    <Checkbox id={ `app-check-${ app.id}` }
+                        data-event-type-id={ app.id }
+                        label={ app.attributes.name }
+                        aria-label={ app.attributes.name }
+                        onChange={ () => this.appCheckboxChange(app.id) }
+                        isChecked={ this.isAppEnabled(app.id) } />
+                    { this.eventTypesList(app.eventTypes, app.id) }
                 </ListItem>
             ) }
         </List>;

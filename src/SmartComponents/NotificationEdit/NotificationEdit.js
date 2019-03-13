@@ -53,7 +53,7 @@ export class NotificationEdit extends Component {
         endpointId: PropTypes.number,
         endpoint: PropTypes.object,
         filters: PropTypes.array.isRequired,
-        apps: PropTypes.array.isRequired,
+        apps: PropTypes.object.isRequired,
         fetchEndpoint: PropTypes.func.isRequired,
         createEndpoint: PropTypes.func.isRequired,
         updateEndpoint: PropTypes.func.isRequired,
@@ -75,7 +75,7 @@ export class NotificationEdit extends Component {
         let filters = [{
             app_ids: this.filterList.current.props.selectedAppEventTypes.appIds,
             event_type_ids: this.filterList.current.props.selectedAppEventTypes.eventTypeIds,
-            severity_filters: []
+            level_ids: this.filterList.current.props.selectedAppEventTypes.levelIds
         }];
         let payload = {
             active,
@@ -107,10 +107,13 @@ export class NotificationEdit extends Component {
             appIds: this.props.filters.map((filter) =>
                 filter.relationships.apps.data.map((app) => parseInt(app.id))).flat(),
             eventTypeIds: this.props.filters.map((filter) =>
-                filter.relationships.event_types.data.map((eventType) => parseInt(eventType.id))).flat()
+                filter.relationships.event_types.data.map((eventType) => parseInt(eventType.id))).flat(),
+            levelIds: this.props.filters.map((filter) =>
+                filter.relationships.levels.data.map((level) => parseInt(level.id))).flat()
         } : {
             appIds: [],
-            eventTypeIds: []
+            eventTypeIds: [],
+            levelIds: []
         }
 
     initialFormData = () =>
