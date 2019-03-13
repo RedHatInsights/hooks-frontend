@@ -6,23 +6,52 @@ import {
     failureMessage,
     initialStateFor
 } from './reducerHelper';
+import normalize from 'json-api-normalizer';
 
-const filterIncluded = (payload, id, type) =>
-    payload.included.find(item => (item.id === id && item.type === type));
+const filterIncluded = (payload, id, type) => {
+    let singleType = type.slice(0, -1);
+    let foundItem = payload[singleType][id];
+    return foundItem ? foundItem : {};
+};
 
-const normalizeAppData = (app) => ({
-    ...app.attributes,
-    id: parseInt(app.id)
-});
+const includeItemRelationships = (item, fullPayload) => {
+    if (!item.relationships) {
+        return item;
+    }
 
-export const normalizeAppsData = (payload) =>
-    payload.data.map((app) => {
-        let eventTypes = app.relationships.event_types.data.map((eventType) => {
-            let additionalInfo = filterIncluded(payload, eventType.id, 'event_type');
-            return additionalInfo ? { ...eventType, ...additionalInfo.attributes } : eventType;
+    let relatedResourceKinds = Object.keys(item.relationships);
+    let relatedResources = relatedResourceKinds.map((relatedResourceKind) => {
+        console.log(item.relationships[relatedResourceKind]);
+        let relatedResources = item.relationships[relatedResourceKind].data;
+        let relatedIds = Object.keys(relatedResources);
+        return relatedIds.map((id) => {
+            return {
+                ...relatedResources[id],
+                ...filterIncluded(fullPayload, id, relatedResourceKind)
+            };
         });
-        return { ...normalizeAppData(app), event_types: eventTypes };
     });
+    return Object.assign(item, relatedResources);
+};
+
+const includeRelationships = (normalizedPayload) => {
+    let resourcesKinds = Object.keys(normalizedPayload);
+    let relationshipsIncluded = resourcesKinds.map((resourceKind) => {
+        let resources = normalizedPayload[resourceKind];
+        let resourceIds = Object.keys(resources);
+
+        return resourceIds.map((id) => {
+            return includeItemRelationships(resources[id], normalizedPayload);
+        });
+    });
+    return relationshipsIncluded;
+};
+
+export const normalizeAppsData = (payload) => {
+    let normalized = includeRelationships(normalize(payload));
+    console.log(payload, normalize(payload), normalized);
+    return normalized;
+};
 
 export const appsReducer = function(state = initialStateFor('apps'), action) {
     switch (action.type) {
