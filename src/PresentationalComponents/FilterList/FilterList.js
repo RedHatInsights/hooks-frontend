@@ -72,7 +72,7 @@ export class FilterList extends Component {
             </ListItem> : '';
 
     eventTypesList = (eventTypes) => {
-        let eventTypesArray = eventTypes ? _.values(eventTypes) : [];
+        let eventTypesArray = _.values(eventTypes);
         return eventTypesArray.length > 0 ?
             <List>
                 { eventTypesArray.map((eventType) =>
