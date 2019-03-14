@@ -49,13 +49,15 @@ export class FilterList extends Component {
                     isChecked={ this.isLevelEnabled(level.id) } />
             </ListItem> : '';
 
-    renderLevels = (levels) =>
-        levels && levels.length > 0 ?
+    renderLevels = (levels) => {
+        let levelsArray = _.values(levels);
+        return levelsArray.length > 0 ?
             <List>
-                { levels.map((level) =>
+                { levelsArray.map((level) =>
                     this.renderLevel(level)
                 ) }
             </List> : '';
+    }
 
     eventTypesListItem = (eventType) =>
         eventType.attributes ?
@@ -66,11 +68,11 @@ export class FilterList extends Component {
                     aria-label={ eventType.attributes.name }
                     onChange={ () => this.eventTypeCheckboxChange(eventType.id) }
                     isChecked={ this.isEventTypeEnabled(eventType.id) } />
-                { this.renderLevels(Object.values(eventType.levels)) }
+                { this.renderLevels(eventType.levels) }
             </ListItem> : '';
 
     eventTypesList = (eventTypes) => {
-        let eventTypesArray = eventTypes ? Object.values(eventTypes) : [];
+        let eventTypesArray = eventTypes ? _.values(eventTypes) : [];
         return eventTypesArray.length > 0 ?
             <List>
                 { eventTypesArray.map((eventType) =>
@@ -80,7 +82,7 @@ export class FilterList extends Component {
     }
 
     render() {
-        const apps = Object.values(this.props.apps);
+        const apps = _.values(this.props.apps);
 
         return <List>
             { apps.map((app) =>

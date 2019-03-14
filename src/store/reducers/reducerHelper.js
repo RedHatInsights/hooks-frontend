@@ -79,6 +79,5 @@ export const includeRelationships = (normalizedPayload) => {
     return relationshipsIncluded;
 };
 
-export const normalizePayload = (payload) => {
+export const normalizePayload = (payload) =>
     includeRelationships(normalize(payload));
-};

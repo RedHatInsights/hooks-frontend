@@ -4,7 +4,7 @@ exports[`NotificationEdit expect to render a Form 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NotificationEdit
-    apps={Array []}
+    apps={Object {}}
     createEndpoint={[MockFunction]}
     fetchApps={
       [MockFunction] {
@@ -141,11 +141,12 @@ ShallowWrapper {
           }
         >
           <FilterList
-            apps={Array []}
+            apps={Object {}}
             selectedAppEventTypes={
               Object {
                 "appIds": Array [],
                 "eventTypeIds": Array [],
+                "levelIds": Array [],
               }
             }
           />
@@ -238,11 +239,12 @@ ShallowWrapper {
           }
         >
           <FilterList
-            apps={Array []}
+            apps={Object {}}
             selectedAppEventTypes={
               Object {
                 "appIds": Array [],
                 "eventTypeIds": Array [],
+                "levelIds": Array [],
               }
             }
           />
@@ -293,11 +295,12 @@ ShallowWrapper {
           "FieldTemplate": [Function],
           "children": Array [
             <FilterList
-              apps={Array []}
+              apps={Object {}}
               selectedAppEventTypes={
                 Object {
                   "appIds": Array [],
                   "eventTypeIds": Array [],
+                  "levelIds": Array [],
                 }
               }
             />,
@@ -380,10 +383,11 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "apps": Array [],
+              "apps": Object {},
               "selectedAppEventTypes": Object {
                 "appIds": Array [],
                 "eventTypeIds": Array [],
+                "levelIds": Array [],
               },
             },
             "ref": null,
@@ -543,11 +547,12 @@ ShallowWrapper {
             }
           >
             <FilterList
-              apps={Array []}
+              apps={Object {}}
               selectedAppEventTypes={
                 Object {
                   "appIds": Array [],
                   "eventTypeIds": Array [],
+                  "levelIds": Array [],
                 }
               }
             />
@@ -640,11 +645,12 @@ ShallowWrapper {
             }
           >
             <FilterList
-              apps={Array []}
+              apps={Object {}}
               selectedAppEventTypes={
                 Object {
                   "appIds": Array [],
                   "eventTypeIds": Array [],
+                  "levelIds": Array [],
                 }
               }
             />
@@ -695,11 +701,12 @@ ShallowWrapper {
             "FieldTemplate": [Function],
             "children": Array [
               <FilterList
-                apps={Array []}
+                apps={Object {}}
                 selectedAppEventTypes={
                   Object {
                     "appIds": Array [],
                     "eventTypeIds": Array [],
+                    "levelIds": Array [],
                   }
                 }
               />,
@@ -782,10 +789,11 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "apps": Array [],
+                "apps": Object {},
                 "selectedAppEventTypes": Object {
                   "appIds": Array [],
                   "eventTypeIds": Array [],
+                  "levelIds": Array [],
                 },
               },
               "ref": null,
@@ -911,7 +919,7 @@ exports[`NotificationEdit takes an endpoint 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NotificationEdit
-    apps={Array []}
+    apps={Object {}}
     createEndpoint={[MockFunction]}
     endpoint={
       Object {
@@ -1082,11 +1090,12 @@ ShallowWrapper {
           }
         >
           <FilterList
-            apps={Array []}
+            apps={Object {}}
             selectedAppEventTypes={
               Object {
                 "appIds": Array [],
                 "eventTypeIds": Array [],
+                "levelIds": Array [],
               }
             }
           />
@@ -1185,11 +1194,12 @@ ShallowWrapper {
           }
         >
           <FilterList
-            apps={Array []}
+            apps={Object {}}
             selectedAppEventTypes={
               Object {
                 "appIds": Array [],
                 "eventTypeIds": Array [],
+                "levelIds": Array [],
               }
             }
           />
@@ -1240,11 +1250,12 @@ ShallowWrapper {
           "FieldTemplate": [Function],
           "children": Array [
             <FilterList
-              apps={Array []}
+              apps={Object {}}
               selectedAppEventTypes={
                 Object {
                   "appIds": Array [],
                   "eventTypeIds": Array [],
+                  "levelIds": Array [],
                 }
               }
             />,
@@ -1331,10 +1342,11 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "apps": Array [],
+              "apps": Object {},
               "selectedAppEventTypes": Object {
                 "appIds": Array [],
                 "eventTypeIds": Array [],
+                "levelIds": Array [],
               },
             },
             "ref": null,
@@ -1500,11 +1512,12 @@ ShallowWrapper {
             }
           >
             <FilterList
-              apps={Array []}
+              apps={Object {}}
               selectedAppEventTypes={
                 Object {
                   "appIds": Array [],
                   "eventTypeIds": Array [],
+                  "levelIds": Array [],
                 }
               }
             />
@@ -1603,11 +1616,12 @@ ShallowWrapper {
             }
           >
             <FilterList
-              apps={Array []}
+              apps={Object {}}
               selectedAppEventTypes={
                 Object {
                   "appIds": Array [],
                   "eventTypeIds": Array [],
+                  "levelIds": Array [],
                 }
               }
             />
@@ -1658,11 +1672,12 @@ ShallowWrapper {
             "FieldTemplate": [Function],
             "children": Array [
               <FilterList
-                apps={Array []}
+                apps={Object {}}
                 selectedAppEventTypes={
                   Object {
                     "appIds": Array [],
                     "eventTypeIds": Array [],
+                    "levelIds": Array [],
                   }
                 }
               />,
@@ -1749,10 +1764,11 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "apps": Array [],
+                "apps": Object {},
                 "selectedAppEventTypes": Object {
                   "appIds": Array [],
                   "eventTypeIds": Array [],
+                  "levelIds": Array [],
                 },
               },
               "ref": null,
