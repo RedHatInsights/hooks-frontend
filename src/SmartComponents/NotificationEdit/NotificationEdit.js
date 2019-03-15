@@ -72,12 +72,17 @@ export class NotificationEdit extends Component {
 
     formSubmit = (data) => {
         let { active, name, url } = data.formData;
-        let filters = [{
-            id: this.firstFilter().id,
+        let filter = {
             app_ids: this.filterList.current.props.selectedAppEventTypes.appIds,
             event_type_ids: this.filterList.current.props.selectedAppEventTypes.eventTypeIds,
             level_ids: this.filterList.current.props.selectedAppEventTypes.levelIds
-        }];
+        };
+
+        if (this.firstFilter()) {
+            filter.id = this.firstFilter().id;
+        }
+
+        let filters = [ filter ];
         let payload = {
             active,
             name,
