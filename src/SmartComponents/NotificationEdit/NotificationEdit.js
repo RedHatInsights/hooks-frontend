@@ -100,12 +100,12 @@ export class NotificationEdit extends Component {
     fetchData = () => {
         let id = this.props.match.params.endpointId;
 
-        if (id) {
-            this.props.fetchEndpoint(id);
-            this.props.fetchFilters(id);
-        }
-
-        this.props.fetchApps();
+        this.props.fetchApps().then(() => {
+            if (id) {
+                this.props.fetchEndpoint(id);
+                this.props.fetchFilters(id);
+            }
+        });
     }
 
     firstFilter = () =>
