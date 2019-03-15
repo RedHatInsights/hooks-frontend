@@ -46,7 +46,7 @@ export class FilterList extends Component {
                     label={ level.attributes.title }
                     aria-label={ level.attributes.title }
                     onChange={ () => this.levelCheckboxChange(level.id) }
-                    isChecked={ this.isLevelEnabled(level.id) } />
+                    defaultChecked={ this.isLevelEnabled(level.id) } />
             </ListItem> : '';
 
     renderLevels = (levels) => {
@@ -67,7 +67,7 @@ export class FilterList extends Component {
                     label={ eventType.attributes.name }
                     aria-label={ eventType.attributes.name }
                     onChange={ () => this.eventTypeCheckboxChange(eventType.id) }
-                    isChecked={ this.isEventTypeEnabled(eventType.id) } />
+                    defaultChecked={ this.isEventTypeEnabled(eventType.id) } />
                 { this.renderLevels(eventType.levels) }
             </ListItem> : '';
 
@@ -92,7 +92,7 @@ export class FilterList extends Component {
                         label={ app.attributes.name }
                         aria-label={ app.attributes.name }
                         onChange={ () => this.appCheckboxChange(app.id) }
-                        isChecked={ this.isAppEnabled(app.id) } />
+                        defaultChecked={ this.isAppEnabled(app.id) } />
                     { this.eventTypesList(app.eventTypes, app.id) }
                 </ListItem>
             ) }
