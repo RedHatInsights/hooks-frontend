@@ -120,9 +120,6 @@ export class NotificationEdit extends Component {
             active: this.props.endpoint.active
         } : {}
 
-    toIndex = () =>
-        this.props.history.push('/list')
-
     render() {
         const action = this.props.match.params.endpointId ? 'Edit' : 'New';
 
@@ -147,7 +144,7 @@ export class NotificationEdit extends Component {
 
                         <div>
                             <Button type='submit' variant="primary">Submit</Button>
-                            <Button onClick={ this.toIndex } variant="secondary">Cancel</Button>
+                            <Button onClick={ this.props.history.goBack } variant="secondary">Cancel</Button>
                         </div>
                     </Form>
                 </LoadingState>
