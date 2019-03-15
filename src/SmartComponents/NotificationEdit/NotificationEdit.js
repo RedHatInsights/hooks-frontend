@@ -73,6 +73,7 @@ export class NotificationEdit extends Component {
     formSubmit = (data) => {
         let { active, name, url } = data.formData;
         let filters = [{
+            id: this.firstFilter().id,
             app_ids: this.filterList.current.props.selectedAppEventTypes.appIds,
             event_type_ids: this.filterList.current.props.selectedAppEventTypes.eventTypeIds,
             level_ids: this.filterList.current.props.selectedAppEventTypes.levelIds
@@ -101,6 +102,9 @@ export class NotificationEdit extends Component {
 
         this.props.fetchApps();
     }
+
+    firstFilter = () =>
+        this.props.filters[0]
 
     selectedAppEventTypes = () =>
         this.props.filters && this.props.filters.length > 0 ? {
