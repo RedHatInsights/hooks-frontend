@@ -121,14 +121,14 @@ export class NotificationEdit extends Component {
         } : {}
 
     render() {
-        const action = this.props.match.params.endpointId ? 'Edit' : 'New';
+        let action = this.props.match.params.endpointId && this.props.endpoint ? this.props.endpoint.name : 'New Notification';
 
         if (this.props.endpoint && !this.props.match.params.endpointId) {
             return <Redirect to={ `/edit/${ this.props.endpoint.id }` } />;
         }
 
         return (
-            <NotificationsPage title={ `${ action } Notification` }>
+            <NotificationsPage title={ action }>
                 <LoadingState
                     loading={ this.props.loading }
                     placeholder={ <Skeleton size={ SkeletonSize.sm } /> }>

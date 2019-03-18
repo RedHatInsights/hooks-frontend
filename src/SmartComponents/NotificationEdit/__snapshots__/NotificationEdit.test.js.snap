@@ -182,7 +182,7 @@ ShallowWrapper {
           </div>
         </Form>
       </LoadingState>,
-      "title": "Edit Notification",
+      "title": "New Notification",
     },
     "ref": null,
     "rendered": Object {
@@ -584,7 +584,7 @@ ShallowWrapper {
             </div>
           </Form>
         </LoadingState>,
-        "title": "Edit Notification",
+        "title": "New Notification",
       },
       "ref": null,
       "rendered": Object {
@@ -1123,7 +1123,7 @@ ShallowWrapper {
           </div>
         </Form>
       </LoadingState>,
-      "title": "Edit Notification",
+      "title": "TEST Endpoint #3",
     },
     "ref": null,
     "rendered": Object {
@@ -1541,7 +1541,7 @@ ShallowWrapper {
             </div>
           </Form>
         </LoadingState>,
-        "title": "Edit Notification",
+        "title": "TEST Endpoint #3",
       },
       "ref": null,
       "rendered": Object {
