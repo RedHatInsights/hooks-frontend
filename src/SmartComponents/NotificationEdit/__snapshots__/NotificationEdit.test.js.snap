@@ -49,12 +49,7 @@ ShallowWrapper {
         ],
       }
     }
-    filters={Array []}
-    history={
-      Object {
-        "goBack": [MockFunction],
-      }
-    }
+    filters={Object {}}
     match={
       Object {
         "params": Object {
@@ -142,13 +137,6 @@ ShallowWrapper {
         >
           <FilterList
             apps={Object {}}
-            selectedAppEventTypes={
-              Object {
-                "appIds": Array [],
-                "eventTypeIds": Array [],
-                "levelIds": Array [],
-              }
-            }
           />
           <div>
             <Button
@@ -240,13 +228,6 @@ ShallowWrapper {
         >
           <FilterList
             apps={Object {}}
-            selectedAppEventTypes={
-              Object {
-                "appIds": Array [],
-                "eventTypeIds": Array [],
-                "levelIds": Array [],
-              }
-            }
           />
           <div>
             <Button
@@ -296,13 +277,6 @@ ShallowWrapper {
           "children": Array [
             <FilterList
               apps={Object {}}
-              selectedAppEventTypes={
-                Object {
-                  "appIds": Array [],
-                  "eventTypeIds": Array [],
-                  "levelIds": Array [],
-                }
-              }
             />,
             <div>
               <Button
@@ -384,11 +358,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "apps": Object {},
-              "selectedAppEventTypes": Object {
-                "appIds": Array [],
-                "eventTypeIds": Array [],
-                "levelIds": Array [],
-              },
+              "filter": undefined,
             },
             "ref": null,
             "rendered": null,
@@ -548,13 +518,6 @@ ShallowWrapper {
           >
             <FilterList
               apps={Object {}}
-              selectedAppEventTypes={
-                Object {
-                  "appIds": Array [],
-                  "eventTypeIds": Array [],
-                  "levelIds": Array [],
-                }
-              }
             />
             <div>
               <Button
@@ -646,13 +609,6 @@ ShallowWrapper {
           >
             <FilterList
               apps={Object {}}
-              selectedAppEventTypes={
-                Object {
-                  "appIds": Array [],
-                  "eventTypeIds": Array [],
-                  "levelIds": Array [],
-                }
-              }
             />
             <div>
               <Button
@@ -702,13 +658,6 @@ ShallowWrapper {
             "children": Array [
               <FilterList
                 apps={Object {}}
-                selectedAppEventTypes={
-                  Object {
-                    "appIds": Array [],
-                    "eventTypeIds": Array [],
-                    "levelIds": Array [],
-                  }
-                }
               />,
               <div>
                 <Button
@@ -790,11 +739,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "apps": Object {},
-                "selectedAppEventTypes": Object {
-                  "appIds": Array [],
-                  "eventTypeIds": Array [],
-                  "levelIds": Array [],
-                },
+                "filter": undefined,
               },
               "ref": null,
               "rendered": null,
@@ -992,12 +937,7 @@ ShallowWrapper {
         ],
       }
     }
-    filters={Array []}
-    history={
-      Object {
-        "goBack": [MockFunction],
-      }
-    }
+    filters={Object {}}
     match={
       Object {
         "params": Object {
@@ -1091,13 +1031,6 @@ ShallowWrapper {
         >
           <FilterList
             apps={Object {}}
-            selectedAppEventTypes={
-              Object {
-                "appIds": Array [],
-                "eventTypeIds": Array [],
-                "levelIds": Array [],
-              }
-            }
           />
           <div>
             <Button
@@ -1195,13 +1128,6 @@ ShallowWrapper {
         >
           <FilterList
             apps={Object {}}
-            selectedAppEventTypes={
-              Object {
-                "appIds": Array [],
-                "eventTypeIds": Array [],
-                "levelIds": Array [],
-              }
-            }
           />
           <div>
             <Button
@@ -1251,13 +1177,6 @@ ShallowWrapper {
           "children": Array [
             <FilterList
               apps={Object {}}
-              selectedAppEventTypes={
-                Object {
-                  "appIds": Array [],
-                  "eventTypeIds": Array [],
-                  "levelIds": Array [],
-                }
-              }
             />,
             <div>
               <Button
@@ -1343,11 +1262,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "apps": Object {},
-              "selectedAppEventTypes": Object {
-                "appIds": Array [],
-                "eventTypeIds": Array [],
-                "levelIds": Array [],
-              },
+              "filter": undefined,
             },
             "ref": null,
             "rendered": null,
@@ -1513,13 +1428,6 @@ ShallowWrapper {
           >
             <FilterList
               apps={Object {}}
-              selectedAppEventTypes={
-                Object {
-                  "appIds": Array [],
-                  "eventTypeIds": Array [],
-                  "levelIds": Array [],
-                }
-              }
             />
             <div>
               <Button
@@ -1617,13 +1525,6 @@ ShallowWrapper {
           >
             <FilterList
               apps={Object {}}
-              selectedAppEventTypes={
-                Object {
-                  "appIds": Array [],
-                  "eventTypeIds": Array [],
-                  "levelIds": Array [],
-                }
-              }
             />
             <div>
               <Button
@@ -1673,13 +1574,6 @@ ShallowWrapper {
             "children": Array [
               <FilterList
                 apps={Object {}}
-                selectedAppEventTypes={
-                  Object {
-                    "appIds": Array [],
-                    "eventTypeIds": Array [],
-                    "levelIds": Array [],
-                  }
-                }
               />,
               <div>
                 <Button
@@ -1765,11 +1659,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "apps": Object {},
-                "selectedAppEventTypes": Object {
-                  "appIds": Array [],
-                  "eventTypeIds": Array [],
-                  "levelIds": Array [],
-                },
+                "filter": undefined,
               },
               "ref": null,
               "rendered": null,

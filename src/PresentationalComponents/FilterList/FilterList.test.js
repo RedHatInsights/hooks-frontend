@@ -12,7 +12,8 @@ describe('FilterList', () => {
             levelIds: []
         };
         const wrapper = shallow(
-            <FilterList filters={ filters } apps={ normalizePayload(apps).app } selectedAppEventTypes={ selectedAppEventTypes } />
+            <FilterList filters={ normalizePayload(filters).filter }
+                apps={ normalizePayload(apps).app } selectedAppEventTypes={ selectedAppEventTypes } />
         );
 
         expect(wrapper.render()).toMatchSnapshot();

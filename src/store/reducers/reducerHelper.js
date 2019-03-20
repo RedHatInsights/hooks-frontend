@@ -28,7 +28,8 @@ export const findItemById = (id, array) =>
 
 export const findIncluded = (payload, id, type) => {
     let singleType = type.slice(0, -1);
-    let foundItem = findItemById(id, Object.values(payload[singleType]));
+    let singleTypePayload = payload[singleType];
+    let foundItem = singleTypePayload ? findItemById(id, Object.values(singleTypePayload)) : {};
     return foundItem ? foundItem : {};
 };
 
@@ -79,5 +80,7 @@ export const includeRelationships = (normalizedPayload) => {
     return relationshipsIncluded;
 };
 
-export const normalizePayload = (payload) =>
-    includeRelationships(normalize(payload));
+export const normalizePayload = (payload) => {
+    let normalized = normalize(payload);
+    return includeRelationships(normalized);
+};

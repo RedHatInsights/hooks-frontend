@@ -10,33 +10,74 @@ import _ from 'lodash';
 export class FilterList extends Component {
     static propTypes = {
         apps: PropTypes.object.isRequired,
-        selectedAppEventTypes: PropTypes.shape({
-            appIds: PropTypes.array,
-            eventTypeIds: PropTypes.array,
-            levelIds: PropTypes.array
-        })
+        filter: PropTypes.object
     };
 
-    removeOrAddId = (array: [], id) =>
-        array.indexOf(id) !== -1 ? array.filter((currentId) => currentId !== id) : [ ...array, id ]
+    constructor(props) {
+        super(props);
+        let initialState = { selected: {
+            appIds: {}, levelIds: {}, eventTypeIds: {}
+        }};
 
-    eventTypeCheckboxChange = (eventTypeId) =>
-        this.props.selectedAppEventTypes.eventTypeIds = this.removeOrAddId(this.props.selectedAppEventTypes.eventTypeIds, eventTypeId)
+        this.state = initialState;
+    }
 
-    appCheckboxChange = (appId) =>
-        this.props.selectedAppEventTypes.appIds = this.removeOrAddId(this.props.selectedAppEventTypes.appIds, appId)
+    static getDerivedStateFromProps(props, state) {
+        let stateCopy = state;
 
-    levelCheckboxChange = (levelId) =>
-        this.props.selectedAppEventTypes.levelIds = this.removeOrAddId(this.props.selectedAppEventTypes.levelIds, levelId)
+        if (props.filter) {
+            if (props.filter.apps) {
+                Object.values(props.filter.apps).forEach((app) => stateCopy.selected.appIds[app.id] = true);
+            }
 
-    isEventTypeEnabled = (eventTypeId) =>
-        _.includes(this.props.selectedAppEventTypes.eventTypeIds, parseInt(eventTypeId))
+            if (props.filter.eventTypes) {
+                Object.values(props.filter.eventTypes).forEach((eventType) => stateCopy.selected.eventTypeIds[eventType.id] = true);
+            }
 
-    isAppEnabled = (appId) =>
-        _.includes(this.props.selectedAppEventTypes.appIds, parseInt(appId))
+            if (props.filter.levels) {
+                Object.values(props.filter.levels).forEach((level) => stateCopy.selected.levelIds[level.id] = true);
+            }
+        }
 
-    isLevelEnabled = (levelId) =>
-        _.includes(this.props.selectedAppEventTypes.levelIds, parseInt(levelId))
+        return stateCopy;
+    }
+
+    componentDidMount() {
+        let stateCopy = this.state;
+        let props = this.props;
+
+        Object.keys(props.apps).forEach((key) => {
+            stateCopy.selected.appIds[key] = false;
+            let app = props.apps[key];
+            if (app.eventTypes) {
+                Object.keys(app.eventTypes).forEach((eventKey) => {
+                    stateCopy.selected.eventTypeIds[eventKey] = false;
+                    let eventType = app.eventTypes[eventKey];
+                    if (eventType.levels) {
+                        Object.keys(eventType.levels).forEach((levelKey) => {
+                            stateCopy.selected.levelIds[levelKey] = false;
+                        });
+                    }
+                });
+            }
+        });
+
+        if (props.filter) {
+            if (props.filter.apps) {
+                Object.values(props.filter.apps).forEach((app) => stateCopy.selected.appIds[app.id] = true);
+            }
+
+            if (props.filter.eventTypes) {
+                Object.values(props.filter.eventTypes).forEach((eventType) => stateCopy.selected.eventTypeIds[eventType.id] = true);
+            }
+
+            if (props.filter.levels) {
+                Object.values(props.filter.levels).forEach((level) => stateCopy.selected.levelIds[level.id] = true);
+            }
+        }
+
+        this.setState(stateCopy);
+    }
 
     renderLevel = (level) =>
         level.attributes ?
@@ -45,8 +86,8 @@ export class FilterList extends Component {
                     data-event-type-id={ level.id }
                     label={ level.attributes.title }
                     aria-label={ level.attributes.title }
-                    onChange={ () => this.levelCheckboxChange(level.id) }
-                    defaultChecked={ this.isLevelEnabled(level.id) } />
+                    onChange={ () => this.selectFilter('levelIds', level.id) }
+                    defaultChecked={ this.state.selected.levelIds[level.id] } />
             </ListItem> : '';
 
     renderLevels = (levels) => {
@@ -66,8 +107,8 @@ export class FilterList extends Component {
                     data-event-type-id={ eventType.id }
                     label={ eventType.attributes.name }
                     aria-label={ eventType.attributes.name }
-                    onChange={ () => this.eventTypeCheckboxChange(eventType.id) }
-                    defaultChecked={ this.isEventTypeEnabled(eventType.id) } />
+                    onChange={ () => this.selectFilter('eventTypeIds', eventType.id) }
+                    defaultChecked={ this.state.selected.eventTypeIds[eventType.id] } />
                 { this.renderLevels(eventType.levels) }
             </ListItem> : '';
 
@@ -81,6 +122,12 @@ export class FilterList extends Component {
             </List> : '';
     }
 
+    selectFilter = (arrayName, id) => {
+        let newState = { ...this.state };
+        newState.selected[arrayName][id] = newState.selected[arrayName][id] ? false : true;
+        this.setState(newState);
+    }
+
     render() {
         const apps = _.values(this.props.apps);
 
@@ -91,8 +138,8 @@ export class FilterList extends Component {
                         data-event-type-id={ app.id }
                         label={ app.attributes.name }
                         aria-label={ app.attributes.name }
-                        onChange={ () => this.appCheckboxChange(app.id) }
-                        defaultChecked={ this.isAppEnabled(app.id) } />
+                        onChange={ () => this.selectFilter('appIds', app.id) }
+                        defaultChecked={ this.state.selected.appIds[app.id]  } />
                     { this.eventTypesList(app.eventTypes, app.id) }
                 </ListItem>
             ) }

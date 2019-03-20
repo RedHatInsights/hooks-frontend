@@ -47,12 +47,17 @@ const uiSchema = {
     }
 };
 
+const getTrueKeys = (obj) => {
+    let keys = Object.keys(obj);
+    return keys.filter((key) => obj[key]);
+};
+
 @registryDecorator()
 export class NotificationEdit extends Component {
     static propTypes = {
         endpointId: PropTypes.number,
         endpoint: PropTypes.object,
-        filters: PropTypes.array.isRequired,
+        filters: PropTypes.object.isRequired,
         apps: PropTypes.object.isRequired,
         fetchEndpoint: PropTypes.func.isRequired,
         createEndpoint: PropTypes.func.isRequired,
@@ -62,6 +67,7 @@ export class NotificationEdit extends Component {
         match: PropTypes.object,
         history: PropTypes.object,
         loading: PropTypes.bool,
+        filtersLoading: PropTypes.bool,
         submitting: PropTypes.bool
     }
 
@@ -73,9 +79,9 @@ export class NotificationEdit extends Component {
     formSubmit = (data) => {
         let { active, name, url } = data.formData;
         let filter = {
-            app_ids: this.filterList.current.props.selectedAppEventTypes.appIds,
-            event_type_ids: this.filterList.current.props.selectedAppEventTypes.eventTypeIds,
-            level_ids: this.filterList.current.props.selectedAppEventTypes.levelIds
+            app_ids: getTrueKeys(this.filterList.current.state.selected.appIds),
+            event_type_ids: getTrueKeys(this.filterList.current.state.selected.eventTypeIds),
+            level_ids: getTrueKeys(this.filterList.current.state.selected.levelIds)
         };
 
         if (this.firstFilter()) {
@@ -99,31 +105,13 @@ export class NotificationEdit extends Component {
 
     fetchData = () => {
         let id = this.props.match.params.endpointId;
+        this.props.fetchApps();
 
-        this.props.fetchApps().then(() => {
-            if (id) {
-                this.props.fetchEndpoint(id);
-                this.props.fetchFilters(id);
-            }
-        });
-    }
-
-    firstFilter = () =>
-        this.props.filters[0]
-
-    selectedAppEventTypes = () =>
-        this.props.filters && this.props.filters.length > 0 ? {
-            appIds: this.props.filters.map((filter) =>
-                filter.relationships.apps.data.map((app) => parseInt(app.id))).flat(),
-            eventTypeIds: this.props.filters.map((filter) =>
-                filter.relationships.event_types.data.map((eventType) => parseInt(eventType.id))).flat(),
-            levelIds: this.props.filters.map((filter) =>
-                filter.relationships.levels.data.map((level) => parseInt(level.id))).flat()
-        } : {
-            appIds: [],
-            eventTypeIds: [],
-            levelIds: []
+        if (id) {
+            this.props.fetchEndpoint(id);
+            this.props.fetchFilters(id);
         }
+    }
 
     initialFormData = () =>
         this.props.endpoint ? {
@@ -132,36 +120,41 @@ export class NotificationEdit extends Component {
             active: this.props.endpoint.active
         } : {}
 
+    toIndex = () =>
+        this.props.history.push('/list')
+
+    firstFilter = () =>
+        Object.values(this.props.filters)[0]
+
     render() {
         let action = this.props.match.params.endpointId && this.props.endpoint ? this.props.endpoint.name : 'New Notification';
+        const filter = this.props.match.params.endpointId ? this.firstFilter() : {};
 
         if (this.props.endpoint && !this.props.match.params.endpointId) {
             return <Redirect to={ `/edit/${ this.props.endpoint.id }` } />;
         }
 
-        return (
-            <NotificationsPage title={ action }>
-                <LoadingState
-                    loading={ this.props.loading }
-                    placeholder={ <Skeleton size={ SkeletonSize.sm } /> }>
-                    <Form schema={ schema } className="pf-c-form"
-                        uiSchema={ uiSchema }
-                        formData={ this.initialFormData() }
-                        onSubmit={ this.formSubmit }
-                        FieldTemplate={ CustomFieldTemplate }>
+        return <NotificationsPage title={ `${ action }` }>
+            <LoadingState
+                loading={ this.props.loading }
+                placeholder={ <Skeleton size={ SkeletonSize.sm } /> }>
+                <Form schema={ schema } className="pf-c-form"
+                    uiSchema={ uiSchema }
+                    formData={ this.initialFormData() }
+                    onSubmit={ this.formSubmit }
+                    FieldTemplate={ CustomFieldTemplate }>
 
-                        <FilterList ref={ this.filterList }
-                            apps={ this.props.apps }
-                            selectedAppEventTypes={ this.selectedAppEventTypes() } />
+                    <FilterList ref={ this.filterList }
+                        apps={ this.props.apps }
+                        filter={ filter } />
 
-                        <div>
-                            <Button type='submit' variant="primary">Submit</Button>
-                            <Button onClick={ this.props.history.goBack } variant="secondary">Cancel</Button>
-                        </div>
-                    </Form>
-                </LoadingState>
-            </NotificationsPage>
-        );
+                    <div>
+                        <Button type='submit' variant="primary">Submit</Button>
+                        <Button onClick={ this.toIndex } variant="secondary">Cancel</Button>
+                    </div>
+                </Form>
+            </LoadingState>
+        </NotificationsPage>;
     }
 }
 
