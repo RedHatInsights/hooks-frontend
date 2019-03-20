@@ -50,6 +50,11 @@ ShallowWrapper {
       }
     }
     filters={Object {}}
+    history={
+      Object {
+        "goBack": [MockFunction],
+      }
+    }
     match={
       Object {
         "params": Object {
@@ -162,7 +167,7 @@ ShallowWrapper {
               isDisabled={false}
               isFocus={false}
               isHover={false}
-              onClick={[MockFunction]}
+              onClick={[Function]}
               type="button"
               variant="secondary"
             >
@@ -253,7 +258,7 @@ ShallowWrapper {
               isDisabled={false}
               isFocus={false}
               isHover={false}
-              onClick={[MockFunction]}
+              onClick={[Function]}
               type="button"
               variant="secondary"
             >
@@ -302,7 +307,7 @@ ShallowWrapper {
                 isDisabled={false}
                 isFocus={false}
                 isHover={false}
-                onClick={[MockFunction]}
+                onClick={[Function]}
                 type="button"
                 variant="secondary"
               >
@@ -393,7 +398,7 @@ ShallowWrapper {
                   isDisabled={false}
                   isFocus={false}
                   isHover={false}
-                  onClick={[MockFunction]}
+                  onClick={[Function]}
                   type="button"
                   variant="secondary"
                 >
@@ -438,7 +443,7 @@ ShallowWrapper {
                   "isDisabled": false,
                   "isFocus": false,
                   "isHover": false,
-                  "onClick": [MockFunction],
+                  "onClick": [Function],
                   "type": "button",
                   "variant": "secondary",
                 },
@@ -543,7 +548,7 @@ ShallowWrapper {
                 isDisabled={false}
                 isFocus={false}
                 isHover={false}
-                onClick={[MockFunction]}
+                onClick={[Function]}
                 type="button"
                 variant="secondary"
               >
@@ -634,7 +639,7 @@ ShallowWrapper {
                 isDisabled={false}
                 isFocus={false}
                 isHover={false}
-                onClick={[MockFunction]}
+                onClick={[Function]}
                 type="button"
                 variant="secondary"
               >
@@ -683,7 +688,7 @@ ShallowWrapper {
                   isDisabled={false}
                   isFocus={false}
                   isHover={false}
-                  onClick={[MockFunction]}
+                  onClick={[Function]}
                   type="button"
                   variant="secondary"
                 >
@@ -774,7 +779,7 @@ ShallowWrapper {
                     isDisabled={false}
                     isFocus={false}
                     isHover={false}
-                    onClick={[MockFunction]}
+                    onClick={[Function]}
                     type="button"
                     variant="secondary"
                   >
@@ -819,7 +824,7 @@ ShallowWrapper {
                     "isDisabled": false,
                     "isFocus": false,
                     "isHover": false,
-                    "onClick": [MockFunction],
+                    "onClick": [Function],
                     "type": "button",
                     "variant": "secondary",
                   },
@@ -938,6 +943,11 @@ ShallowWrapper {
       }
     }
     filters={Object {}}
+    history={
+      Object {
+        "goBack": [MockFunction],
+      }
+    }
     match={
       Object {
         "params": Object {
@@ -1056,7 +1066,7 @@ ShallowWrapper {
               isDisabled={false}
               isFocus={false}
               isHover={false}
-              onClick={[MockFunction]}
+              onClick={[Function]}
               type="button"
               variant="secondary"
             >
@@ -1153,7 +1163,7 @@ ShallowWrapper {
               isDisabled={false}
               isFocus={false}
               isHover={false}
-              onClick={[MockFunction]}
+              onClick={[Function]}
               type="button"
               variant="secondary"
             >
@@ -1202,7 +1212,7 @@ ShallowWrapper {
                 isDisabled={false}
                 isFocus={false}
                 isHover={false}
-                onClick={[MockFunction]}
+                onClick={[Function]}
                 type="button"
                 variant="secondary"
               >
@@ -1297,7 +1307,7 @@ ShallowWrapper {
                   isDisabled={false}
                   isFocus={false}
                   isHover={false}
-                  onClick={[MockFunction]}
+                  onClick={[Function]}
                   type="button"
                   variant="secondary"
                 >
@@ -1342,7 +1352,7 @@ ShallowWrapper {
                   "isDisabled": false,
                   "isFocus": false,
                   "isHover": false,
-                  "onClick": [MockFunction],
+                  "onClick": [Function],
                   "type": "button",
                   "variant": "secondary",
                 },
@@ -1453,7 +1463,7 @@ ShallowWrapper {
                 isDisabled={false}
                 isFocus={false}
                 isHover={false}
-                onClick={[MockFunction]}
+                onClick={[Function]}
                 type="button"
                 variant="secondary"
               >
@@ -1550,7 +1560,7 @@ ShallowWrapper {
                 isDisabled={false}
                 isFocus={false}
                 isHover={false}
-                onClick={[MockFunction]}
+                onClick={[Function]}
                 type="button"
                 variant="secondary"
               >
@@ -1599,7 +1609,7 @@ ShallowWrapper {
                   isDisabled={false}
                   isFocus={false}
                   isHover={false}
-                  onClick={[MockFunction]}
+                  onClick={[Function]}
                   type="button"
                   variant="secondary"
                 >
@@ -1694,7 +1704,7 @@ ShallowWrapper {
                     isDisabled={false}
                     isFocus={false}
                     isHover={false}
-                    onClick={[MockFunction]}
+                    onClick={[Function]}
                     type="button"
                     variant="secondary"
                   >
@@ -1739,7 +1749,7 @@ ShallowWrapper {
                     "isDisabled": false,
                     "isFocus": false,
                     "isHover": false,
-                    "onClick": [MockFunction],
+                    "onClick": [Function],
                     "type": "button",
                     "variant": "secondary",
                   },
