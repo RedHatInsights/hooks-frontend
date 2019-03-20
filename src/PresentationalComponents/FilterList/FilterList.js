@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import {
     Checkbox,
     List,
-    ListItem
+    ListItem,
+    Card,
+    CardBody,
+    Gallery,
+    GalleryItem
 } from '@patternfly/react-core';
 import _ from 'lodash';
 
@@ -131,19 +135,24 @@ export class FilterList extends Component {
     render() {
         const apps = _.values(this.props.apps);
 
-        return <List>
-            { apps.map((app) =>
-                <ListItem key={ `app-${ app.id }` }>
-                    <Checkbox id={ `app-check-${ app.id}` }
-                        data-event-type-id={ app.id }
-                        label={ app.attributes.name }
-                        aria-label={ app.attributes.name }
-                        onChange={ () => this.selectFilter('appIds', app.id) }
-                        defaultChecked={ this.state.selected.appIds[app.id]  } />
-                    { this.eventTypesList(app.eventTypes, app.id) }
-                </ListItem>
+        return (<Gallery gutter="md">
+            { apps.map((app) => {
+                return (<GalleryItem key={ `app-item-${ app.id }` }>
+                    <Card key={ `app-${ app.id }` }>
+                        <CardBody>
+                            <Checkbox id={ `app-check-${ app.id}` }
+                                data-event-type-id={ app.id }
+                                label={ app.attributes.name }
+                                aria-label={ app.attributes.name }
+                                onChange={ () => this.selectFilter('appIds', app.id) }
+                                defaultChecked={ this.state.selected.appIds[app.id]  } />
+                            { this.eventTypesList(app.eventTypes, app.id) }
+                        </CardBody>
+                    </Card>
+                </GalleryItem>);
+            }
             ) }
-        </List>;
+        </Gallery>);
     }
 }
 
