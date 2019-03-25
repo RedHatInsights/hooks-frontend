@@ -19,7 +19,7 @@ export class FilterList extends Component {
 
     constructor(props) {
         super(props);
-        let initialState = { selected: {
+        const initialState = { selected: {
             appIds: {}, levelIds: {}, eventTypeIds: {}
         }};
 
@@ -47,12 +47,12 @@ export class FilterList extends Component {
     }
 
     componentDidMount() {
-        let stateCopy = this.state;
-        let props = this.props;
+        const stateCopy = this.state;
+        const props = this.props;
 
         Object.keys(props.apps).forEach((key) => {
             stateCopy.selected.appIds[key] = false;
-            let app = props.apps[key];
+            const app = props.apps[key];
             if (app.eventTypes) {
                 Object.keys(app.eventTypes).forEach((eventKey) => {
                     stateCopy.selected.eventTypeIds[eventKey] = false;
@@ -95,7 +95,7 @@ export class FilterList extends Component {
             </ListItem> : '';
 
     renderLevels = (levels) => {
-        let levelsArray = _.values(levels);
+        const levelsArray = _.values(levels);
         return levelsArray.length > 0 ?
             <List>
                 { levelsArray.map((level) =>
@@ -117,7 +117,7 @@ export class FilterList extends Component {
             </ListItem> : '';
 
     eventTypesList = (eventTypes) => {
-        let eventTypesArray = _.values(eventTypes);
+        const eventTypesArray = _.values(eventTypes);
         return eventTypesArray.length > 0 ?
             <List>
                 { eventTypesArray.map((eventType) =>
@@ -136,8 +136,8 @@ export class FilterList extends Component {
         const apps = _.values(this.props.apps);
 
         return (<Gallery gutter="md">
-            { apps.map((app) => {
-                return (<GalleryItem key={ `app-item-${ app.id }` }>
+            { apps.map((app) =>
+                <GalleryItem key={ `app-item-${ app.id }` }>
                     <Card key={ `app-${ app.id }` }>
                         <CardBody>
                             <Checkbox id={ `app-check-${ app.id}` }
@@ -149,8 +149,7 @@ export class FilterList extends Component {
                             { this.eventTypesList(app.eventTypes, app.id) }
                         </CardBody>
                     </Card>
-                </GalleryItem>);
-            }
+                </GalleryItem>
             ) }
         </Gallery>);
     }

@@ -38,12 +38,12 @@ export const includeItemRelationships = (item, fullPayload) => {
         return item;
     }
 
-    let relatedResourceKinds = Object.keys(item.relationships);
+    const relatedResourceKinds = Object.keys(item.relationships);
     let relatedResources = {};
 
     relatedResourceKinds.forEach((relatedResourceKind) => {
-        let relatedResourcesData = Object.values(item.relationships[relatedResourceKind].data);
-        let relatedIds = relatedResourcesData.map((item) => item.id);
+        const relatedResourcesData = Object.values(item.relationships[relatedResourceKind].data);
+        const relatedIds = relatedResourcesData.map((item) => item.id);
         if (!relatedResources[relatedResourceKind]) {
             relatedResources[relatedResourceKind] = {};
         }
@@ -62,12 +62,12 @@ export const includeItemRelationships = (item, fullPayload) => {
 };
 
 export const includeRelationships = (normalizedPayload) => {
-    let resourcesKinds = Object.keys(normalizedPayload);
+    const resourcesKinds = Object.keys(normalizedPayload);
     let relationshipsIncluded = {};
 
     resourcesKinds.forEach((resourceKind) => {
-        let resources = normalizedPayload[resourceKind];
-        let resourceIds = Object.keys(resources);
+        const resources = normalizedPayload[resourceKind];
+        const resourceIds = Object.keys(resources);
 
         resourceIds.forEach((id) => {
             if (!relationshipsIncluded[resourceKind]) {
@@ -80,7 +80,5 @@ export const includeRelationships = (normalizedPayload) => {
     return relationshipsIncluded;
 };
 
-export const normalizePayload = (payload) => {
-    let normalized = normalize(payload);
-    return includeRelationships(normalized);
-};
+export const normalizePayload = (payload) =>
+    includeRelationships(normalize(payload));
