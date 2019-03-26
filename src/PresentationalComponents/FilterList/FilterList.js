@@ -7,10 +7,8 @@ import {
     ListItem,
     Card,
     CardBody,
-    Radio,
     Stack,
-    StackItem,
-    Switch
+    StackItem
 } from '@patternfly/react-core';
 
 import { RadioToggle, ALL, SELECTED } from 'PresentationalComponents';
@@ -147,16 +145,16 @@ export class FilterList extends Component {
                     <Card key={ `app-${ app.id }` }>
                         <CardHeader>
                             <Checkbox id={ `app-check-${ app.id}` }
-                                      data-event-type-id={ app.id }
-                                      label={ app.attributes.name }
-                                      aria-label={ app.attributes.name }
-                                      onChange={ () => this.selectFilter('appIds', app.id) }
-                                      defaultChecked={ this.state.selected.appIds[app.id]  } />
+                                data-event-type-id={ app.id }
+                                label={ app.attributes.name }
+                                aria-label={ app.attributes.name }
+                                onChange={ () => this.selectFilter('appIds', app.id) }
+                                defaultChecked={ this.state.selected.appIds[app.id]  } />
                         </CardHeader>
                         { this.state.selected.appIds[app.id] &&
                             <CardBody>
                                 <RadioToggle
-                                    scope={`app-${ app.id }`}
+                                    scope={ `app-${ app.id }` }
                                     initial={ Object.keys(app.eventTypes).some((id) => this.state.selected.eventTypeIds[id]) ? SELECTED : ALL }>
                                     { this.eventTypesList(app.eventTypes, app.id) }
                                 </RadioToggle>
