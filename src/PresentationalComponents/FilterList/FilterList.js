@@ -118,7 +118,8 @@ export class FilterList extends Component {
                     aria-label={ eventType.attributes.name }
                     onChange={ () => this.selectFilter('eventTypeIds', eventType.id) }
                     defaultChecked={ this.state.selected.eventTypeIds[eventType.id] } />
-                { this.renderLevels(eventType.levels) }
+                { this.state.selected.eventTypeIds[eventType.id] &&
+                      this.renderLevels(eventType.levels) }
             </ListItem> : '';
 
     eventTypesList = (eventTypes) => {
