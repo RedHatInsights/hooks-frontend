@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
+    CardHeader,
     Checkbox,
     List,
     ListItem,
     Card,
     CardBody,
-    Gallery,
-    GalleryItem
+    Radio,
+    Stack,
+    StackItem,
+    Switch
 } from '@patternfly/react-core';
+
+import { RadioToggle, ALL, SELECTED } from 'PresentationalComponents';
 import _ from 'lodash';
 
 export class FilterList extends Component {
@@ -135,23 +140,28 @@ export class FilterList extends Component {
     render() {
         const apps = _.values(this.props.apps);
 
-        return (<Gallery gutter="md">
+        return (<Stack gutter="md">
             { apps.map((app) =>
-                <GalleryItem key={ `app-item-${ app.id }` }>
+                <StackItem key={ `app-item-${ app.id }` }>
                     <Card key={ `app-${ app.id }` }>
+                        <CardHeader>{ app.attributes.name }</CardHeader>
                         <CardBody>
-                            <Checkbox id={ `app-check-${ app.id}` }
-                                data-event-type-id={ app.id }
-                                label={ app.attributes.name }
-                                aria-label={ app.attributes.name }
-                                onChange={ () => this.selectFilter('appIds', app.id) }
-                                defaultChecked={ this.state.selected.appIds[app.id]  } />
-                            { this.eventTypesList(app.eventTypes, app.id) }
+                            <RadioToggle
+                                scope={`app-${ app.id }`}
+                                initial={ this.state.selected.appIds[app.id] ? SELECTED : ALL }>
+                                <Checkbox id={ `app-check-${ app.id}` }
+                                          data-event-type-id={ app.id }
+                                          label={ app.attributes.name }
+                                          aria-label={ app.attributes.name }
+                                          onChange={ () => this.selectFilter('appIds', app.id) }
+                                          defaultChecked={ this.state.selected.appIds[app.id]  } />
+                                { this.eventTypesList(app.eventTypes, app.id) }
+                            </RadioToggle>
                         </CardBody>
                     </Card>
-                </GalleryItem>
+                </StackItem>
             ) }
-        </Gallery>);
+        </Stack>);
     }
 }
 
