@@ -144,20 +144,22 @@ export class FilterList extends Component {
             { apps.map((app) =>
                 <StackItem key={ `app-item-${ app.id }` }>
                     <Card key={ `app-${ app.id }` }>
-                        <CardHeader>{ app.attributes.name }</CardHeader>
-                        <CardBody>
-                            <RadioToggle
-                                scope={`app-${ app.id }`}
-                                initial={ this.state.selected.appIds[app.id] ? SELECTED : ALL }>
-                                <Checkbox id={ `app-check-${ app.id}` }
-                                          data-event-type-id={ app.id }
-                                          label={ app.attributes.name }
-                                          aria-label={ app.attributes.name }
-                                          onChange={ () => this.selectFilter('appIds', app.id) }
-                                          defaultChecked={ this.state.selected.appIds[app.id]  } />
-                                { this.eventTypesList(app.eventTypes, app.id) }
-                            </RadioToggle>
-                        </CardBody>
+                        <CardHeader>
+                            <Checkbox id={ `app-check-${ app.id}` }
+                                      data-event-type-id={ app.id }
+                                      label={ app.attributes.name }
+                                      aria-label={ app.attributes.name }
+                                      onChange={ () => this.selectFilter('appIds', app.id) }
+                                      defaultChecked={ this.state.selected.appIds[app.id]  } />
+                        </CardHeader>
+                        { this.state.selected.appIds[app.id] &&
+                            <CardBody>
+                                <RadioToggle
+                                    scope={`app-${ app.id }`}
+                                    initial={ ALL }> {/* TODO: Change this to something the takes selected types and levels into consideration */}
+                                    { this.eventTypesList(app.eventTypes, app.id) }
+                                </RadioToggle>
+                            </CardBody> }
                     </Card>
                 </StackItem>
             ) }
