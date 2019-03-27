@@ -31,26 +31,28 @@ export class FilterList extends Component {
 
     static getDerivedStateFromProps(props, state) {
         let stateCopy = state;
+        let filter = props.filter;
 
-        if (props.filter) {
-            if (props.filter.apps) {
-                Object.values(props.filter.apps).forEach((app) => stateCopy.selected.appIds[app.id] = true);
-            }
+        if (filter) {
+            [ 'app', 'eventType', 'level' ].forEach((kind) => {
+                const dict = filter[kind + 's'];
+                if (dict) {
+                    const key = kind + 'Ids';
+                    Object.values(dict).forEach((entry) => {
+                        if (stateCopy.selected[key][entry.id] === undefined) {
+                            stateCopy.selected[key][entry.id] = true;
+                        }
+                    });
+                }
 
-            if (props.filter.eventTypes) {
-                Object.values(props.filter.eventTypes).forEach((eventType) => stateCopy.selected.eventTypeIds[eventType.id] = true);
-            }
-
-            if (props.filter.levels) {
-                Object.values(props.filter.levels).forEach((level) => stateCopy.selected.levelIds[level.id] = true);
-            }
+            });
         }
 
         return stateCopy;
     }
 
     componentDidMount() {
-        const stateCopy = this.state;
+        let stateCopy = this.state;
         const props = this.props;
 
         Object.keys(props.apps).forEach((key) => {
@@ -69,19 +71,7 @@ export class FilterList extends Component {
             }
         });
 
-        if (props.filter) {
-            if (props.filter.apps) {
-                Object.values(props.filter.apps).forEach((app) => stateCopy.selected.appIds[app.id] = true);
-            }
-
-            if (props.filter.eventTypes) {
-                Object.values(props.filter.eventTypes).forEach((eventType) => stateCopy.selected.eventTypeIds[eventType.id] = true);
-            }
-
-            if (props.filter.levels) {
-                Object.values(props.filter.levels).forEach((level) => stateCopy.selected.levelIds[level.id] = true);
-            }
-        }
+        stateCopy = FilterList.getDerivedStateFromProps(this.props, stateCopy);
 
         this.setState(stateCopy);
     }
