@@ -96,8 +96,9 @@ export class NotificationEdit extends Component {
             filters
         };
 
-        if (this.props.endpoint) {
-            this.props.updateEndpoint(this.props.endpoint.id, payload).then(this.toIndex);
+        const endpoint = this.singleEndpoint();
+        if (endpoint) {
+            this.props.updateEndpoint(endpoint.id, payload).then(this.toIndex);
         } else {
             this.props.createEndpoint(payload).then(this.toIndex);
         }
@@ -113,12 +114,17 @@ export class NotificationEdit extends Component {
         }
     }
 
-    initialFormData = () =>
-        this.props.endpoint ? {
-            name: this.props.endpoint.name,
-            url: this.props.endpoint.url,
-            active: this.props.endpoint.active
-        } : {}
+    singleEndpoint = () =>
+        this.props.endpoint ? this.props.endpoint[this.props.match.params.endpointId] : null;
+
+    initialFormData = () => {
+        const endpoint = this.singleEndpoint();
+        return endpoint ? {
+            name: endpoint.attributes.name,
+            url: endpoint.attributes.url,
+            active: endpoint.attributes.active
+        } : {};
+    }
 
     toIndex = () =>
         this.props.history.push('/list')
