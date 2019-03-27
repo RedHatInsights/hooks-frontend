@@ -30,6 +30,10 @@ export class FilterList extends Component {
     }
 
     static getDerivedStateFromProps(props, state) {
+        return FilterList.fillMissingSelection(props, state);
+    }
+
+    static fillMissingSelection = (props, state) => {
         let stateCopy = state;
         let filter = props.filter;
 
@@ -44,7 +48,6 @@ export class FilterList extends Component {
                         }
                     });
                 }
-
             });
         }
 
@@ -71,7 +74,7 @@ export class FilterList extends Component {
             }
         });
 
-        stateCopy = FilterList.getDerivedStateFromProps(this.props, stateCopy);
+        stateCopy = FilterList.fillMissingSelection(this.props, stateCopy);
 
         this.setState(stateCopy);
     }
