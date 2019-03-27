@@ -55,27 +55,7 @@ export class FilterList extends Component {
     }
 
     componentDidMount() {
-        let stateCopy = this.state;
-        const props = this.props;
-
-        Object.keys(props.apps).forEach((key) => {
-            stateCopy.selected.appIds[key] = false;
-            const app = props.apps[key];
-            if (app.eventTypes) {
-                Object.keys(app.eventTypes).forEach((eventKey) => {
-                    stateCopy.selected.eventTypeIds[eventKey] = false;
-                    let eventType = app.eventTypes[eventKey];
-                    if (eventType.levels) {
-                        Object.keys(eventType.levels).forEach((levelKey) => {
-                            stateCopy.selected.levelIds[levelKey] = false;
-                        });
-                    }
-                });
-            }
-        });
-
-        stateCopy = FilterList.fillMissingSelection(this.props, stateCopy);
-
+        const stateCopy = FilterList.fillMissingSelection(this.props, this.state);
         this.setState(stateCopy);
     }
 
