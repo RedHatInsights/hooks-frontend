@@ -80,7 +80,7 @@ export class FilterList extends Component {
     }
 
     renderLevel = (level) =>
-        level.attributes ?
+        level.attributes &&
             <ListItem key={ `level-${ level.id}` }>
                 <Checkbox id={ `level-check-${ level.id}` }
                     data-event-type-id={ level.id }
@@ -88,20 +88,20 @@ export class FilterList extends Component {
                     aria-label={ level.attributes.title }
                     onChange={ () => this.selectFilter('levelIds', level.id) }
                     defaultChecked={ this.state.selected.levelIds[level.id] } />
-            </ListItem> : '';
+            </ListItem>;
 
     renderLevels = (levels) => {
         const levelsArray = _.values(levels);
-        return levelsArray.length > 0 ?
+        return levelsArray.length > 0 &&
             <List>
                 { levelsArray.map((level) =>
                     this.renderLevel(level)
                 ) }
-            </List> : '';
+            </List>;
     }
 
     eventTypesListItem = (eventType) =>
-        eventType.attributes ?
+        eventType.attributes &&
             <ListItem key={ `event-type-${ eventType.id}` }>
                 <Checkbox id={ `event-type-check-${ eventType.id}` }
                     data-event-type-id={ eventType.id }
@@ -111,16 +111,16 @@ export class FilterList extends Component {
                     defaultChecked={ this.state.selected.eventTypeIds[eventType.id] } />
                 { this.state.selected.eventTypeIds[eventType.id] &&
                       this.renderLevels(eventType.levels) }
-            </ListItem> : '';
+            </ListItem>;
 
     eventTypesList = (eventTypes) => {
         const eventTypesArray = _.values(eventTypes);
-        return eventTypesArray.length > 0 ?
+        return eventTypesArray.length > 0 &&
             <List>
                 { eventTypesArray.map((eventType) =>
                     this.eventTypesListItem(eventType)
                 ) }
-            </List> : '';
+            </List>;
     }
 
     selectFilter = (arrayName, id) => {
