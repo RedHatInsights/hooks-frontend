@@ -29,7 +29,7 @@
       "!src/**/stories/*",
       "!src/{App|Routes|entry|entry-dev}.js",
       "!src/__fixtures__/*.js",
-      "!src/{Smart|Presentational}Components/index.js",
+      "!src/{SmartComponents|PresentationalComponents|store}/index.js",
       "!src/Utilities/asyncComponent.js"
     ],
     "setupFiles": [
