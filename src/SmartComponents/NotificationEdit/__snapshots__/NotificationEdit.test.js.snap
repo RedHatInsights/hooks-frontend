@@ -1251,7 +1251,7 @@ exports[`NotificationEdit expect to render a Form 1`] = `
 
 exports[`NotificationEdit takes an endpoint 1`] = `
 <withRouter(NotificationsPage)
-  title="undefined"
+  title="New Notification"
 >
   <LoadingState
     placeholder={
