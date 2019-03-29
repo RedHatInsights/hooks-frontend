@@ -58,8 +58,8 @@ export class NotificationsIndex extends Component {
         }
     }
 
-    refreshData = (page, perPage) => {
-        this.props.fetchEndpoints(page || this.state.page, perPage || this.state.perPage);
+    refreshData = (page = this.state.page, perPage = this.state.perPage) => {
+        this.props.fetchEndpoints(page, perPage);
     }
 
     onPerPageSelect = (perPage) => {
@@ -134,7 +134,7 @@ export class NotificationsIndex extends Component {
                 title='Notifications'
                 rightBar={ <IndexToolbar onClick={ this.props.newEndpoint }/> }>
                 <LoadingState
-                    loading={ this.props.loading }
+                    loading={ this.props.loading && Object.values(this.props.endpoints).length === 0 }
                     placeholder={ placeholder } >
                     { Object.values(this.props.endpoints).length > 0 ? this.resultsTable(this.props.endpoints) : this.noResults() }
                 </LoadingState>
