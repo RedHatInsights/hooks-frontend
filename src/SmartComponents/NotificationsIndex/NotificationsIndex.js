@@ -134,7 +134,7 @@ export class NotificationsIndex extends Component {
                 title='Notifications'
                 rightBar={ <IndexToolbar onClick={ this.props.newEndpoint }/> }>
                 <LoadingState
-                    loading={ this.props.loading && Object.values(this.props.endpoints).length === 0 }
+                    loading={ this.props.loading }
                     placeholder={ placeholder } >
                     { Object.values(this.props.endpoints).length > 0 ? this.resultsTable(this.props.endpoints) : this.noResults() }
                 </LoadingState>
