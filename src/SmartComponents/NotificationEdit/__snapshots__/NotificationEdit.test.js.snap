@@ -104,7 +104,7 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                       "attributes": Object {
                         "title": "level-2",
                       },
-                      "id": "35",
+                      "id": 35,
                       "type": "level",
                     },
                     "36": Object {
@@ -119,19 +119,19 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 33,
+                          "id": "33",
                           "type": "level",
                         },
                         Object {
-                          "id": 34,
+                          "id": "34",
                           "type": "level",
                         },
                         Object {
-                          "id": 35,
+                          "id": "35",
                           "type": "level",
                         },
                         Object {
-                          "id": 36,
+                          "id": "36",
                           "type": "level",
                         },
                       ],
@@ -179,19 +179,19 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 37,
+                          "id": "37",
                           "type": "level",
                         },
                         Object {
-                          "id": 38,
+                          "id": "38",
                           "type": "level",
                         },
                         Object {
-                          "id": 39,
+                          "id": "39",
                           "type": "level",
                         },
                         Object {
-                          "id": 40,
+                          "id": "40",
                           "type": "level",
                         },
                       ],
@@ -239,19 +239,19 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 41,
+                          "id": "41",
                           "type": "level",
                         },
                         Object {
-                          "id": 42,
+                          "id": "42",
                           "type": "level",
                         },
                         Object {
-                          "id": 43,
+                          "id": "43",
                           "type": "level",
                         },
                         Object {
-                          "id": 44,
+                          "id": "44",
                           "type": "level",
                         },
                       ],
@@ -299,19 +299,19 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 45,
+                          "id": "45",
                           "type": "level",
                         },
                         Object {
-                          "id": 46,
+                          "id": "46",
                           "type": "level",
                         },
                         Object {
-                          "id": 47,
+                          "id": "47",
                           "type": "level",
                         },
                         Object {
-                          "id": 48,
+                          "id": "48",
                           "type": "level",
                         },
                       ],
@@ -325,19 +325,19 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                 "eventTypes": Object {
                   "data": Array [
                     Object {
-                      "id": 15,
+                      "id": "15",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 16,
+                      "id": "16",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 17,
+                      "id": "17",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 18,
+                      "id": "18",
                       "type": "eventType",
                     },
                   ],
@@ -382,7 +382,7 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 1,
+                          "id": "1",
                           "type": "level",
                         },
                       ],
@@ -409,7 +409,7 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 2,
+                          "id": "2",
                           "type": "level",
                         },
                       ],
@@ -423,11 +423,11 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                 "eventTypes": Object {
                   "data": Array [
                     Object {
-                      "id": 1,
+                      "id": "1",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 2,
+                      "id": "2",
                       "type": "eventType",
                     },
                   ],
@@ -473,15 +473,15 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 3,
+                          "id": "3",
                           "type": "level",
                         },
                         Object {
-                          "id": 4,
+                          "id": "4",
                           "type": "level",
                         },
                         Object {
-                          "id": 5,
+                          "id": "5",
                           "type": "level",
                         },
                       ],
@@ -522,15 +522,15 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 6,
+                          "id": "6",
                           "type": "level",
                         },
                         Object {
-                          "id": 7,
+                          "id": "7",
                           "type": "level",
                         },
                         Object {
-                          "id": 8,
+                          "id": "8",
                           "type": "level",
                         },
                       ],
@@ -544,11 +544,11 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                 "eventTypes": Object {
                   "data": Array [
                     Object {
-                      "id": 3,
+                      "id": "3",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 4,
+                      "id": "4",
                       "type": "eventType",
                     },
                   ],
@@ -614,19 +614,19 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 9,
+                          "id": "9",
                           "type": "level",
                         },
                         Object {
-                          "id": 10,
+                          "id": "10",
                           "type": "level",
                         },
                         Object {
-                          "id": 11,
+                          "id": "11",
                           "type": "level",
                         },
                         Object {
-                          "id": 12,
+                          "id": "12",
                           "type": "level",
                         },
                       ],
@@ -674,19 +674,19 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 13,
+                          "id": "13",
                           "type": "level",
                         },
                         Object {
-                          "id": 14,
+                          "id": "14",
                           "type": "level",
                         },
                         Object {
-                          "id": 15,
+                          "id": "15",
                           "type": "level",
                         },
                         Object {
-                          "id": 16,
+                          "id": "16",
                           "type": "level",
                         },
                       ],
@@ -734,19 +734,19 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 17,
+                          "id": "17",
                           "type": "level",
                         },
                         Object {
-                          "id": 18,
+                          "id": "18",
                           "type": "level",
                         },
                         Object {
-                          "id": 19,
+                          "id": "19",
                           "type": "level",
                         },
                         Object {
-                          "id": 20,
+                          "id": "20",
                           "type": "level",
                         },
                       ],
@@ -760,15 +760,15 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                 "eventTypes": Object {
                   "data": Array [
                     Object {
-                      "id": 5,
+                      "id": "5",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 6,
+                      "id": "6",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 7,
+                      "id": "7",
                       "type": "eventType",
                     },
                   ],
@@ -834,19 +834,19 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 29,
+                          "id": "29",
                           "type": "level",
                         },
                         Object {
-                          "id": 30,
+                          "id": "30",
                           "type": "level",
                         },
                         Object {
-                          "id": 31,
+                          "id": "31",
                           "type": "level",
                         },
                         Object {
-                          "id": 32,
+                          "id": "32",
                           "type": "level",
                         },
                       ],
@@ -894,19 +894,19 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 21,
+                          "id": "21",
                           "type": "level",
                         },
                         Object {
-                          "id": 22,
+                          "id": "22",
                           "type": "level",
                         },
                         Object {
-                          "id": 23,
+                          "id": "23",
                           "type": "level",
                         },
                         Object {
-                          "id": 24,
+                          "id": "24",
                           "type": "level",
                         },
                       ],
@@ -954,19 +954,19 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 25,
+                          "id": "25",
                           "type": "level",
                         },
                         Object {
-                          "id": 26,
+                          "id": "26",
                           "type": "level",
                         },
                         Object {
-                          "id": 27,
+                          "id": "27",
                           "type": "level",
                         },
                         Object {
-                          "id": 28,
+                          "id": "28",
                           "type": "level",
                         },
                       ],
@@ -980,15 +980,15 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                 "eventTypes": Object {
                   "data": Array [
                     Object {
-                      "id": 8,
+                      "id": "8",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 9,
+                      "id": "9",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 10,
+                      "id": "10",
                       "type": "eventType",
                     },
                   ],
@@ -1063,19 +1063,19 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                 "eventTypes": Object {
                   "data": Array [
                     Object {
-                      "id": 11,
+                      "id": "11",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 12,
+                      "id": "12",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 13,
+                      "id": "13",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 14,
+                      "id": "14",
                       "type": "eventType",
                     },
                   ],
@@ -1135,11 +1135,11 @@ exports[`NotificationEdit expect to render a Form 1`] = `
                 "type": "level",
               },
               "22": Object {
-                "id": "22",
+                "id": 22,
                 "type": "level",
               },
               "4": Object {
-                "id": "4",
+                "id": 4,
                 "type": "level",
               },
             },
@@ -1147,19 +1147,19 @@ exports[`NotificationEdit expect to render a Form 1`] = `
               "apps": Object {
                 "data": Array [
                   Object {
-                    "id": 1,
+                    "id": "1",
                     "type": "app",
                   },
                   Object {
-                    "id": 3,
+                    "id": "3",
                     "type": "app",
                   },
                   Object {
-                    "id": 4,
+                    "id": "4",
                     "type": "app",
                   },
                   Object {
-                    "id": 8,
+                    "id": "8",
                     "type": "app",
                   },
                   Object {
@@ -1171,7 +1171,7 @@ exports[`NotificationEdit expect to render a Form 1`] = `
               "endpoints": Object {
                 "data": Array [
                   Object {
-                    "id": 36,
+                    "id": "36",
                     "type": "endpoint",
                   },
                 ],
@@ -1179,15 +1179,15 @@ exports[`NotificationEdit expect to render a Form 1`] = `
               "eventTypes": Object {
                 "data": Array [
                   Object {
-                    "id": 1,
+                    "id": "1",
                     "type": "eventType",
                   },
                   Object {
-                    "id": 3,
+                    "id": "3",
                     "type": "eventType",
                   },
                   Object {
-                    "id": 8,
+                    "id": "8",
                     "type": "eventType",
                   },
                 ],
@@ -1195,7 +1195,7 @@ exports[`NotificationEdit expect to render a Form 1`] = `
               "levels": Object {
                 "data": Array [
                   Object {
-                    "id": 1,
+                    "id": "1",
                     "type": "level",
                   },
                   Object {
@@ -1353,7 +1353,7 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                       "attributes": Object {
                         "title": "level-2",
                       },
-                      "id": "35",
+                      "id": 35,
                       "type": "level",
                     },
                     "36": Object {
@@ -1368,19 +1368,19 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 33,
+                          "id": "33",
                           "type": "level",
                         },
                         Object {
-                          "id": 34,
+                          "id": "34",
                           "type": "level",
                         },
                         Object {
-                          "id": 35,
+                          "id": "35",
                           "type": "level",
                         },
                         Object {
-                          "id": 36,
+                          "id": "36",
                           "type": "level",
                         },
                       ],
@@ -1428,19 +1428,19 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 37,
+                          "id": "37",
                           "type": "level",
                         },
                         Object {
-                          "id": 38,
+                          "id": "38",
                           "type": "level",
                         },
                         Object {
-                          "id": 39,
+                          "id": "39",
                           "type": "level",
                         },
                         Object {
-                          "id": 40,
+                          "id": "40",
                           "type": "level",
                         },
                       ],
@@ -1488,19 +1488,19 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 41,
+                          "id": "41",
                           "type": "level",
                         },
                         Object {
-                          "id": 42,
+                          "id": "42",
                           "type": "level",
                         },
                         Object {
-                          "id": 43,
+                          "id": "43",
                           "type": "level",
                         },
                         Object {
-                          "id": 44,
+                          "id": "44",
                           "type": "level",
                         },
                       ],
@@ -1548,19 +1548,19 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 45,
+                          "id": "45",
                           "type": "level",
                         },
                         Object {
-                          "id": 46,
+                          "id": "46",
                           "type": "level",
                         },
                         Object {
-                          "id": 47,
+                          "id": "47",
                           "type": "level",
                         },
                         Object {
-                          "id": 48,
+                          "id": "48",
                           "type": "level",
                         },
                       ],
@@ -1574,19 +1574,19 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                 "eventTypes": Object {
                   "data": Array [
                     Object {
-                      "id": 15,
+                      "id": "15",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 16,
+                      "id": "16",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 17,
+                      "id": "17",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 18,
+                      "id": "18",
                       "type": "eventType",
                     },
                   ],
@@ -1631,7 +1631,7 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 1,
+                          "id": "1",
                           "type": "level",
                         },
                       ],
@@ -1658,7 +1658,7 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 2,
+                          "id": "2",
                           "type": "level",
                         },
                       ],
@@ -1672,11 +1672,11 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                 "eventTypes": Object {
                   "data": Array [
                     Object {
-                      "id": 1,
+                      "id": "1",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 2,
+                      "id": "2",
                       "type": "eventType",
                     },
                   ],
@@ -1722,15 +1722,15 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 3,
+                          "id": "3",
                           "type": "level",
                         },
                         Object {
-                          "id": 4,
+                          "id": "4",
                           "type": "level",
                         },
                         Object {
-                          "id": 5,
+                          "id": "5",
                           "type": "level",
                         },
                       ],
@@ -1771,15 +1771,15 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 6,
+                          "id": "6",
                           "type": "level",
                         },
                         Object {
-                          "id": 7,
+                          "id": "7",
                           "type": "level",
                         },
                         Object {
-                          "id": 8,
+                          "id": "8",
                           "type": "level",
                         },
                       ],
@@ -1793,11 +1793,11 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                 "eventTypes": Object {
                   "data": Array [
                     Object {
-                      "id": 3,
+                      "id": "3",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 4,
+                      "id": "4",
                       "type": "eventType",
                     },
                   ],
@@ -1863,19 +1863,19 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 9,
+                          "id": "9",
                           "type": "level",
                         },
                         Object {
-                          "id": 10,
+                          "id": "10",
                           "type": "level",
                         },
                         Object {
-                          "id": 11,
+                          "id": "11",
                           "type": "level",
                         },
                         Object {
-                          "id": 12,
+                          "id": "12",
                           "type": "level",
                         },
                       ],
@@ -1923,19 +1923,19 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 13,
+                          "id": "13",
                           "type": "level",
                         },
                         Object {
-                          "id": 14,
+                          "id": "14",
                           "type": "level",
                         },
                         Object {
-                          "id": 15,
+                          "id": "15",
                           "type": "level",
                         },
                         Object {
-                          "id": 16,
+                          "id": "16",
                           "type": "level",
                         },
                       ],
@@ -1983,19 +1983,19 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 17,
+                          "id": "17",
                           "type": "level",
                         },
                         Object {
-                          "id": 18,
+                          "id": "18",
                           "type": "level",
                         },
                         Object {
-                          "id": 19,
+                          "id": "19",
                           "type": "level",
                         },
                         Object {
-                          "id": 20,
+                          "id": "20",
                           "type": "level",
                         },
                       ],
@@ -2009,15 +2009,15 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                 "eventTypes": Object {
                   "data": Array [
                     Object {
-                      "id": 5,
+                      "id": "5",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 6,
+                      "id": "6",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 7,
+                      "id": "7",
                       "type": "eventType",
                     },
                   ],
@@ -2083,19 +2083,19 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 29,
+                          "id": "29",
                           "type": "level",
                         },
                         Object {
-                          "id": 30,
+                          "id": "30",
                           "type": "level",
                         },
                         Object {
-                          "id": 31,
+                          "id": "31",
                           "type": "level",
                         },
                         Object {
-                          "id": 32,
+                          "id": "32",
                           "type": "level",
                         },
                       ],
@@ -2143,19 +2143,19 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 21,
+                          "id": "21",
                           "type": "level",
                         },
                         Object {
-                          "id": 22,
+                          "id": "22",
                           "type": "level",
                         },
                         Object {
-                          "id": 23,
+                          "id": "23",
                           "type": "level",
                         },
                         Object {
-                          "id": 24,
+                          "id": "24",
                           "type": "level",
                         },
                       ],
@@ -2203,19 +2203,19 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                     "levels": Object {
                       "data": Array [
                         Object {
-                          "id": 25,
+                          "id": "25",
                           "type": "level",
                         },
                         Object {
-                          "id": 26,
+                          "id": "26",
                           "type": "level",
                         },
                         Object {
-                          "id": 27,
+                          "id": "27",
                           "type": "level",
                         },
                         Object {
-                          "id": 28,
+                          "id": "28",
                           "type": "level",
                         },
                       ],
@@ -2229,15 +2229,15 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                 "eventTypes": Object {
                   "data": Array [
                     Object {
-                      "id": 8,
+                      "id": "8",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 9,
+                      "id": "9",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 10,
+                      "id": "10",
                       "type": "eventType",
                     },
                   ],
@@ -2312,19 +2312,19 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                 "eventTypes": Object {
                   "data": Array [
                     Object {
-                      "id": 11,
+                      "id": "11",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 12,
+                      "id": "12",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 13,
+                      "id": "13",
                       "type": "eventType",
                     },
                     Object {
-                      "id": 14,
+                      "id": "14",
                       "type": "eventType",
                     },
                   ],
@@ -2384,11 +2384,11 @@ exports[`NotificationEdit takes an endpoint 1`] = `
                 "type": "level",
               },
               "22": Object {
-                "id": "22",
+                "id": 22,
                 "type": "level",
               },
               "4": Object {
-                "id": "4",
+                "id": 4,
                 "type": "level",
               },
             },
@@ -2396,19 +2396,19 @@ exports[`NotificationEdit takes an endpoint 1`] = `
               "apps": Object {
                 "data": Array [
                   Object {
-                    "id": 1,
+                    "id": "1",
                     "type": "app",
                   },
                   Object {
-                    "id": 3,
+                    "id": "3",
                     "type": "app",
                   },
                   Object {
-                    "id": 4,
+                    "id": "4",
                     "type": "app",
                   },
                   Object {
-                    "id": 8,
+                    "id": "8",
                     "type": "app",
                   },
                   Object {
@@ -2420,7 +2420,7 @@ exports[`NotificationEdit takes an endpoint 1`] = `
               "endpoints": Object {
                 "data": Array [
                   Object {
-                    "id": 36,
+                    "id": "36",
                     "type": "endpoint",
                   },
                 ],
@@ -2428,15 +2428,15 @@ exports[`NotificationEdit takes an endpoint 1`] = `
               "eventTypes": Object {
                 "data": Array [
                   Object {
-                    "id": 1,
+                    "id": "1",
                     "type": "eventType",
                   },
                   Object {
-                    "id": 3,
+                    "id": "3",
                     "type": "eventType",
                   },
                   Object {
-                    "id": 8,
+                    "id": "8",
                     "type": "eventType",
                   },
                 ],
@@ -2444,7 +2444,7 @@ exports[`NotificationEdit takes an endpoint 1`] = `
               "levels": Object {
                 "data": Array [
                   Object {
-                    "id": 1,
+                    "id": "1",
                     "type": "level",
                   },
                   Object {

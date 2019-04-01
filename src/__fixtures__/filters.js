@@ -1,7 +1,7 @@
 const filters = {
     data: [
         {
-            id: 13,
+            id: '13',
             type: 'filter',
             attributes: {
                 enabled: true
@@ -10,19 +10,19 @@ const filters = {
                 apps: {
                     data: [
                         {
-                            id: 1,
+                            id: '1',
                             type: 'app'
                         },
                         {
-                            id: 3,
+                            id: '3',
                             type: 'app'
                         },
                         {
-                            id: 4,
+                            id: '4',
                             type: 'app'
                         },
                         {
-                            id: 8,
+                            id: '8',
                             type: 'app'
                         },
                         {
@@ -34,15 +34,15 @@ const filters = {
                 event_types: {
                     data: [
                         {
-                            id: 1,
+                            id: '1',
                             type: 'event_type'
                         },
                         {
-                            id: 3,
+                            id: '3',
                             type: 'event_type'
                         },
                         {
-                            id: 8,
+                            id: '8',
                             type: 'event_type'
                         }
                     ]
@@ -50,7 +50,7 @@ const filters = {
                 levels: {
                     data: [
                         {
-                            id: 1,
+                            id: '1',
                             type: 'level'
                         },
                         {
@@ -66,7 +66,7 @@ const filters = {
                 endpoints: {
                     data: [
                         {
-                            id: 36,
+                            id: '36',
                             type: 'endpoint'
                         }
                     ]

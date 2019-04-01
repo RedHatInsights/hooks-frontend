@@ -1,7 +1,7 @@
 const endpoints = {
     data: [
         {
-            id: 36,
+            id: '36',
             type: 'endpoint',
             attributes: {
                 name: 'Test 1',
@@ -11,7 +11,7 @@ const endpoints = {
             }
         },
         {
-            id: 37,
+            id: '37',
             type: 'endpoint',
             attributes: {
                 name: 'Test 2',
@@ -21,7 +21,7 @@ const endpoints = {
             }
         },
         {
-            id: 38,
+            id: '38',
             type: 'endpoint',
             attributes: {
                 name: 'Test 3',
@@ -39,16 +39,7 @@ const endpoints = {
 };
 
 export const endpoint = {
-    data: {
-        id: 37,
-        type: 'endpoint',
-        attributes: {
-            name: 'Test 2',
-            url: 'http://whatever1.com',
-            active: true,
-            filter_count: 1
-        }
-    }
+    data: [ endpoints.data[0] ]
 };
 
 export default endpoints;

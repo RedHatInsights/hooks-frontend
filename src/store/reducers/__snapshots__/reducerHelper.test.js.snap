@@ -46,7 +46,7 @@ Object {
               "attributes": Object {
                 "title": "level-2",
               },
-              "id": "35",
+              "id": 35,
               "type": "level",
             },
             "36": Object {
@@ -61,19 +61,19 @@ Object {
             "levels": Object {
               "data": Array [
                 Object {
-                  "id": 33,
+                  "id": "33",
                   "type": "level",
                 },
                 Object {
-                  "id": 34,
+                  "id": "34",
                   "type": "level",
                 },
                 Object {
-                  "id": 35,
+                  "id": "35",
                   "type": "level",
                 },
                 Object {
-                  "id": 36,
+                  "id": "36",
                   "type": "level",
                 },
               ],
@@ -121,19 +121,19 @@ Object {
             "levels": Object {
               "data": Array [
                 Object {
-                  "id": 37,
+                  "id": "37",
                   "type": "level",
                 },
                 Object {
-                  "id": 38,
+                  "id": "38",
                   "type": "level",
                 },
                 Object {
-                  "id": 39,
+                  "id": "39",
                   "type": "level",
                 },
                 Object {
-                  "id": 40,
+                  "id": "40",
                   "type": "level",
                 },
               ],
@@ -181,19 +181,19 @@ Object {
             "levels": Object {
               "data": Array [
                 Object {
-                  "id": 41,
+                  "id": "41",
                   "type": "level",
                 },
                 Object {
-                  "id": 42,
+                  "id": "42",
                   "type": "level",
                 },
                 Object {
-                  "id": 43,
+                  "id": "43",
                   "type": "level",
                 },
                 Object {
-                  "id": 44,
+                  "id": "44",
                   "type": "level",
                 },
               ],
@@ -241,19 +241,19 @@ Object {
             "levels": Object {
               "data": Array [
                 Object {
-                  "id": 45,
+                  "id": "45",
                   "type": "level",
                 },
                 Object {
-                  "id": 46,
+                  "id": "46",
                   "type": "level",
                 },
                 Object {
-                  "id": 47,
+                  "id": "47",
                   "type": "level",
                 },
                 Object {
-                  "id": 48,
+                  "id": "48",
                   "type": "level",
                 },
               ],
@@ -267,19 +267,19 @@ Object {
         "eventTypes": Object {
           "data": Array [
             Object {
-              "id": 15,
+              "id": "15",
               "type": "eventType",
             },
             Object {
-              "id": 16,
+              "id": "16",
               "type": "eventType",
             },
             Object {
-              "id": 17,
+              "id": "17",
               "type": "eventType",
             },
             Object {
-              "id": 18,
+              "id": "18",
               "type": "eventType",
             },
           ],
@@ -324,7 +324,7 @@ Object {
             "levels": Object {
               "data": Array [
                 Object {
-                  "id": 1,
+                  "id": "1",
                   "type": "level",
                 },
               ],
@@ -351,7 +351,7 @@ Object {
             "levels": Object {
               "data": Array [
                 Object {
-                  "id": 2,
+                  "id": "2",
                   "type": "level",
                 },
               ],
@@ -365,11 +365,11 @@ Object {
         "eventTypes": Object {
           "data": Array [
             Object {
-              "id": 1,
+              "id": "1",
               "type": "eventType",
             },
             Object {
-              "id": 2,
+              "id": "2",
               "type": "eventType",
             },
           ],
@@ -415,15 +415,15 @@ Object {
             "levels": Object {
               "data": Array [
                 Object {
-                  "id": 3,
+                  "id": "3",
                   "type": "level",
                 },
                 Object {
-                  "id": 4,
+                  "id": "4",
                   "type": "level",
                 },
                 Object {
-                  "id": 5,
+                  "id": "5",
                   "type": "level",
                 },
               ],
@@ -464,15 +464,15 @@ Object {
             "levels": Object {
               "data": Array [
                 Object {
-                  "id": 6,
+                  "id": "6",
                   "type": "level",
                 },
                 Object {
-                  "id": 7,
+                  "id": "7",
                   "type": "level",
                 },
                 Object {
-                  "id": 8,
+                  "id": "8",
                   "type": "level",
                 },
               ],
@@ -486,11 +486,11 @@ Object {
         "eventTypes": Object {
           "data": Array [
             Object {
-              "id": 3,
+              "id": "3",
               "type": "eventType",
             },
             Object {
-              "id": 4,
+              "id": "4",
               "type": "eventType",
             },
           ],
@@ -556,19 +556,19 @@ Object {
             "levels": Object {
               "data": Array [
                 Object {
-                  "id": 9,
+                  "id": "9",
                   "type": "level",
                 },
                 Object {
-                  "id": 10,
+                  "id": "10",
                   "type": "level",
                 },
                 Object {
-                  "id": 11,
+                  "id": "11",
                   "type": "level",
                 },
                 Object {
-                  "id": 12,
+                  "id": "12",
                   "type": "level",
                 },
               ],
@@ -616,19 +616,19 @@ Object {
             "levels": Object {
               "data": Array [
                 Object {
-                  "id": 13,
+                  "id": "13",
                   "type": "level",
                 },
                 Object {
-                  "id": 14,
+                  "id": "14",
                   "type": "level",
                 },
                 Object {
-                  "id": 15,
+                  "id": "15",
                   "type": "level",
                 },
                 Object {
-                  "id": 16,
+                  "id": "16",
                   "type": "level",
                 },
               ],
@@ -676,19 +676,19 @@ Object {
             "levels": Object {
               "data": Array [
                 Object {
-                  "id": 17,
+                  "id": "17",
                   "type": "level",
                 },
                 Object {
-                  "id": 18,
+                  "id": "18",
                   "type": "level",
                 },
                 Object {
-                  "id": 19,
+                  "id": "19",
                   "type": "level",
                 },
                 Object {
-                  "id": 20,
+                  "id": "20",
                   "type": "level",
                 },
               ],
@@ -702,15 +702,15 @@ Object {
         "eventTypes": Object {
           "data": Array [
             Object {
-              "id": 5,
+              "id": "5",
               "type": "eventType",
             },
             Object {
-              "id": 6,
+              "id": "6",
               "type": "eventType",
             },
             Object {
-              "id": 7,
+              "id": "7",
               "type": "eventType",
             },
           ],
@@ -776,19 +776,19 @@ Object {
             "levels": Object {
               "data": Array [
                 Object {
-                  "id": 29,
+                  "id": "29",
                   "type": "level",
                 },
                 Object {
-                  "id": 30,
+                  "id": "30",
                   "type": "level",
                 },
                 Object {
-                  "id": 31,
+                  "id": "31",
                   "type": "level",
                 },
                 Object {
-                  "id": 32,
+                  "id": "32",
                   "type": "level",
                 },
               ],
@@ -836,19 +836,19 @@ Object {
             "levels": Object {
               "data": Array [
                 Object {
-                  "id": 21,
+                  "id": "21",
                   "type": "level",
                 },
                 Object {
-                  "id": 22,
+                  "id": "22",
                   "type": "level",
                 },
                 Object {
-                  "id": 23,
+                  "id": "23",
                   "type": "level",
                 },
                 Object {
-                  "id": 24,
+                  "id": "24",
                   "type": "level",
                 },
               ],
@@ -896,19 +896,19 @@ Object {
             "levels": Object {
               "data": Array [
                 Object {
-                  "id": 25,
+                  "id": "25",
                   "type": "level",
                 },
                 Object {
-                  "id": 26,
+                  "id": "26",
                   "type": "level",
                 },
                 Object {
-                  "id": 27,
+                  "id": "27",
                   "type": "level",
                 },
                 Object {
-                  "id": 28,
+                  "id": "28",
                   "type": "level",
                 },
               ],
@@ -922,15 +922,15 @@ Object {
         "eventTypes": Object {
           "data": Array [
             Object {
-              "id": 8,
+              "id": "8",
               "type": "eventType",
             },
             Object {
-              "id": 9,
+              "id": "9",
               "type": "eventType",
             },
             Object {
-              "id": 10,
+              "id": "10",
               "type": "eventType",
             },
           ],
@@ -1005,19 +1005,19 @@ Object {
         "eventTypes": Object {
           "data": Array [
             Object {
-              "id": 11,
+              "id": "11",
               "type": "eventType",
             },
             Object {
-              "id": 12,
+              "id": "12",
               "type": "eventType",
             },
             Object {
-              "id": 13,
+              "id": "13",
               "type": "eventType",
             },
             Object {
-              "id": 14,
+              "id": "14",
               "type": "eventType",
             },
           ],
@@ -1046,7 +1046,7 @@ Object {
         "levels": Object {
           "data": Array [
             Object {
-              "id": 1,
+              "id": "1",
               "type": "level",
             },
           ],
@@ -1094,19 +1094,19 @@ Object {
         "levels": Object {
           "data": Array [
             Object {
-              "id": 29,
+              "id": "29",
               "type": "level",
             },
             Object {
-              "id": 30,
+              "id": "30",
               "type": "level",
             },
             Object {
-              "id": 31,
+              "id": "31",
               "type": "level",
             },
             Object {
-              "id": 32,
+              "id": "32",
               "type": "level",
             },
           ],
@@ -1195,7 +1195,7 @@ Object {
           "attributes": Object {
             "title": "level-2",
           },
-          "id": "35",
+          "id": 35,
           "type": "level",
         },
         "36": Object {
@@ -1210,19 +1210,19 @@ Object {
         "levels": Object {
           "data": Array [
             Object {
-              "id": 33,
+              "id": "33",
               "type": "level",
             },
             Object {
-              "id": 34,
+              "id": "34",
               "type": "level",
             },
             Object {
-              "id": 35,
+              "id": "35",
               "type": "level",
             },
             Object {
-              "id": 36,
+              "id": "36",
               "type": "level",
             },
           ],
@@ -1270,19 +1270,19 @@ Object {
         "levels": Object {
           "data": Array [
             Object {
-              "id": 37,
+              "id": "37",
               "type": "level",
             },
             Object {
-              "id": 38,
+              "id": "38",
               "type": "level",
             },
             Object {
-              "id": 39,
+              "id": "39",
               "type": "level",
             },
             Object {
-              "id": 40,
+              "id": "40",
               "type": "level",
             },
           ],
@@ -1330,19 +1330,19 @@ Object {
         "levels": Object {
           "data": Array [
             Object {
-              "id": 41,
+              "id": "41",
               "type": "level",
             },
             Object {
-              "id": 42,
+              "id": "42",
               "type": "level",
             },
             Object {
-              "id": 43,
+              "id": "43",
               "type": "level",
             },
             Object {
-              "id": 44,
+              "id": "44",
               "type": "level",
             },
           ],
@@ -1390,19 +1390,19 @@ Object {
         "levels": Object {
           "data": Array [
             Object {
-              "id": 45,
+              "id": "45",
               "type": "level",
             },
             Object {
-              "id": 46,
+              "id": "46",
               "type": "level",
             },
             Object {
-              "id": 47,
+              "id": "47",
               "type": "level",
             },
             Object {
-              "id": 48,
+              "id": "48",
               "type": "level",
             },
           ],
@@ -1429,7 +1429,7 @@ Object {
         "levels": Object {
           "data": Array [
             Object {
-              "id": 2,
+              "id": "2",
               "type": "level",
             },
           ],
@@ -1470,15 +1470,15 @@ Object {
         "levels": Object {
           "data": Array [
             Object {
-              "id": 3,
+              "id": "3",
               "type": "level",
             },
             Object {
-              "id": 4,
+              "id": "4",
               "type": "level",
             },
             Object {
-              "id": 5,
+              "id": "5",
               "type": "level",
             },
           ],
@@ -1519,15 +1519,15 @@ Object {
         "levels": Object {
           "data": Array [
             Object {
-              "id": 6,
+              "id": "6",
               "type": "level",
             },
             Object {
-              "id": 7,
+              "id": "7",
               "type": "level",
             },
             Object {
-              "id": 8,
+              "id": "8",
               "type": "level",
             },
           ],
@@ -1575,19 +1575,19 @@ Object {
         "levels": Object {
           "data": Array [
             Object {
-              "id": 9,
+              "id": "9",
               "type": "level",
             },
             Object {
-              "id": 10,
+              "id": "10",
               "type": "level",
             },
             Object {
-              "id": 11,
+              "id": "11",
               "type": "level",
             },
             Object {
-              "id": 12,
+              "id": "12",
               "type": "level",
             },
           ],
@@ -1635,19 +1635,19 @@ Object {
         "levels": Object {
           "data": Array [
             Object {
-              "id": 13,
+              "id": "13",
               "type": "level",
             },
             Object {
-              "id": 14,
+              "id": "14",
               "type": "level",
             },
             Object {
-              "id": 15,
+              "id": "15",
               "type": "level",
             },
             Object {
-              "id": 16,
+              "id": "16",
               "type": "level",
             },
           ],
@@ -1695,19 +1695,19 @@ Object {
         "levels": Object {
           "data": Array [
             Object {
-              "id": 17,
+              "id": "17",
               "type": "level",
             },
             Object {
-              "id": 18,
+              "id": "18",
               "type": "level",
             },
             Object {
-              "id": 19,
+              "id": "19",
               "type": "level",
             },
             Object {
-              "id": 20,
+              "id": "20",
               "type": "level",
             },
           ],
@@ -1755,19 +1755,19 @@ Object {
         "levels": Object {
           "data": Array [
             Object {
-              "id": 21,
+              "id": "21",
               "type": "level",
             },
             Object {
-              "id": 22,
+              "id": "22",
               "type": "level",
             },
             Object {
-              "id": 23,
+              "id": "23",
               "type": "level",
             },
             Object {
-              "id": 24,
+              "id": "24",
               "type": "level",
             },
           ],
@@ -1815,19 +1815,19 @@ Object {
         "levels": Object {
           "data": Array [
             Object {
-              "id": 25,
+              "id": "25",
               "type": "level",
             },
             Object {
-              "id": 26,
+              "id": "26",
               "type": "level",
             },
             Object {
-              "id": 27,
+              "id": "27",
               "type": "level",
             },
             Object {
-              "id": 28,
+              "id": "28",
               "type": "level",
             },
           ],
@@ -1841,196 +1841,196 @@ Object {
       "attributes": Object {
         "title": "level-0",
       },
-      "id": 1,
+      "id": "1",
       "type": "level",
     },
     "10": Object {
       "attributes": Object {
         "title": "level-1",
       },
-      "id": 10,
+      "id": "10",
       "type": "level",
     },
     "11": Object {
       "attributes": Object {
         "title": "level-2",
       },
-      "id": 11,
+      "id": "11",
       "type": "level",
     },
     "12": Object {
       "attributes": Object {
         "title": "level-3",
       },
-      "id": 12,
+      "id": "12",
       "type": "level",
     },
     "13": Object {
       "attributes": Object {
         "title": "level-0",
       },
-      "id": 13,
+      "id": "13",
       "type": "level",
     },
     "14": Object {
       "attributes": Object {
         "title": "level-1",
       },
-      "id": 14,
+      "id": "14",
       "type": "level",
     },
     "15": Object {
       "attributes": Object {
         "title": "level-2",
       },
-      "id": 15,
+      "id": "15",
       "type": "level",
     },
     "16": Object {
       "attributes": Object {
         "title": "level-3",
       },
-      "id": 16,
+      "id": "16",
       "type": "level",
     },
     "17": Object {
       "attributes": Object {
         "title": "level-0",
       },
-      "id": 17,
+      "id": "17",
       "type": "level",
     },
     "18": Object {
       "attributes": Object {
         "title": "level-1",
       },
-      "id": 18,
+      "id": "18",
       "type": "level",
     },
     "19": Object {
       "attributes": Object {
         "title": "level-2",
       },
-      "id": 19,
+      "id": "19",
       "type": "level",
     },
     "2": Object {
       "attributes": Object {
         "title": "level-0",
       },
-      "id": 2,
+      "id": "2",
       "type": "level",
     },
     "20": Object {
       "attributes": Object {
         "title": "level-3",
       },
-      "id": 20,
+      "id": "20",
       "type": "level",
     },
     "21": Object {
       "attributes": Object {
         "title": "level-0",
       },
-      "id": 21,
+      "id": "21",
       "type": "level",
     },
     "22": Object {
       "attributes": Object {
         "title": "level-1",
       },
-      "id": 22,
+      "id": "22",
       "type": "level",
     },
     "23": Object {
       "attributes": Object {
         "title": "level-2",
       },
-      "id": 23,
+      "id": "23",
       "type": "level",
     },
     "24": Object {
       "attributes": Object {
         "title": "level-3",
       },
-      "id": 24,
+      "id": "24",
       "type": "level",
     },
     "25": Object {
       "attributes": Object {
         "title": "level-0",
       },
-      "id": 25,
+      "id": "25",
       "type": "level",
     },
     "26": Object {
       "attributes": Object {
         "title": "level-1",
       },
-      "id": 26,
+      "id": "26",
       "type": "level",
     },
     "27": Object {
       "attributes": Object {
         "title": "level-2",
       },
-      "id": 27,
+      "id": "27",
       "type": "level",
     },
     "28": Object {
       "attributes": Object {
         "title": "level-3",
       },
-      "id": 28,
+      "id": "28",
       "type": "level",
     },
     "29": Object {
       "attributes": Object {
         "title": "level-0",
       },
-      "id": 29,
+      "id": "29",
       "type": "level",
     },
     "3": Object {
       "attributes": Object {
         "title": "level-0",
       },
-      "id": 3,
+      "id": "3",
       "type": "level",
     },
     "30": Object {
       "attributes": Object {
         "title": "level-1",
       },
-      "id": 30,
+      "id": "30",
       "type": "level",
     },
     "31": Object {
       "attributes": Object {
         "title": "level-2",
       },
-      "id": 31,
+      "id": "31",
       "type": "level",
     },
     "32": Object {
       "attributes": Object {
         "title": "level-3",
       },
-      "id": 32,
+      "id": "32",
       "type": "level",
     },
     "33": Object {
       "attributes": Object {
         "title": "level-0",
       },
-      "id": 33,
+      "id": "33",
       "type": "level",
     },
     "34": Object {
       "attributes": Object {
         "title": "level-1",
       },
-      "id": 34,
+      "id": "34",
       "type": "level",
     },
     "35": Object {
@@ -2044,133 +2044,133 @@ Object {
       "attributes": Object {
         "title": "level-3",
       },
-      "id": 36,
+      "id": "36",
       "type": "level",
     },
     "37": Object {
       "attributes": Object {
         "title": "level-0",
       },
-      "id": 37,
+      "id": "37",
       "type": "level",
     },
     "38": Object {
       "attributes": Object {
         "title": "level-1",
       },
-      "id": 38,
+      "id": "38",
       "type": "level",
     },
     "39": Object {
       "attributes": Object {
         "title": "level-2",
       },
-      "id": 39,
+      "id": "39",
       "type": "level",
     },
     "4": Object {
       "attributes": Object {
         "title": "level-1",
       },
-      "id": 4,
+      "id": "4",
       "type": "level",
     },
     "40": Object {
       "attributes": Object {
         "title": "level-3",
       },
-      "id": 40,
+      "id": "40",
       "type": "level",
     },
     "41": Object {
       "attributes": Object {
         "title": "level-0",
       },
-      "id": 41,
+      "id": "41",
       "type": "level",
     },
     "42": Object {
       "attributes": Object {
         "title": "level-1",
       },
-      "id": 42,
+      "id": "42",
       "type": "level",
     },
     "43": Object {
       "attributes": Object {
         "title": "level-2",
       },
-      "id": 43,
+      "id": "43",
       "type": "level",
     },
     "44": Object {
       "attributes": Object {
         "title": "level-3",
       },
-      "id": 44,
+      "id": "44",
       "type": "level",
     },
     "45": Object {
       "attributes": Object {
         "title": "level-0",
       },
-      "id": 45,
+      "id": "45",
       "type": "level",
     },
     "46": Object {
       "attributes": Object {
         "title": "level-1",
       },
-      "id": 46,
+      "id": "46",
       "type": "level",
     },
     "47": Object {
       "attributes": Object {
         "title": "level-2",
       },
-      "id": 47,
+      "id": "47",
       "type": "level",
     },
     "48": Object {
       "attributes": Object {
         "title": "level-3",
       },
-      "id": 48,
+      "id": "48",
       "type": "level",
     },
     "5": Object {
       "attributes": Object {
         "title": "level-2",
       },
-      "id": 5,
+      "id": "5",
       "type": "level",
     },
     "6": Object {
       "attributes": Object {
         "title": "level-0",
       },
-      "id": 6,
+      "id": "6",
       "type": "level",
     },
     "7": Object {
       "attributes": Object {
         "title": "level-1",
       },
-      "id": 7,
+      "id": "7",
       "type": "level",
     },
     "8": Object {
       "attributes": Object {
         "title": "level-2",
       },
-      "id": 8,
+      "id": "8",
       "type": "level",
     },
     "9": Object {
       "attributes": Object {
         "title": "level-0",
       },
-      "id": 9,
+      "id": "9",
       "type": "level",
     },
   },
