@@ -128,6 +128,7 @@ export class FilterList extends Component {
                             <CardBody>
                                 <RadioToggle
                                     scope={ `app-${ app.id }` }
+                                    selectable={ Object.keys(app.eventTypes).length > 0 }
                                     initial={ Object.keys(app.eventTypes).some((id) => this.state.selected.eventTypeIds[id]) ? SELECTED : ALL }>
                                     { this.eventTypesList(app.eventTypes, app.id) }
                                 </RadioToggle>

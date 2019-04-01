@@ -9,7 +9,8 @@ export class RadioToggle extends Component {
     static propTypes = {
         children: PropTypes.node,
         scope: PropTypes.string.isRequired,
-        initial: PropTypes.oneOf([ ALL, SELECTED ]).isRequired
+        initial: PropTypes.oneOf([ ALL, SELECTED ]).isRequired,
+        selectable: PropTypes.bool.isRequired
     }
 
     handleChange = (_, event) => {
@@ -23,23 +24,24 @@ export class RadioToggle extends Component {
     }
 
     render() {
-        const { children, scope } = this.props;
+        const { children, scope, selectable } = this.props;
         const group = `${ scope }-event-type-radio`;
         return (
             <React.Fragment>
                 <Radio value={ ALL }
-                    defaultChecked={ this.state.value === ALL }
+                    defaultChecked={ !selectable || this.state.value === ALL }
                     onChange={ this.handleChange }
                     label="All event types"
                     id={ `${ scope }-radio-all` }
                     name={ group } />
-                <Radio value={ SELECTED }
-                    defaultChecked={ this.state.value === SELECTED }
-                    onChange={ this.handleChange }
-                    label="Only selected event types"
-                    id={ `${ scope }-radio-selected` }
-                    name={ group } />
-                { this.state.value === SELECTED && children }
+                { selectable &&
+                  <Radio value={ SELECTED }
+                      defaultChecked={ this.state.value === SELECTED }
+                      onChange={ this.handleChange }
+                      label="Only selected event types"
+                      id={ `${ scope }-radio-selected` }
+                      name={ group } /> }
+                { selectable && this.state.value === SELECTED && children }
             </React.Fragment>
         );
     }
