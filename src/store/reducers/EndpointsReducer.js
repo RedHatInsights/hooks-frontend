@@ -29,7 +29,7 @@ const updateEndpointInEndpoints = (state, endpoint) => {
 
 const deleteEndpointInCollectionObject = (object, id) => {
     const { [id]: removed, ...remaining } = object;
-    return [ remaining, removed ];
+    return { remaining, removed };
 };
 
 export const endpointsReducer = function(state = initialStateFor('endpoints', {}), action) {
@@ -88,7 +88,7 @@ export const endpointsReducer = function(state = initialStateFor('endpoints', {}
         case successMessage(DELETE_ENDPOINT):
             return {
                 ...state,
-                endpoints: deleteEndpointInCollectionObject(state.endpoints, action.payload.id)[0]
+                endpoints: deleteEndpointInCollectionObject(state.endpoints, action.payload.id).remaining
             };
 
         case pendingMessage(SUBMIT_ENDPOINT):
