@@ -18,8 +18,7 @@ export const normalizeEndpointData = (payload) =>
 
 const updateEndpointInEndpoints = (state, endpoint) => {
     const normalizedEndpoint = Object.values(endpoint.endpoint)[0];
-    let updatedEndpoint = {};
-    updatedEndpoint[normalizedEndpoint.id] = normalizedEndpoint;
+    let updatedEndpoint = { [normalizedEndpoint.id]: normalizedEndpoint };
     return {
         ...state,
         endpoint: normalizedEndpoint,
