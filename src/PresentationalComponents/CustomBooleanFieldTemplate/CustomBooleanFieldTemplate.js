@@ -20,25 +20,23 @@ export class CustomBooleanFieldTemplate extends React.Component {
     render() {
         const { value } = this.state;
 
-        return <FormGroup>
-            <p>
-                <Checkbox
-                    label={ this.props.schema.title }
-                    aria-label={ this.props.schema.title }
-                    defaultChecked={ value }
-                    onChange={ this.handleTextInputChange }
-                    id={ `custom-checkbox-${ this.props.name }` }
-                    key={ `custom-checkbox-${ this.props.name }-key` }
-                />
-            </p>
+        return <FormGroup fieldId={ `custom-checkbox-${ this.props.name }` }>
+            <Checkbox
+                label={ this.props.schema.title }
+                aria-label={ this.props.schema.title }
+                defaultChecked={ value }
+                onChange={ this.handleTextInputChange }
+                id={ `custom-checkbox-${ this.props.name }` }
+                key={ `custom-checkbox-${ this.props.name }-key` }
+            />
         </FormGroup>;
     }
 }
 CustomBooleanFieldTemplate.propTypes = {
-    formData: PropTypes.bool.isRequired,
-    schema: PropTypes.object.isRequired,
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
+    formData: PropTypes.bool,
+    schema: PropTypes.object,
+    name: PropTypes.string,
+    onChange: PropTypes.func
 };
 
 export default CustomBooleanFieldTemplate;

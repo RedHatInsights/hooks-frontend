@@ -14,8 +14,8 @@ export const CustomObjectFieldTemplate = ({ title, description, properties }) =>
 };
 
 CustomObjectFieldTemplate.propTypes = {
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    properties: PropTypes.object.isRequired,
-    name: PropTypes.string.isRequired
+    title: PropTypes.string,
+    description: PropTypes.string,
+    properties: PropTypes.oneOfType([ PropTypes.object, PropTypes.array ]),
+    name: PropTypes.string
 };

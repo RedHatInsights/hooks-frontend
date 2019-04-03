@@ -5,7 +5,7 @@ import { TextInput, FormGroup } from '@patternfly/react-core';
 export class CustomInputFieldTemplate extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { value: props.formData };
+        this.state = { value: props.formData ? props.formData : '' };
     }
 
     state = {
@@ -25,17 +25,17 @@ export class CustomInputFieldTemplate extends React.Component {
             isRequired={ this.props.required }
             fieldId={ `custom-input-${ this.props.name }` }>
             <TextInput value={ value } aria-label={ this.props.schema.title }
-                type="text" onChange={ this.handleTextInputChange } label={ false } />
+                type="text" onChange={ this.handleTextInputChange } />
         </FormGroup>;
     }
 }
 
 CustomInputFieldTemplate.propTypes = {
-    formData: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    schema: PropTypes.object.isRequired,
-    name: PropTypes.string.isRequired,
-    required: PropTypes.bool.isRequired
+    formData: PropTypes.string,
+    onChange: PropTypes.func,
+    schema: PropTypes.object,
+    name: PropTypes.string,
+    required: PropTypes.bool
 };
 
 export default CustomInputFieldTemplate;
