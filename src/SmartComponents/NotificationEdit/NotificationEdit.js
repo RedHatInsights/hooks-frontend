@@ -24,17 +24,20 @@ import {
     LoadingState,
     NotificationsPage,
     FilterList,
-    CustomInputFieldTemplate
+    CustomInputFieldTemplate,
+    CustomObjectFieldTemplate,
+    CustomBooleanFieldTemplate,
+    CustomFieldTemplate
 } from 'PresentationalComponents';
 
 const schema = {
-    title: 'Edit Notifications',
+    title: 'Edit Notification',
     type: 'object',
     required: [ 'name', 'url' ],
     properties: {
         name: { type: 'string', title: 'Name' },
-        active: { type: 'boolean', title: 'Active', default: true },
-        url: { type: 'string', title: 'URL' }
+        url: { type: 'string', title: 'URL' },
+        active: { type: 'boolean', title: 'Active', default: true }
     }
 };
 
@@ -48,7 +51,8 @@ const uiSchema = {
 };
 
 const fields = {
-    StringField: CustomInputFieldTemplate
+    StringField: CustomInputFieldTemplate,
+    BooleanField: CustomBooleanFieldTemplate
 };
 
 const getTrueKeys = (obj) => {
@@ -152,6 +156,8 @@ export class NotificationEdit extends Component {
                 <Form schema={ schema } className="pf-c-form"
                     uiSchema={ uiSchema }
                     fields={ fields }
+                    ObjectFieldTemplate={ CustomObjectFieldTemplate }
+                    FieldTemplate={ CustomFieldTemplate }
                     formData={ this.initialFormData() }
                     onSubmit={ this.formSubmit } >
 
