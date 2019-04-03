@@ -17,6 +17,7 @@ export const filterReducer = function(state = initialStateFor('filter', {}), act
         case pendingMessage(FETCH_FILTER):
             return {
                 ...state,
+                filter: {},
                 loading: true,
                 error: null
             };
