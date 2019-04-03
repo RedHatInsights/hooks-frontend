@@ -23,8 +23,8 @@ import registryDecorator from '@red-hat-insights/insights-frontend-components/Ut
 import {
     LoadingState,
     NotificationsPage,
-    CustomFieldTemplate,
-    FilterList
+    FilterList,
+    CustomInputFieldTemplate
 } from 'PresentationalComponents';
 
 const schema = {
@@ -45,6 +45,10 @@ const uiSchema = {
     url: {
         'ui:placeholder': 'https://...'
     }
+};
+
+const fields = {
+    StringField: CustomInputFieldTemplate
 };
 
 const getTrueKeys = (obj) => {
@@ -147,9 +151,9 @@ export class NotificationEdit extends Component {
                 placeholder={ <Skeleton size={ SkeletonSize.sm } /> }>
                 <Form schema={ schema } className="pf-c-form"
                     uiSchema={ uiSchema }
+                    fields={ fields }
                     formData={ this.initialFormData() }
-                    onSubmit={ this.formSubmit }
-                    FieldTemplate={ CustomFieldTemplate }>
+                    onSubmit={ this.formSubmit } >
 
                     <FilterList ref={ this.filterList }
                         apps={ this.props.apps }
