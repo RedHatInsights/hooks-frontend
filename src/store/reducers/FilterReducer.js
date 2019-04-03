@@ -4,6 +4,7 @@ import {
 import {
     successMessage,
     failureMessage,
+    pendingMessage,
     initialStateFor,
     normalizeData
 } from './reducerHelper';
@@ -13,7 +14,7 @@ export const normalizeFilterData = (payload) =>
 
 export const filterReducer = function(state = initialStateFor('filter', {}), action) {
     switch (action.type) {
-        case FETCH_FILTER:
+        case pendingMessage(FETCH_FILTER):
             return {
                 ...state,
                 loading: true,
