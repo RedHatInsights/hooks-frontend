@@ -46,7 +46,8 @@ export class NotificationsIndex extends Component {
 
     state = {
         page: 1,
-        perPage: 10
+        perPage: 10,
+        rows: []
     }
 
     onSetPage = (page, shouldDebounce) => {
@@ -59,7 +60,9 @@ export class NotificationsIndex extends Component {
     }
 
     refreshData = (page = this.state.page, perPage = this.state.perPage) => {
-        this.props.fetchEndpoints(page, perPage);
+        this.props.fetchEndpoints(page, perPage).then(() =>
+            this.filtersInRowsAndCells()
+        );
     }
 
     onPerPageSelect = (perPage) => {
@@ -67,8 +70,8 @@ export class NotificationsIndex extends Component {
         this.refreshData(null, perPage);
     }
 
-    filtersInRowsAndCells = (endpoints) =>
-        endpoints.map(({ id, attributes: { active, name, url }}) => ({
+    filtersInRowsAndCells = () => {
+        const rows = Object.values(this.props.endpoints).map(({ id, attributes: { active, name, url }}) => ({
             cells: [
                 name,
                 'HTTP',
@@ -78,17 +81,19 @@ export class NotificationsIndex extends Component {
                     id={ parseInt(id) }
                     active={ active }
                     onChange={ (checked) => {
-                        this.props.toggleEndpoint(id, checked).then(() => this.forceUpdate());
+                        this.props.toggleEndpoint(id, checked).then(() => this.filtersInRowsAndCells());
                     } } />,
                 <NotificationActions key={ `notification_actions_${id}` }
                     endpointId={ parseInt(id) }
                     onDelete={ this.onDelete(id, name) } />
             ]}));
+        this.setState({ rows });
+    }
 
     onDelete = (id, name) =>
         event => {
             event.preventDefault();
-            this.props.deleteEndpoint(id, name);
+            this.props.deleteEndpoint(id, name).then(() => this.filtersInRowsAndCells());
         }
 
     noResults = () =>
@@ -105,13 +110,14 @@ export class NotificationsIndex extends Component {
             </EmptyState>
         </Bullseye>
 
-    resultsTable = (endpoints) => {
+    resultsTable = () => {
         const tableColumns = [ 'Name', 'Type', 'Path', 'Status', 'Active',  '' ];
-        const { perPage, page } = this.state;
+        const { perPage, page, rows } = this.state;
+
         return <div>
             <Table aria-label='Notifications list'
                 variant={ TableVariant.medium }
-                rows={ this.filtersInRowsAndCells(Object.values(endpoints)) }
+                rows={ rows }
                 header={ tableColumns }>
                 <TableHeader />
                 <TableBody />
@@ -136,7 +142,7 @@ export class NotificationsIndex extends Component {
                 <LoadingState
                     loading={ this.props.loading }
                     placeholder={ placeholder } >
-                    { Object.values(this.props.endpoints).length > 0 ? this.resultsTable(this.props.endpoints) : this.noResults() }
+                    { this.state.rows.length > 0 ? this.resultsTable() : this.noResults() }
                 </LoadingState>
             </NotificationsPage>
         );
