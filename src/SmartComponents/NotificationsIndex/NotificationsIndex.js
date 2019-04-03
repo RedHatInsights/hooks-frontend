@@ -14,14 +14,17 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actionCreators from 'Store/actions';
 import {
-    Table,
-    TableHeader,
-    TableBody,
-    TableVariant,
     Pagination,
     Skeleton,
     SkeletonSize
 } from '@red-hat-insights/insights-frontend-components';
+import {
+    Table,
+    TableHeader,
+    TableBody,
+    sortable,
+    SortByDirection
+} from '@patternfly/react-table';
 import registryDecorator from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
 import debounce from 'lodash/debounce';
 
@@ -38,17 +41,31 @@ import {
 
 @registryDecorator()
 export class NotificationsIndex extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            page: 1,
+            perPage: 10,
+            rows: [ ],
+            sortBy: { },
+            columns: [
+                { title: 'Name', key: 'name', transforms: [ ]},
+                'Type',
+                'Path',
+                'Status',
+                'Active',
+                ''
+            ]
+        };
+
+        this.onSort = this.onSort.bind(this);
+    }
+
     componentDidMount() {
         this.refreshData();
     }
 
     changePage = debounce(() => { this.refreshData(false); }, 800);
-
-    state = {
-        page: 1,
-        perPage: 10,
-        rows: []
-    }
 
     onSetPage = (page, shouldDebounce) => {
         this.setState({ page });
@@ -71,21 +88,27 @@ export class NotificationsIndex extends Component {
     }
 
     filtersInRowsAndCells = () => {
-        const rows = Object.values(this.props.endpoints).map(({ id, attributes: { active, name, url }}) => ({
+        const endpoints =  Object.values(this.props.endpoints);
+
+        if (endpoints.length === 0) {
+            return null;
+        }
+
+        const rows = endpoints.map(({ id, attributes: { active, name, url }}) => ({
             cells: [
-                name,
-                'HTTP',
-                url,
-                <StatusIcon key={ `notification_status_${id}` } status={ true } />,
-                <EndpointToggle key={ `notification_switch_${id}` }
+                { title: name },
+                { title: 'HTTP' },
+                { title: url },
+                { title: <StatusIcon key={ `notification_status_${id}` } status={ true } /> },
+                { title: <EndpointToggle key={ `notification_switch_${id}` }
                     id={ parseInt(id) }
                     active={ active }
                     onChange={ (checked) => {
                         this.props.toggleEndpoint(id, checked).then(() => this.filtersInRowsAndCells());
-                    } } />,
-                <NotificationActions key={ `notification_actions_${id}` }
+                    } } /> },
+                { title: <NotificationActions key={ `notification_actions_${id}` }
                     endpointId={ parseInt(id) }
-                    onDelete={ this.onDelete(id, name) } />
+                    onDelete={ this.onDelete(id, name) } /> }
             ]}));
         this.setState({ rows });
     }
@@ -95,6 +118,21 @@ export class NotificationsIndex extends Component {
             event.preventDefault();
             this.props.deleteEndpoint(id, name).then(() => this.filtersInRowsAndCells());
         }
+
+    onSort(_event, index, direction) {
+        if (this.state.rows.length === 0) {
+            return;
+        }
+
+        const sortedRows = this.state.rows.sort((a, b) => (a[index] < b[index] ? -1 : a[index] > b[index] ? 1 : 0));
+        this.setState({
+            sortBy: {
+                index,
+                direction
+            },
+            rows: direction === SortByDirection.asc ? sortedRows : sortedRows.reverse()
+        });
+    }
 
     noResults = () =>
         <Bullseye>
@@ -111,19 +149,20 @@ export class NotificationsIndex extends Component {
         </Bullseye>
 
     resultsTable = () => {
-        const tableColumns = [ 'Name', 'Type', 'Path', 'Status', 'Active',  '' ];
-        const { perPage, page, rows } = this.state;
+        const { perPage, page, rows, columns, sortBy } = this.state;
+        const total = this.props.total ? this.props.total : 0;
 
         return <div>
             <Table aria-label='Notifications list'
-                variant={ TableVariant.medium }
                 rows={ rows }
-                header={ tableColumns }>
+                cells={ columns }
+                sortBy={ sortBy }
+                onSort={ this.onSort }>
                 <TableHeader />
                 <TableBody />
             </Table>
             <Pagination
-                numberOfItems={ this.props.total }
+                numberOfItems={ total }
                 itemsPerPage={ perPage }
                 page={ page }
                 onSetPage={ this.onSetPage }
