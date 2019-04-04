@@ -20,7 +20,7 @@ export class CustomBooleanFieldTemplate extends React.Component {
     render() {
         const { value } = this.state;
 
-        return <FormGroup fieldId={ `custom-checkbox-${ this.props.name }` }>
+        return <FormGroup fieldId={ `custom-checkbox-${ this.props.name }` } isRequired={ this.props.required }>
             <Checkbox
                 label={ this.props.schema.title }
                 aria-label={ this.props.schema.title }
@@ -32,8 +32,10 @@ export class CustomBooleanFieldTemplate extends React.Component {
         </FormGroup>;
     }
 }
+
 CustomBooleanFieldTemplate.propTypes = {
     formData: PropTypes.bool,
+    required: PropTypes.bool,
     schema: PropTypes.object,
     name: PropTypes.string,
     onChange: PropTypes.func
