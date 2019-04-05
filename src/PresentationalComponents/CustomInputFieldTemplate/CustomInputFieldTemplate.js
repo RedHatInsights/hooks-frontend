@@ -19,13 +19,14 @@ export class CustomInputFieldTemplate extends React.Component {
 
     render() {
         const { value } = this.state;
+        const placeholder = this.props.uiSchema['ui:placeholder'];
 
         return <FormGroup
             label={ this.props.schema.title }
             isRequired={ this.props.required }
             fieldId={ `custom-input-${ this.props.name }` }>
             <TextInput value={ value } aria-label={ this.props.schema.title }
-                type="text" onChange={ this.handleTextInputChange } />
+                type="text" onChange={ this.handleTextInputChange } placeholder={ placeholder } />
         </FormGroup>;
     }
 }
@@ -34,6 +35,7 @@ CustomInputFieldTemplate.propTypes = {
     formData: PropTypes.string,
     onChange: PropTypes.func,
     schema: PropTypes.object,
+    uiSchema: PropTypes.object,
     name: PropTypes.string,
     required: PropTypes.bool
 };

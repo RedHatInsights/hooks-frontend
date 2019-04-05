@@ -9,6 +9,9 @@ describe('CustomInputFieldTemplate', () => {
             schema: {
                 title: 'Test Input Field'
             },
+            uiSchema: {
+                'ui:placeholder': 'Placeholder text'
+            },
             onChange: jest.fn(),
             name: 'test-input-field',
             required: true

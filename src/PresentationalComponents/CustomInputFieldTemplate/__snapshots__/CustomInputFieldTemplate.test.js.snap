@@ -17,6 +17,7 @@ exports[`CustomInputFieldTemplate expect to render 1`] = `
     isRequired={false}
     isValid={true}
     onChange={[Function]}
+    placeholder="Placeholder text"
     type="text"
     value="Test Form Data"
   />
