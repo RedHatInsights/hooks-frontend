@@ -111,23 +111,13 @@ exports[`NotificationsIndex takes endpoints 1`] = `
                 "title": "http://whatever.com",
               },
               Object {
-                "title": <StatusIcon
-                  status={true}
-                />,
+                "title": "true",
               },
               Object {
-                "title": <EndpointToggle
-                  active={true}
-                  id={36}
-                  onChange={[Function]}
-                />,
+                "title": "true",
               },
               Object {
-                "title": <withRouter(NotificationActions)
-                  endpointId={36}
-                  onDelete={[Function]}
-                  onTest={[Function]}
-                />,
+                "title": "actions",
               },
             ],
             Array [
@@ -141,23 +131,13 @@ exports[`NotificationsIndex takes endpoints 1`] = `
                 "title": "http://whatever1.com",
               },
               Object {
-                "title": <StatusIcon
-                  status={true}
-                />,
+                "title": "true",
               },
               Object {
-                "title": <EndpointToggle
-                  active={true}
-                  id={37}
-                  onChange={[Function]}
-                />,
+                "title": "true",
               },
               Object {
-                "title": <withRouter(NotificationActions)
-                  endpointId={37}
-                  onDelete={[Function]}
-                  onTest={[Function]}
-                />,
+                "title": "actions",
               },
             ],
             Array [
@@ -171,23 +151,13 @@ exports[`NotificationsIndex takes endpoints 1`] = `
                 "title": "http://whatever2.com",
               },
               Object {
-                "title": <StatusIcon
-                  status={true}
-                />,
+                "title": "true",
               },
               Object {
-                "title": <EndpointToggle
-                  active={true}
-                  id={38}
-                  onChange={[Function]}
-                />,
+                "title": "true",
               },
               Object {
-                "title": <withRouter(NotificationActions)
-                  endpointId={38}
-                  onDelete={[Function]}
-                  onTest={[Function]}
-                />,
+                "title": "actions",
               },
             ],
           ]
