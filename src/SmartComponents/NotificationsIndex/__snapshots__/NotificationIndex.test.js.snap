@@ -80,6 +80,21 @@ exports[`NotificationsIndex takes endpoints 1`] = `
     <div>
       <Table
         aria-label="Notifications list"
+        cells={
+          Array [
+            "Name",
+            "Type",
+            "Path",
+            "Status",
+            "Active",
+            "",
+          ]
+        }
+        className=""
+        contentId="expanded-content"
+        dropdownDirection="down"
+        dropdownPosition="right"
+        expandId="expandable-toggle"
         footer={
           <Pagination
             dropDirection="down"
@@ -132,83 +147,113 @@ exports[`NotificationsIndex takes endpoints 1`] = `
             widgetId="pagination-options-menu-bottom"
           />
         }
-        header={
-          Array [
-            "Name",
-            "Type",
-            "Path",
-            "Status",
-            "Active",
-            "",
-          ]
-        }
+        gridBreakPoint="grid-md"
+        onCollapse={null}
+        rowLabeledBy="simple-node"
         rows={
           Array [
-            Object {
-              "cells": Array [
-                "Test 1",
-                "HTTP",
-                "http://whatever.com",
-                <StatusIcon
+            Array [
+              Object {
+                "title": "Test 1",
+              },
+              Object {
+                "title": "HTTP",
+              },
+              Object {
+                "title": "http://whatever.com",
+              },
+              Object {
+                "title": <StatusIcon
                   status={true}
                 />,
-                <EndpointToggle
+              },
+              Object {
+                "title": <EndpointToggle
                   active={true}
                   id={36}
                   onChange={[Function]}
                 />,
-                <withRouter(NotificationActions)
+              },
+              Object {
+                "title": <withRouter(NotificationActions)
                   endpointId={36}
                   onDelete={[Function]}
                   onTest={[Function]}
                 />,
-              ],
-            },
-            Object {
-              "cells": Array [
-                "Test 2",
-                "HTTP",
-                "http://whatever1.com",
-                <StatusIcon
+              },
+            ],
+            Array [
+              Object {
+                "title": "Test 2",
+              },
+              Object {
+                "title": "HTTP",
+              },
+              Object {
+                "title": "http://whatever1.com",
+              },
+              Object {
+                "title": <StatusIcon
                   status={true}
                 />,
-                <EndpointToggle
+              },
+              Object {
+                "title": <EndpointToggle
                   active={true}
                   id={37}
                   onChange={[Function]}
                 />,
-                <withRouter(NotificationActions)
+              },
+              Object {
+                "title": <withRouter(NotificationActions)
                   endpointId={37}
                   onDelete={[Function]}
                   onTest={[Function]}
                 />,
-              ],
-            },
-            Object {
-              "cells": Array [
-                "Test 3",
-                "HTTP",
-                "http://whatever2.com",
-                <StatusIcon
+              },
+            ],
+            Array [
+              Object {
+                "title": "Test 3",
+              },
+              Object {
+                "title": "HTTP",
+              },
+              Object {
+                "title": "http://whatever2.com",
+              },
+              Object {
+                "title": <StatusIcon
                   status={true}
                 />,
-                <EndpointToggle
+              },
+              Object {
+                "title": <EndpointToggle
                   active={true}
                   id={38}
                   onChange={[Function]}
                 />,
-                <withRouter(NotificationActions)
+              },
+              Object {
+                "title": <withRouter(NotificationActions)
                   endpointId={38}
                   onDelete={[Function]}
                   onTest={[Function]}
                 />,
-              ],
-            },
+              },
+            ],
           ]
         }
+        variant={null}
       >
-        <TableHeader />
-        <TableBody />
+        <TableHeader
+          className=""
+        />
+        <TableBody
+          className=""
+          onRowClick={[Function]}
+          rowKey="id"
+        />
       </Table>
     </div>
   </LoadingState>
