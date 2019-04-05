@@ -12,7 +12,7 @@ export class CustomBooleanFieldTemplate extends React.Component {
         value: false
     };
 
-    handleTextInputChange = value => {
+    handleCheckboxToggle = value => {
         this.props.onChange(value);
         this.setState({ value });
     };
