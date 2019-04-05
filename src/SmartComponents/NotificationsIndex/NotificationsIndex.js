@@ -16,13 +16,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actionCreators from 'Store/actions';
 import {
-    Table,
-    TableHeader,
-    TableBody,
-    TableVariant,
     Skeleton,
     SkeletonSize
 } from '@red-hat-insights/insights-frontend-components';
+import {
+    Table,
+    TableHeader,
+    TableBody
+} from '@patternfly/react-table';
 import registryDecorator from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
 import debounce from 'lodash/debounce';
 
@@ -74,24 +75,29 @@ export class NotificationsIndex extends Component {
         this.refreshData(null, perPage);
     }
 
-    filtersInRowsAndCells = (endpoints) =>
-        endpoints.map(({ id, attributes: { active, name, url }}) => ({
-            cells: [
-                name,
-                'HTTP',
-                url,
-                <StatusIcon key={ `notification_status_${id}` } status={ true } />,
-                <EndpointToggle key={ `notification_switch_${id}` }
+    filtersInRowsAndCells = (endpoints) => {
+        if (endpoints.length === 0) {
+            return null;
+        }
+
+        return endpoints.map(({ id, attributes: { active, name, url }}) => (
+            [
+                { title: name },
+                { title: 'HTTP' },
+                { title: url },
+                { title: <StatusIcon key={ `notification_status_${id}` } status={ true } /> },
+                { title: <EndpointToggle key={ `notification_switch_${id}` }
                     id={ parseInt(id) }
                     active={ active }
                     onChange={ (checked) => {
                         this.props.toggleEndpoint(id, checked).then(() => this.forceUpdate());
-                    } } />,
-                <NotificationActions key={ `notification_actions_${id}` }
+                    } } /> },
+                { title: <NotificationActions key={ `notification_actions_${id}` }
                     endpointId={ parseInt(id) }
                     onDelete={ this.onDelete(id, name) }
-                    onTest={ this.onTest(id) } />
-            ]}));
+                    onTest={ this.onTest(id) } /> }
+            ]));
+    }
 
     onDelete = (id, name) =>
         event => {
@@ -122,6 +128,8 @@ export class NotificationsIndex extends Component {
     resultsTable = (endpoints) => {
         const tableColumns = [ 'Name', 'Type', 'Path', 'Status', 'Active',  '' ];
         const { perPage, page } = this.state;
+        const rows = this.filtersInRowsAndCells(Object.values(endpoints));
+
         const pagination = <Pagination
             itemCount={ this.props.total }
             widgetId="pagination-options-menu-bottom"
@@ -133,10 +141,9 @@ export class NotificationsIndex extends Component {
             onPerPageSelect={ this.onPerPageSelect } />;
         return <div>
             <Table aria-label='Notifications list'
-                variant={ TableVariant.medium }
-                rows={ this.filtersInRowsAndCells(Object.values(endpoints)) }
-                header={ tableColumns }
-                footer={ pagination } >
+                rows={ rows }
+                cells={ tableColumns }
+                footer={ pagination }>
                 <TableHeader />
                 <TableBody />
             </Table>
