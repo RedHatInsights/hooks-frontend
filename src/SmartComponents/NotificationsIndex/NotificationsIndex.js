@@ -48,7 +48,8 @@ export class NotificationsIndex extends Component {
 
     state = {
         page: 1,
-        perPage: 10
+        perPage: 10,
+        rows: []
     }
 
     onPageChange = (_event, page, shouldDebounce) => {
@@ -67,7 +68,9 @@ export class NotificationsIndex extends Component {
         event.target.className === 'pf-c-form-control' || this.onPageChange(event, page, false)
 
     refreshData = (page = this.state.page, perPage = this.state.perPage) => {
-        this.props.fetchEndpoints(page, perPage);
+        this.props.fetchEndpoints(page, perPage).then(() =>
+            this.filtersInRowsAndCells()
+        );
     }
 
     onPerPageSelect = (_event, perPage) => {
@@ -75,28 +78,30 @@ export class NotificationsIndex extends Component {
         this.refreshData(null, perPage);
     }
 
-    filtersInRowsAndCells = (endpoints) => {
-        if (endpoints.length === 0) {
-            return null;
+    filtersInRowsAndCells = () => {
+        const endpoints = Object.values(this.props.endpoints);
+        let rows = [];
+        if (endpoints.length > 0) {
+            rows = endpoints.map(({ id, attributes: { active, name, url }}) => (
+                [
+                    { title: name },
+                    { title: 'HTTP' },
+                    { title: url },
+                    { title: <StatusIcon key={ `notification_status_${id}` } status={ true } /> },
+                    { title: <EndpointToggle key={ `notification_switch_${id}` }
+                        id={ parseInt(id) }
+                        active={ active }
+                        onChange={ (checked) => {
+                            this.props.toggleEndpoint(id, checked).then(() => this.filtersInRowsAndCells());
+                        } } /> },
+                    { title: <NotificationActions key={ `notification_actions_${id}` }
+                        endpointId={ parseInt(id) }
+                        onDelete={ this.onDelete(id, name) }
+                        onTest={ this.onTest(id) } /> }
+                ]));
         }
 
-        return endpoints.map(({ id, attributes: { active, name, url }}) => (
-            [
-                { title: name },
-                { title: 'HTTP' },
-                { title: url },
-                { title: <StatusIcon key={ `notification_status_${id}` } status={ true } /> },
-                { title: <EndpointToggle key={ `notification_switch_${id}` }
-                    id={ parseInt(id) }
-                    active={ active }
-                    onChange={ (checked) => {
-                        this.props.toggleEndpoint(id, checked).then(() => this.forceUpdate());
-                    } } /> },
-                { title: <NotificationActions key={ `notification_actions_${id}` }
-                    endpointId={ parseInt(id) }
-                    onDelete={ this.onDelete(id, name) }
-                    onTest={ this.onTest(id) } /> }
-            ]));
+        this.setState({ rows });
     }
 
     onDelete = (id, name) =>
@@ -125,10 +130,9 @@ export class NotificationsIndex extends Component {
             </EmptyState>
         </Bullseye>
 
-    resultsTable = (endpoints) => {
+    resultsTable = () => {
         const tableColumns = [ 'Name', 'Type', 'Path', 'Status', 'Active',  '' ];
-        const { perPage, page } = this.state;
-        const rows = this.filtersInRowsAndCells(Object.values(endpoints));
+        const { perPage, page, rows } = this.state;
 
         return <div>
             <Table aria-label='Notifications list'
@@ -161,7 +165,7 @@ export class NotificationsIndex extends Component {
                 <LoadingState
                     loading={ this.props.loading }
                     placeholder={ placeholder } >
-                    { Object.values(this.props.endpoints).length > 0 ? this.resultsTable(this.props.endpoints) : this.noResults() }
+                    { this.state.rows.length > 0 ? this.resultsTable() : this.noResults() }
                 </LoadingState>
             </NotificationsPage>
         );
