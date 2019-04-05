@@ -95,58 +95,6 @@ exports[`NotificationsIndex takes endpoints 1`] = `
         dropdownDirection="down"
         dropdownPosition="right"
         expandId="expandable-toggle"
-        footer={
-          <Pagination
-            dropDirection="down"
-            itemCount={0}
-            onFirstClick={[Function]}
-            onLastClick={[Function]}
-            onNextClick={[Function]}
-            onPageInput={[Function]}
-            onPerPageSelect={[Function]}
-            onPreviousClick={[Function]}
-            onSetPage={[Function]}
-            page={1}
-            perPage={10}
-            perPageOptions={
-              Array [
-                Object {
-                  "title": "10",
-                  "value": 10,
-                },
-                Object {
-                  "title": "20",
-                  "value": 20,
-                },
-                Object {
-                  "title": "50",
-                  "value": 50,
-                },
-                Object {
-                  "title": "100",
-                  "value": 100,
-                },
-              ]
-            }
-            titles={
-              Object {
-                "currPage": "Current page",
-                "items": "items",
-                "itemsPerPage": "Items per page",
-                "optionsToggle": "Select",
-                "pages": "pages",
-                "paginationTitle": "Pagination",
-                "toFirstPage": "Go to first page",
-                "toLastPage": "Go to last page",
-                "toNextPage": "Go to next page",
-                "toPreviousPage": "Go to previous page",
-              }
-            }
-            toggleTemplate={[Function]}
-            variant="bottom"
-            widgetId="pagination-options-menu-bottom"
-          />
-        }
         gridBreakPoint="grid-md"
         onCollapse={null}
         rowLabeledBy="simple-node"
@@ -254,6 +202,64 @@ exports[`NotificationsIndex takes endpoints 1`] = `
           onRowClick={[Function]}
           rowKey="id"
         />
+        <tfoot>
+          <tr>
+            <td
+              colSpan="6"
+            >
+              <Pagination
+                dropDirection="down"
+                itemCount={0}
+                onFirstClick={[Function]}
+                onLastClick={[Function]}
+                onNextClick={[Function]}
+                onPageInput={[Function]}
+                onPerPageSelect={[Function]}
+                onPreviousClick={[Function]}
+                onSetPage={[Function]}
+                page={1}
+                perPage={10}
+                perPageOptions={
+                  Array [
+                    Object {
+                      "title": "10",
+                      "value": 10,
+                    },
+                    Object {
+                      "title": "20",
+                      "value": 20,
+                    },
+                    Object {
+                      "title": "50",
+                      "value": 50,
+                    },
+                    Object {
+                      "title": "100",
+                      "value": 100,
+                    },
+                  ]
+                }
+                titles={
+                  Object {
+                    "currPage": "Current page",
+                    "items": "items",
+                    "itemsPerPage": "Items per page",
+                    "optionsToggle": "Select",
+                    "pages": "pages",
+                    "paginationTitle": "Pagination",
+                    "toFirstPage": "Go to first page",
+                    "toLastPage": "Go to last page",
+                    "toNextPage": "Go to next page",
+                    "toPreviousPage": "Go to previous page",
+                  }
+                }
+                toggleTemplate={[Function]}
+                variant="bottom"
+                widgetId="pagination-options-menu-bottom"
+              />
+            </td>
+          </tr>
+        </tfoot>
       </Table>
     </div>
   </LoadingState>
