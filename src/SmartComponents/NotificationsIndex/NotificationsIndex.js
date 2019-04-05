@@ -130,22 +130,23 @@ export class NotificationsIndex extends Component {
         const { perPage, page } = this.state;
         const rows = this.filtersInRowsAndCells(Object.values(endpoints));
 
-        const pagination = <Pagination
-            itemCount={ this.props.total }
-            widgetId="pagination-options-menu-bottom"
-            variant={ PaginationVariant.bottom }
-            perPage={ perPage }
-            page={ page }
-            onSetPage={ this.onSetPage }
-            onPageInput={ this.onPageInput }
-            onPerPageSelect={ this.onPerPageSelect } />;
         return <div>
             <Table aria-label='Notifications list'
                 rows={ rows }
-                cells={ tableColumns }
-                footer={ pagination }>
+                cells={ tableColumns }>
                 <TableHeader />
                 <TableBody />
+                <tfoot><tr><td colSpan='6'>
+                    <Pagination
+                        itemCount={ this.props.total }
+                        widgetId="pagination-options-menu-bottom"
+                        variant={ PaginationVariant.bottom }
+                        perPage={ perPage }
+                        page={ page }
+                        onSetPage={ this.onSetPage }
+                        onPageInput={ this.onPageInput }
+                        onPerPageSelect={ this.onPerPageSelect } />
+                </td></tr></tfoot>
             </Table>
         </div>;
     }
