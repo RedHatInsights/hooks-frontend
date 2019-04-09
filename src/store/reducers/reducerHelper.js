@@ -86,10 +86,37 @@ export const includeRelationships = (normalizedPayload) => {
     return relationshipsIncluded;
 };
 
-export const normalizePayload = (payload) =>
-    includeRelationships(normalize(payload));
+export const normalizePayload = (payload, endpoint) =>
+    includeRelationships(normalize(payload, { endpoint }));
 
-export const normalizeData = (data, property) => {
-    const normalizedData = normalizePayload(data)[property];
+function compareValues(key, order = 'asc') {
+    return function(a, b) {
+        if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+            return 0;
+        }
+
+        const first = a[key];
+        const second = b[key];
+
+        let comparison = 0;
+        if (first > second) {
+            comparison = 1;
+        } else if (first < second) {
+            comparison = -1;
+        }
+
+        return order === 'desc' ? comparison * -1 : comparison;
+    };
+}
+
+export const normalizeData = (data, property, endpoint, sortBy) => {
+    let normalizedData = normalizePayload(data, endpoint)[property];
+    normalizedData = _.mapValues(normalizedData, (item) => { return Object.assign(item, item.attributes); });
+
+    if (normalizedData && sortBy) {
+        const sort = sortBy.split(' ');
+        normalizedData = Object.assign({}, Object.values(normalizedData).sort(compareValues(sort[0], sort[1])));
+    }
+
     return normalizedData ? normalizedData : {};
 };
