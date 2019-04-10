@@ -31,7 +31,7 @@ import {
 } from 'PresentationalComponents';
 
 const schema = {
-    title: 'Edit Notification',
+    title: 'Edit Hook',
     type: 'object',
     required: [ 'name', 'url' ],
     properties: {
@@ -134,7 +134,7 @@ export class NotificationEdit extends Component {
 
     render() {
         const endpoint = this.singleEndpoint();
-        let action = this.props.match.params.endpointId && endpoint ? endpoint.attributes.name : 'New Notification';
+        let action = this.props.match.params.endpointId && endpoint ? endpoint.attributes.name : 'New Hook';
         const filter = this.props.match.params.endpointId ? this.props.filter : {};
 
         if (endpoint && !this.props.match.params.endpointId) {
