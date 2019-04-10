@@ -43,7 +43,7 @@ const schema = {
 
 const uiSchema = {
     name: {
-        'ui:placeholder': 'New notification endpoint name'
+        'ui:placeholder': 'New hook endpoint name'
     },
     url: {
         'ui:placeholder': 'https://...'
