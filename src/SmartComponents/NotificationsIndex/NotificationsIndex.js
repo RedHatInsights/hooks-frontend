@@ -194,15 +194,16 @@ export class NotificationsIndex extends Component {
 
     render() {
         const placeholder = <Skeleton size={ SkeletonSize.lg } />;
+        const { loading, newEndpoint, total } = this.props;
 
         return (
             <NotificationsPage
                 title='Notifications'
-                rightBar={ <IndexToolbar onClick={ this.props.newEndpoint }/> }>
+                rightBar={ <IndexToolbar onClick={ newEndpoint }/> }>
                 <LoadingState
-                    loading={ this.props.loading }
+                    loading={ loading }
                     placeholder={ placeholder } >
-                    { this.state.rows.length > 0 ? this.resultsTable() : this.noResults() }
+                    { total > 0 ? this.resultsTable() : this.noResults() }
                 </LoadingState>
             </NotificationsPage>
         );

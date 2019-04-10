@@ -32,7 +32,7 @@ describe('NotificationsIndex', () => {
 
     it('takes endpoints', () => {
         const wrapper = shallow(
-            <NotificationsIndex { ...defaultProps } />
+            <NotificationsIndex { ...defaultProps } total={ 1 } />
         );
         const rows = Object.values(testEndpoints).map(({ attributes: { active, name, url }}) => (
             [
