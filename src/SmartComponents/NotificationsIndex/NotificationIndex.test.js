@@ -67,7 +67,6 @@ describe('NotificationsIndex', () => {
     });
 
     it('does not allow to paginate beyond total on perPage change', () => {
-        Window.insights = {};
         const wrapperProps = {
             ...defaultProps,
             fetchEndpoints: jest.fn(() => Promise.resolve({ endpoints: testEndpoints })),
