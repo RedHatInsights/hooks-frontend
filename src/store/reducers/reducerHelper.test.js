@@ -5,10 +5,12 @@ import {
     failureMessage,
     pendingMessage,
     initialStateFor,
-    includeRelationships
+    includeRelationships,
+    normalizeData
 } from './reducerHelper';
 
 import apps from '../../__fixtures__/apps';
+import endpoints from '../../__fixtures__/endpoints';
 
 describe('initialStateFor', () => {
     it('returns and object with the reducers initial object', () => {
@@ -49,5 +51,19 @@ describe('pendingMessage', () => {
 describe('includeRelationships', () => {
     it('includes related objected into its parent', () => {
         expect(includeRelationships(normalize(apps))).toMatchSnapshot();
+    });
+});
+
+describe('normalizeData', () => {
+    it('normalizes API data', () => {
+        expect(normalizeData(endpoints, 'endpoint', '/endpoint')).toMatchSnapshot();
+    });
+
+    it('sorts it when sortBy is given', () => {
+        expect(normalizeData(endpoints, 'endpoint', '/endpoint', 'url desc')).toMatchSnapshot();
+    });
+
+    it('sorts it asc when sortBy is given', () => {
+        expect(normalizeData(endpoints, 'endpoint', '/endpoint', 'url asc')).toMatchSnapshot();
     });
 });
