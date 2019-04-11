@@ -79,7 +79,7 @@ describe('endpoint reducer', () => {
         const expectation = {
             ...endpointInitialState,
             loading: false,
-            endpoints: _.mapValues(normalizePayload(endpoints).endpoint, (item) => _.assign(item, item.attributes)),
+            endpoints: _.mapValues(normalizePayload(endpoints).endpoint, (item) => ({ ...item, ...item.attributes })),
             total: 3
         };
         const newState = endpointsReducer(

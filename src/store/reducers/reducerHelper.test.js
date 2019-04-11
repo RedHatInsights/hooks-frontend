@@ -1,5 +1,4 @@
 import normalize from 'json-api-normalizer';
-
 import {
     successMessage,
     failureMessage,
@@ -65,5 +64,9 @@ describe('normalizeData', () => {
 
     it('sorts it asc when sortBy is given', () => {
         expect(normalizeData(endpoints, 'endpoint', '/endpoint', 'url asc')).toMatchSnapshot();
+    });
+
+    it('skips sorting when column is not known', () => {
+        expect(normalizeData(endpoints, 'endpoint', '/endpoint', 'unknownColumn asc')).toMatchSnapshot();
     });
 });

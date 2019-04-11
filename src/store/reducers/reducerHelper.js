@@ -64,7 +64,7 @@ export const includeItemRelationships = (item, fullPayload) => {
             });
         });
     });
-    return ensureIdIsNumber(Object.assign(item, relatedResources));
+    return ensureIdIsNumber({ ...item, ...relatedResources });
 };
 
 export const includeRelationships = (normalizedPayload) => {
@@ -111,11 +111,12 @@ function compareValues(key, order = 'asc') {
 
 export const normalizeData = (data, property, endpoint, sortBy) => {
     let normalizedData = normalizePayload(data, endpoint)[property];
-    normalizedData = _.mapValues(normalizedData, (item) => { return Object.assign(item, item.attributes); });
+    normalizedData = _.mapValues(normalizedData, (item) => ({ ...item, ...item.attributes }));
 
     if (normalizedData && sortBy) {
         const sort = sortBy.split(' ');
-        normalizedData = Object.assign({}, Object.values(normalizedData).sort(compareValues(sort[0], sort[1])));
+        const sortedValues = _.values(normalizedData).sort(compareValues(sort[0], sort[1]));
+        normalizedData = _.assign({}, sortedValues);
     }
 
     return normalizedData ? normalizedData : {};
