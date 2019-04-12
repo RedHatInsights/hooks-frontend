@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import ApiClient from 'Utilities/notificationsBackendAPI';
 
 export const FETCH_FILTER    = 'FETCH_FILTER';
@@ -12,7 +11,15 @@ export const FETCH_APPS      = 'FETCH_APPS';
 
 export const fetchEndpoints = (limit, offset, sortBy = 'name asc') => {
     const params = { limit, offset, sort_by: sortBy };
-    const query = _.map(params, (value, key) => value ? `${ key }=${ value }` : '');
+    let query = [];
+
+    Object.keys(params).map(function(key) {
+        const value = params[key];
+        if (value !== undefined) {
+            query.push(`${ key }=${ value }`);
+        }
+    });
+
     const url = `/endpoints?${ query.join('&') }`;
 
     return {
