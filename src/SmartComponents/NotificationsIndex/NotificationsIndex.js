@@ -142,7 +142,7 @@ export class NotificationsIndex extends Component {
     onDelete = (id, name) =>
         event => {
             event.preventDefault();
-            this.props.deleteEndpoint(id, name).then(() => this.filtersInRowsAndCells());
+            this.props.deleteEndpoint(id, name).then(() => this.refreshData());
         }
 
     onTest = (id) =>
