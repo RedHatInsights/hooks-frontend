@@ -2,17 +2,19 @@ import React from 'react';
 import {
     Toolbar,
     ToolbarGroup,
-    ToolbarItem
+    ToolbarItem,
+    Button
 } from '@patternfly/react-core';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export const IndexToolbar = ({ onClick }) =>
-    <Toolbar>
+export const IndexToolbar = ({ onClick }) => {
+    return <Toolbar className="pf-l-toolbar">
         <ToolbarGroup>
-            <ToolbarItem><Link to={ '/new' } onClick={ onClick }>New hook</Link></ToolbarItem>
+            <ToolbarItem><Button component={ Link } to={ '/new' } onClick={ onClick }>New hook</Button></ToolbarItem>
         </ToolbarGroup>
     </Toolbar>;
+};
 
 IndexToolbar.propTypes = {
     onClick: PropTypes.func.isRequired

@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { Button } from '@patternfly/react-core';
+import {
+    Button
+} from '@patternfly/react-core';
 
 import { bindActionCreators } from 'redux';
 import { withRouter, Redirect } from 'react-router-dom';
@@ -164,10 +166,14 @@ export class NotificationEdit extends Component {
                     showErrorList={ false }
                     onSubmit={ this.formSubmit } >
 
-                    <FilterList ref={ this.filterList }
-                        apps={ this.props.apps }
-                        filter={ filter } />
+                    <LoadingState
+                        loading={ this.props.filterLoading }>
 
+                        <FilterList ref={ this.filterList }
+                            apps={ this.props.apps }
+                            filter={ filter } />
+
+                    </LoadingState>
                     <div>
                         <Button type='submit' variant="primary">Submit</Button>
                         <Button onClick={ this.toIndex } variant="secondary">Cancel</Button>

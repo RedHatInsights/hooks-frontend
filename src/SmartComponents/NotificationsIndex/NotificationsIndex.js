@@ -7,7 +7,9 @@ import {
     EmptyStateIcon,
     EmptyStateBody,
     Pagination,
-    PaginationVariant
+    PaginationVariant,
+    Stack,
+    StackItem
 } from '@patternfly/react-core';
 import { Link } from 'react-router-dom';
 import { CubesIcon } from '@patternfly/react-icons';
@@ -188,37 +190,42 @@ export class NotificationsIndex extends Component {
     resultsTable = () => {
         const { perPage, page, rows, columns, sortBy } = this.state;
 
-        return <div>
-            <Table aria-label='Hooks list'
-                rows={ rows }
-                cells={ columns }
-                sortBy={ sortBy }
-                onSort={ this.onSort }>
-                <TableHeader />
-                <TableBody />
-                <tfoot><tr><td colSpan='6'>
-                    <Pagination
-                        itemCount={ this.props.total }
-                        widgetId="pagination-options-menu-bottom"
-                        variant={ PaginationVariant.bottom }
-                        perPage={ perPage }
-                        page={ page }
-                        onSetPage={ this.onSetPage }
-                        onPageInput={ this.onPageInput }
-                        onPerPageSelect={ this.onPerPageSelect } />
-                </td></tr></tfoot>
-            </Table>
-        </div>;
+        return <Stack>
+            <StackItem>
+                <IndexToolbar onClick={ this.props.newEndpoint } />
+            </StackItem>
+            <StackItem>
+                <Table aria-label='Hooks list'
+                    rows={ rows }
+                    cells={ columns }
+                    sortBy={ sortBy }
+                    onSort={ this.onSort }>
+                    <TableHeader />
+                    <TableBody />
+                    <tfoot><tr><td colSpan='6'>
+                        <Pagination
+                            itemCount={ this.props.total }
+                            widgetId="pagination-options-menu-bottom"
+                            variant={ PaginationVariant.bottom }
+                            perPage={ perPage }
+                            page={ page }
+                            onSetPage={ this.onSetPage }
+                            onPageInput={ this.onPageInput }
+                            onPerPageSelect={ this.onPerPageSelect } />
+                    </td></tr></tfoot>
+                </Table>
+            </StackItem>
+        </Stack>;
     }
 
     render() {
         const placeholder = <Skeleton size={ SkeletonSize.lg } />;
-        const { loading, newEndpoint, total } = this.props;
+        const { loading, total } = this.props;
 
         return (
             <NotificationsPage
                 title='Hooks'
-                rightBar={ <IndexToolbar onClick={ newEndpoint }/> }>
+                showBreadcrumb={ false }>
                 <LoadingState
                     loading={ loading }
                     placeholder={ placeholder } >

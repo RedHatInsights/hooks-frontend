@@ -26,6 +26,14 @@ export class NotificationsPage extends Component {
             <BreadcrumbItem to='#' onClick={ this.toIndex }>Hooks</BreadcrumbItem>
             : '';
 
+    showBreadcrumb = () =>
+        this.props.showBreadcrumb && <Breadcrumb>
+            { this.showRootLink() }
+            <BreadcrumbItem isActive>
+                { this.props.title }
+            </BreadcrumbItem>
+        </Breadcrumb>
+
     render() {
         const { rightBar, title, children } = this.props;
 
@@ -34,12 +42,7 @@ export class NotificationsPage extends Component {
                 <PageHeader>
                     <Split>
                         <SplitItem isMain>
-                            <Breadcrumb>
-                                { this.showRootLink() }
-                                <BreadcrumbItem isActive>
-                                    { title }
-                                </BreadcrumbItem>
-                            </Breadcrumb>
+                            { this.showBreadcrumb() }
                             <PageHeaderTitle title={ title } />
                         </SplitItem>
                         <SplitItem>{ rightBar }</SplitItem>
@@ -53,9 +56,14 @@ export class NotificationsPage extends Component {
     }
 };
 
+NotificationsPage.defaultProps = {
+    showBreadcrumb: true
+};
+
 NotificationsPage.propTypes = {
     title: PropTypes.string.isRequired,
     rightBar: PropTypes.node,
+    showBreadcrumb: PropTypes.bool,
     children: PropTypes.node,
     history: PropTypes.object
 };
