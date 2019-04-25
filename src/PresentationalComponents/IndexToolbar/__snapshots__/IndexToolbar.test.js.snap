@@ -4,7 +4,8 @@ exports[`IndexToolbar expect to render 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "pf-l-toolbar",
+      "class": "pf-l-toolbar pf-l-toolbar",
+      "style": "text-align:right",
     },
     "children": Array [
       Object {
@@ -19,6 +20,8 @@ initialize {
             "children": Array [
               Object {
                 "attribs": Object {
+                  "aria-disabled": "false",
+                  "class": "pf-c-button pf-m-primary",
                   "href": "/new",
                 },
                 "children": Array [
@@ -37,9 +40,13 @@ initialize {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
+                  "class": undefined,
                   "href": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
+                  "class": undefined,
                   "href": undefined,
                 },
               },
@@ -94,9 +101,11 @@ initialize {
     "type": "tag",
     "x-attribsNamespace": Object {
       "class": undefined,
+      "style": undefined,
     },
     "x-attribsPrefix": Object {
       "class": undefined,
+      "style": undefined,
     },
   },
   "_root": [Circular],
