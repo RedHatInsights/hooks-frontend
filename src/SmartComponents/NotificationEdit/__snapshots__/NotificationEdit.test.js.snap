@@ -79,7 +79,6 @@ exports[`NotificationEdit expect to render a Form 1`] = `
           />
         }
       >
-        Triggers
         <FilterList
           apps={
             Object {
@@ -1366,7 +1365,6 @@ exports[`NotificationEdit takes an endpoint 1`] = `
           />
         }
       >
-        Triggers
         <FilterList
           apps={
             Object {
