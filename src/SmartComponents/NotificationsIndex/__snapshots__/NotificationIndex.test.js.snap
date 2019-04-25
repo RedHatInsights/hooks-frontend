@@ -73,27 +73,12 @@ exports[`NotificationsIndex takes endpoints 1`] = `
   >
     <TableToolbar
       isFooter={false}
-      style={
-        Object {
-          "display": "block",
-        }
-      }
     >
       <ToolbarGroup
         className={null}
-        style={
-          Object {
-            "display": "block",
-          }
-        }
       >
         <ToolbarItem
           className={null}
-          style={
-            Object {
-              "textAlign": "right",
-            }
-          }
         >
           <Button
             aria-label={null}

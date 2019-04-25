@@ -56,7 +56,7 @@ exports[`NotificationEdit expect to render a Form 1`] = `
             "name",
             "url",
           ],
-          "title": "Basic Details",
+          "title": "Basic details",
           "type": "object",
         }
       }
@@ -1343,7 +1343,7 @@ exports[`NotificationEdit takes an endpoint 1`] = `
             "name",
             "url",
           ],
-          "title": "Basic Details",
+          "title": "Basic details",
           "type": "object",
         }
       }
