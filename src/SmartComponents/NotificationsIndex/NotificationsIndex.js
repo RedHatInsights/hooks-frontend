@@ -198,9 +198,9 @@ export class NotificationsIndex extends Component {
             onPerPageSelect={ this.onPerPageSelect } />;
 
         return <React.Fragment>
-            <TableToolbar style={ { display: 'block' } }>
-                <ToolbarGroup style={ { display: 'block' } }>
-                    <ToolbarItem style={ { textAlign: 'right' } }>
+            <TableToolbar>
+                <ToolbarGroup>
+                    <ToolbarItem>
                         <Button component={ Link } to={ '/new' } onClick={ this.props.newEndpoint }>New hook</Button>
                     </ToolbarItem>
                 </ToolbarGroup>
