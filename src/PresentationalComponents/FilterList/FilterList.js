@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-    CardHeader,
     Checkbox,
     ListItem,
-    Card,
-    CardBody,
     Stack,
     StackItem
 } from '@patternfly/react-core';
@@ -114,25 +111,19 @@ export class FilterList extends Component {
         return (<Stack gutter="md">
             { apps.map((app) =>
                 <StackItem key={ `app-item-${ app.id }` }>
-                    <Card key={ `app-${ app.id }` }>
-                        <CardHeader>
-                            <Checkbox id={ `app-check-${ app.id}` }
-                                data-event-type-id={ app.id }
-                                label={ app.attributes.title }
-                                aria-label={ app.attributes.title }
-                                onChange={ () => this.selectFilter('appIds', app.id) }
-                                defaultChecked={ this.state.selected.appIds[app.id]  } />
-                        </CardHeader>
-                        { this.state.selected.appIds[app.id] &&
-                            <CardBody>
-                                <RadioToggle
-                                    scope={ `app-${ app.id }` }
-                                    selectable={ Object.keys(app.eventTypes).length > 0 }
-                                    initial={ Object.keys(app.eventTypes).some((id) => this.state.selected.eventTypeIds[id]) ? SELECTED : ALL }>
-                                    { this.eventTypesList(app.eventTypes, app.id) }
-                                </RadioToggle>
-                            </CardBody> }
-                    </Card>
+                    <Checkbox id={ `app-check-${ app.id}` }
+                        data-event-type-id={ app.id }
+                        label={ <strong>{ app.attributes.title }</strong> }
+                        aria-label={ app.attributes.title }
+                        onChange={ () => this.selectFilter('appIds', app.id) }
+                        defaultChecked={ this.state.selected.appIds[app.id]  } />
+                    { this.state.selected.appIds[app.id] &&
+                        <RadioToggle
+                            scope={ `app-${ app.id }` }
+                            selectable={ Object.keys(app.eventTypes).length > 0 }
+                            initial={ Object.keys(app.eventTypes).some((id) => this.state.selected.eventTypeIds[id]) ? SELECTED : ALL }>
+                            { this.eventTypesList(app.eventTypes, app.id) }
+                        </RadioToggle> }
                 </StackItem>
             ) }
         </Stack>);

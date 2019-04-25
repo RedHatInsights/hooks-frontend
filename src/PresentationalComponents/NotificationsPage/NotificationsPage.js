@@ -8,9 +8,7 @@ import {
 } from '@red-hat-insights/insights-frontend-components';
 import {
     Breadcrumb,
-    BreadcrumbItem,
-    Split,
-    SplitItem
+    BreadcrumbItem
 } from '@patternfly/react-core';
 
 import PropTypes from 'prop-types';
@@ -29,26 +27,19 @@ export class NotificationsPage extends Component {
     showBreadcrumb = () =>
         this.props.showBreadcrumb && <Breadcrumb>
             { this.showRootLink() }
-            <BreadcrumbItem isActive>
-                { this.props.title }
-            </BreadcrumbItem>
+            <BreadcrumbItem isActive>{ this.props.title }</BreadcrumbItem>
         </Breadcrumb>
 
     render() {
-        const { rightBar, title, children } = this.props;
+        const { title, children } = this.props;
 
         return (
             <Fragment>
                 <PageHeader>
-                    <Split>
-                        <SplitItem isMain>
-                            { this.showBreadcrumb() }
-                            <PageHeaderTitle title={ title } />
-                        </SplitItem>
-                        <SplitItem>{ rightBar }</SplitItem>
-                    </Split>
+                    { this.showBreadcrumb() }
+                    <PageHeaderTitle title={ title } />
                 </PageHeader>
-                <Main>
+                <Main style={ this.props.mainStyle }>
                     { children }
                 </Main>
             </Fragment>
@@ -65,7 +56,8 @@ NotificationsPage.propTypes = {
     rightBar: PropTypes.node,
     showBreadcrumb: PropTypes.bool,
     children: PropTypes.node,
-    history: PropTypes.object
+    history: PropTypes.object,
+    mainStyle: PropTypes.object
 };
 
 export default withRouter(NotificationsPage);

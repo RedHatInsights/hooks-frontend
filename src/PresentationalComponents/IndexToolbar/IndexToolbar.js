@@ -9,9 +9,11 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export const IndexToolbar = ({ onClick }) => {
-    return <Toolbar className="pf-l-toolbar">
+    return <Toolbar className="pf-l-toolbar" style={ { textAlign: 'right' } }>
         <ToolbarGroup>
-            <ToolbarItem><Button component={ Link } to={ '/new' } onClick={ onClick }>New hook</Button></ToolbarItem>
+            <ToolbarItem>
+                <Button component={ Link } to={ '/new' } onClick={ onClick }>New hook</Button>
+            </ToolbarItem>
         </ToolbarGroup>
     </Toolbar>;
 };

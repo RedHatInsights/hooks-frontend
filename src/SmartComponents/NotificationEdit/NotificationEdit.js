@@ -152,7 +152,7 @@ export class NotificationEdit extends Component {
             return <Redirect to={ `/edit/${ endpoint.id }` } />;
         }
 
-        return <NotificationsPage title={ `${ action }` }>
+        return <NotificationsPage title={ `${ action }` } mainStyle={ { background: 'white' } }>
             <LoadingState
                 loading={ this.props.loading }
                 placeholder={ <Skeleton size={ SkeletonSize.sm } /> }>
@@ -167,7 +167,8 @@ export class NotificationEdit extends Component {
                     onSubmit={ this.formSubmit } >
 
                     <LoadingState
-                        loading={ this.props.filterLoading }>
+                        loading={ this.props.filterLoading }
+                        placeholder={ <Skeleton size={ SkeletonSize.sm } /> }>
 
                         <FilterList ref={ this.filterList }
                             apps={ this.props.apps }

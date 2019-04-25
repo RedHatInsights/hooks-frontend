@@ -190,7 +190,7 @@ export class NotificationsIndex extends Component {
     resultsTable = () => {
         const { perPage, page, rows, columns, sortBy } = this.state;
 
-        return <Stack>
+        return <Stack gutter="md">
             <StackItem>
                 <IndexToolbar onClick={ this.props.newEndpoint } />
             </StackItem>
