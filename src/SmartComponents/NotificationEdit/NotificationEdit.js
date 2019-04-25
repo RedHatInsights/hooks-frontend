@@ -176,8 +176,7 @@ export class NotificationEdit extends Component {
 
                     </LoadingState>
                     <div>
-                        <Button type='submit' variant="primary">Submit</Button>
-                        <Button onClick={ this.toIndex } variant="secondary">Cancel</Button>
+                        <Button type='submit' variant="primary">Submit</Button> <Button onClick={ this.toIndex } variant="secondary">Cancel</Button>
                     </div>
                 </Form>
             </LoadingState>

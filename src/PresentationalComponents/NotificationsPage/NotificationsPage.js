@@ -25,9 +25,9 @@ export class NotificationsPage extends Component {
             : '';
 
     showBreadcrumb = () =>
-        this.props.showBreadcrumb && <Breadcrumb>
+        this.props.showBreadcrumb && <Breadcrumb style={ { marginLeft: 'calc(var(--pf-c-content--ol--MarginLeft) * -1 * 2)' } }>
             { this.showRootLink() }
-            <BreadcrumbItem isActive>{ this.props.title }</BreadcrumbItem>
+            <BreadcrumbItem isActive style={ { marginTop: 0 } }>{ this.props.title }</BreadcrumbItem>
         </Breadcrumb>
 
     render() {
