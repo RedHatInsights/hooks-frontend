@@ -170,7 +170,6 @@ export class NotificationEdit extends Component {
                     <LoadingState
                         loading={ this.props.filterLoading }
                         placeholder={ <Skeleton size={ SkeletonSize.sm } /> }>
-                        Triggers
                         <FilterList ref={ this.filterList }
                             apps={ this.props.apps }
                             filter={ filter } />

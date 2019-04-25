@@ -4,7 +4,8 @@ import {
     Checkbox,
     ListItem,
     Stack,
-    StackItem
+    StackItem,
+    Title
 } from '@patternfly/react-core';
 
 import { BulletlessList, RadioToggle, ALL, SELECTED } from 'PresentationalComponents';
@@ -109,6 +110,9 @@ export class FilterList extends Component {
         const apps = _.values(this.props.apps);
 
         return (<Stack gutter="md">
+            { apps.length > 0 &&
+                <Title size='md'>Triggers</Title>
+            }
             { apps.map((app) =>
                 <StackItem key={ `app-item-${ app.id }` }>
                     <Checkbox id={ `app-check-${ app.id}` }
