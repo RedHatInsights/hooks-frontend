@@ -5,6 +5,7 @@ exports[`NotificationEdit expect to render a Form 1`] = `
   mainStyle={
     Object {
       "background": "white",
+      "borderTop": "1px solid var(--pf-global--BorderColor--light)",
     }
   }
   title="New Hook"
@@ -55,7 +56,7 @@ exports[`NotificationEdit expect to render a Form 1`] = `
             "name",
             "url",
           ],
-          "title": "Edit Hook",
+          "title": "Basic Details",
           "type": "object",
         }
       }
@@ -78,6 +79,7 @@ exports[`NotificationEdit expect to render a Form 1`] = `
           />
         }
       >
+        Triggers
         <FilterList
           apps={
             Object {
@@ -1290,6 +1292,7 @@ exports[`NotificationEdit takes an endpoint 1`] = `
   mainStyle={
     Object {
       "background": "white",
+      "borderTop": "1px solid var(--pf-global--BorderColor--light)",
     }
   }
   title="New Hook"
@@ -1340,7 +1343,7 @@ exports[`NotificationEdit takes an endpoint 1`] = `
             "name",
             "url",
           ],
-          "title": "Edit Hook",
+          "title": "Basic Details",
           "type": "object",
         }
       }
@@ -1363,6 +1366,7 @@ exports[`NotificationEdit takes an endpoint 1`] = `
           />
         }
       >
+        Triggers
         <FilterList
           apps={
             Object {
