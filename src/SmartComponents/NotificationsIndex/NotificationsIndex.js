@@ -7,9 +7,8 @@ import {
     EmptyStateIcon,
     EmptyStateBody,
     Pagination,
-    PaginationVariant,
-    Stack,
-    StackItem
+    ToolbarGroup,
+    ToolbarItem
 } from '@patternfly/react-core';
 import { Link } from 'react-router-dom';
 import { CubesIcon } from '@patternfly/react-icons';
@@ -19,7 +18,8 @@ import PropTypes from 'prop-types';
 import * as actionCreators from 'Store/actions';
 import {
     Skeleton,
-    SkeletonSize
+    SkeletonSize,
+    TableToolbar
 } from '@red-hat-insights/insights-frontend-components';
 import {
     Table,
@@ -34,7 +34,6 @@ import './notifications-index.scss';
 
 import {
     EndpointToggle,
-    IndexToolbar,
     LoadingState,
     NotificationActions,
     NotificationsPage,
@@ -189,33 +188,35 @@ export class NotificationsIndex extends Component {
 
     resultsTable = () => {
         const { perPage, page, rows, columns, sortBy } = this.state;
+        const pagination = <Pagination
+            itemCount={ this.props.total }
+            widgetId="pagination-options-menu-bottom"
+            perPage={ perPage }
+            page={ page }
+            onSetPage={ this.onSetPage }
+            onPageInput={ this.onPageInput }
+            onPerPageSelect={ this.onPerPageSelect } />;
 
-        return <Stack gutter="md">
-            <StackItem>
-                <IndexToolbar onClick={ this.props.newEndpoint } />
-            </StackItem>
-            <StackItem>
-                <Table aria-label='Hooks list'
-                    rows={ rows }
-                    cells={ columns }
-                    sortBy={ sortBy }
-                    onSort={ this.onSort }>
-                    <TableHeader />
-                    <TableBody />
-                    <tfoot><tr><td colSpan='6'>
-                        <Pagination
-                            itemCount={ this.props.total }
-                            widgetId="pagination-options-menu-bottom"
-                            variant={ PaginationVariant.bottom }
-                            perPage={ perPage }
-                            page={ page }
-                            onSetPage={ this.onSetPage }
-                            onPageInput={ this.onPageInput }
-                            onPerPageSelect={ this.onPerPageSelect } />
-                    </td></tr></tfoot>
-                </Table>
-            </StackItem>
-        </Stack>;
+        return <React.Fragment>
+            <TableToolbar style={ { display: 'block' } }>
+                <ToolbarGroup style={ { display: 'block' } }>
+                    <ToolbarItem style={ { textAlign: 'right' } }>
+                        <Button component={ Link } to={ '/new' } onClick={ this.props.newEndpoint }>New hook</Button>
+                    </ToolbarItem>
+                </ToolbarGroup>
+            </TableToolbar>
+            <Table aria-label='Hooks list'
+                rows={ rows }
+                cells={ columns }
+                sortBy={ sortBy }
+                onSort={ this.onSort }>
+                <TableHeader />
+                <TableBody />
+                <tfoot><tr><td colSpan='6'>
+                    { pagination }
+                </td></tr></tfoot>
+            </Table>
+        </React.Fragment>;
     }
 
     render() {
