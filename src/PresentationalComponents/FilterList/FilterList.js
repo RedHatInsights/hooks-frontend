@@ -116,14 +116,16 @@ export class FilterList extends Component {
                         label={ <strong>{ app.attributes.title }</strong> }
                         aria-label={ app.attributes.title }
                         onChange={ () => this.selectFilter('appIds', app.id) }
-                        defaultChecked={ this.state.selected.appIds[app.id]  } />
+                        defaultChecked={ this.state.selected.appIds[app.id]  }/>
                     { this.state.selected.appIds[app.id] &&
-                        <RadioToggle
-                            scope={ `app-${ app.id }` }
-                            selectable={ Object.keys(app.eventTypes).length > 0 }
-                            initial={ Object.keys(app.eventTypes).some((id) => this.state.selected.eventTypeIds[id]) ? SELECTED : ALL }>
-                            { this.eventTypesList(app.eventTypes, app.id) }
-                        </RadioToggle> }
+                        <div style={ { marginTop: '1em', marginLeft: '1em' } }>
+                            <RadioToggle
+                                scope={ `app-${ app.id }` }
+                                selectable={ Object.keys(app.eventTypes).length > 0 }
+                                initial={ Object.keys(app.eventTypes).some((id) => this.state.selected.eventTypeIds[id]) ? SELECTED : ALL }>
+                                { this.eventTypesList(app.eventTypes, app.id) }
+                            </RadioToggle>
+                        </div> }
                 </StackItem>
             ) }
         </Stack>);

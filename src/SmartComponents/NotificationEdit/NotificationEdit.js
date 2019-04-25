@@ -34,7 +34,7 @@ import {
 } from 'PresentationalComponents';
 
 const schema = {
-    title: 'Edit Hook',
+    title: 'Basic Details',
     type: 'object',
     required: [ 'name', 'url' ],
     properties: {
@@ -147,12 +147,13 @@ export class NotificationEdit extends Component {
         const endpoint = this.singleEndpoint();
         let action = this.props.match.params.endpointId && endpoint ? endpoint.attributes.name : 'New Hook';
         const filter = this.props.match.params.endpointId ? this.props.filter : {};
+        const mainStyle = { background: 'white', borderTop: '1px solid var(--pf-global--BorderColor--light)' };
 
         if (endpoint && !this.props.match.params.endpointId) {
             return <Redirect to={ `/edit/${ endpoint.id }` } />;
         }
 
-        return <NotificationsPage title={ `${ action }` } mainStyle={ { background: 'white' } }>
+        return <NotificationsPage title={ `${ action }` } mainStyle={ mainStyle }>
             <LoadingState
                 loading={ this.props.loading }
                 placeholder={ <Skeleton size={ SkeletonSize.sm } /> }>
@@ -169,7 +170,7 @@ export class NotificationEdit extends Component {
                     <LoadingState
                         loading={ this.props.filterLoading }
                         placeholder={ <Skeleton size={ SkeletonSize.sm } /> }>
-
+                        Triggers
                         <FilterList ref={ this.filterList }
                             apps={ this.props.apps }
                             filter={ filter } />
