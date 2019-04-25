@@ -34,7 +34,7 @@ import {
 } from 'PresentationalComponents';
 
 const schema = {
-    title: 'Basic Details',
+    title: 'Basic details',
     type: 'object',
     required: [ 'name', 'url' ],
     properties: {
