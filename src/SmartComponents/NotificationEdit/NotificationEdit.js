@@ -20,7 +20,8 @@ import {
 } from 'Store/actions';
 import {
     Skeleton,
-    SkeletonSize
+    SkeletonSize,
+    Spinner
 } from '@red-hat-insights/insights-frontend-components';
 import registryDecorator from '@red-hat-insights/insights-frontend-components/Utilities/Registry';
 import {
@@ -79,6 +80,7 @@ export class NotificationEdit extends Component {
         history: PropTypes.object,
         loading: PropTypes.bool,
         filterLoading: PropTypes.bool,
+        appsLoading: PropTypes.bool,
         endpointErrors: PropTypes.object,
         submitting: PropTypes.bool
     }
@@ -168,8 +170,9 @@ export class NotificationEdit extends Component {
                     onSubmit={ this.formSubmit } >
 
                     <LoadingState
-                        loading={ this.props.filterLoading }
-                        placeholder={ <Skeleton size={ SkeletonSize.sm } /> }>
+                        loading={ this.props.filterLoading || this.props.appsLoading }
+                        placeholder={ <Spinner centered /> }>
+
                         <FilterList ref={ this.filterList }
                             apps={ this.props.apps }
                             filter={ filter } />
