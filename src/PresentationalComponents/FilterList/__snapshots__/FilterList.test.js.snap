@@ -45,6 +45,7 @@ exports[`FilterList expect to render 1`] = `
           class="pf-c-radio__input"
           id="app-1-radio-all"
           name="app-1-event-type-radio"
+          style="margin-top:.5em;margin-bottom:.5em"
           type="radio"
           value="all"
         />
@@ -116,6 +117,7 @@ exports[`FilterList expect to render 1`] = `
           class="pf-c-radio__input"
           id="app-3-radio-all"
           name="app-3-event-type-radio"
+          style="margin-top:.5em;margin-bottom:.5em"
           type="radio"
           value="all"
         />
@@ -135,6 +137,7 @@ exports[`FilterList expect to render 1`] = `
           class="pf-c-radio__input"
           id="app-3-radio-selected"
           name="app-3-event-type-radio"
+          style="margin-bottom:1em;margin-top:.5em"
           type="radio"
           value="selected-only"
         />
@@ -252,6 +255,7 @@ exports[`FilterList expect to render 1`] = `
           class="pf-c-radio__input"
           id="app-4-radio-all"
           name="app-4-event-type-radio"
+          style="margin-top:.5em;margin-bottom:.5em"
           type="radio"
           value="all"
         />
@@ -271,6 +275,7 @@ exports[`FilterList expect to render 1`] = `
           class="pf-c-radio__input"
           id="app-4-radio-selected"
           name="app-4-event-type-radio"
+          style="margin-bottom:1em;margin-top:.5em"
           type="radio"
           value="selected-only"
         />
@@ -500,6 +505,7 @@ exports[`FilterList expect to render 1`] = `
           class="pf-c-radio__input"
           id="app-8-radio-all"
           name="app-8-event-type-radio"
+          style="margin-top:.5em;margin-bottom:.5em"
           type="radio"
           value="all"
         />
@@ -519,6 +525,7 @@ exports[`FilterList expect to render 1`] = `
           class="pf-c-radio__input"
           id="app-8-radio-selected"
           name="app-8-event-type-radio"
+          style="margin-bottom:1em;margin-top:.5em"
           type="radio"
           value="selected-only"
         />

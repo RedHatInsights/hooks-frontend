@@ -74,8 +74,8 @@ exports[`NotificationEdit expect to render a Form 1`] = `
     >
       <LoadingState
         placeholder={
-          <Skeleton
-            size="sm"
+          <Spinner
+            centered={true}
           />
         }
       >
@@ -1360,8 +1360,8 @@ exports[`NotificationEdit takes an endpoint 1`] = `
     >
       <LoadingState
         placeholder={
-          <Skeleton
-            size="sm"
+          <Spinner
+            centered={true}
           />
         }
       >
