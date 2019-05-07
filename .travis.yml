@@ -7,6 +7,7 @@ node_js:
 install:
   - npm ci
 script:
+  - cat package-lock.json
   - npm run travis:verify
 after_success:
   - bash <(curl -s https://codecov.io/bash) -e TRAVIS_NODE_VERSION
