@@ -7,26 +7,37 @@ export const API_HEADERS = {
 
 class BackendAPIClient {
     static request(path, apiProps, method) {
-        return window.insights.chrome.auth.getUser()
-        .then(() => {
-            return fetch(NOTIFICATIONS_API_ROOT.concat(path), {
-                method: method || 'get',
-                headers: API_HEADERS,
-                body: JSON.stringify(apiProps)
-            });
-        }).then((response) => {
-            if (!response.ok && response.status !== 422) {
-                throw new Error(response.statusText);
-            }
+        return this.authenticate()
+        .then(() => this.fetch(path, apiProps, method))
+        .then(this.checkForErrors)
+        .then(this.checkForEmptyResponse)
+        .then((response) => response.json());
+    }
 
-            if (response.status === 422) {
-                return response.clone()
-                .json()
-                .then((json) => Promise.reject(json));
-            }
-
-            return (response.status !== 204) ? response.json() : {};
+    static fetch(path, apiProps, method) {
+        return fetch(NOTIFICATIONS_API_ROOT.concat(path), {
+            method: method || 'get',
+            headers: API_HEADERS,
+            body: JSON.stringify(apiProps)
         });
+    }
+
+    static checkForEmptyResponse(response) {
+        return response.status === 204 ? { json: () => ({}) } : response;
+    }
+
+    static checkForErrors(response) {
+        if (response.status >= 400 && response.status <= 600) {
+            return response.clone()
+            .json()
+            .then((json) => Promise.reject(response.status !== 422 ? json.errors[0] : json));
+        }
+
+        return response;
+    }
+
+    static authenticate() {
+        return window.insights.chrome.auth.getUser();
     }
 
     static create(path, apiProps) {

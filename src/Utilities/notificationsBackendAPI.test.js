@@ -28,6 +28,49 @@ describe('request', () => {
     });
 });
 
+describe('checkForErrors', () => {
+    const errors = {
+        errors: [
+            {
+                title: 'Not found',
+                detail: 'Record not found'
+            }
+        ]
+    };
+
+    it('returns the response if status is not between 400 and <600', () => {
+        const response = {
+            status: 200,
+            body: 'OK'
+        };
+        expect(ApiClient.checkForErrors(response)).toBe(response);
+    });
+
+    it('rejects with first error if status is between 400 and <600', () => {
+        const response = {
+            status: 404,
+            body: 'Not found',
+            json: jest.fn(() => Promise.resolve(errors))
+        };
+        response.clone = jest.fn(() => response);
+
+        expect(ApiClient.checkForErrors(response)).rejects.toBe(errors.errors[0]);
+        expect(response.json).toHaveBeenCalled();
+    });
+
+    it('rejects with the all errors if status is 422', () => {
+        const response = {
+            status: 422,
+            body: 'Unprocessable entity',
+            json: jest.fn(() => Promise.resolve(errors))
+        };
+        response.clone = jest.fn(() => response);
+
+        expect(ApiClient.checkForErrors(response)).rejects.toBe(errors);
+        expect(response.json).toHaveBeenCalled();
+    });
+});
+
 describe('API calls', () => {
     const mockGet = jest.fn(() => ({}));
 
