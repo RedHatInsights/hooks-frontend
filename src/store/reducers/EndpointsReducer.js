@@ -145,7 +145,8 @@ export const endpointsReducer = function(state = initialStateFor('endpoints', {}
                 ...state,
                 submitting: false,
                 endpoint: action.meta.data,
-                error: true
+                error: true,
+                errors: action.payload.errors
             };
 
         case NEW_ENDPOINT:
