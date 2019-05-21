@@ -6,27 +6,36 @@ export const API_HEADERS = {
 };
 
 class BackendAPIClient {
-    static request(path, apiProps, method) {
+    static request(path, apiProps, method, options = {}) {
         return this.authenticate()
         .then(() => this.fetch(path, apiProps, method))
-        .then(this.checkForErrors)
         .then(this.checkForEmptyResponse)
+        .then((response) => this.checkForErrors(response, options))
         .then((response) => response.json());
     }
 
     static fetch(path, apiProps, method) {
-        return fetch(NOTIFICATIONS_API_ROOT.concat(path), {
+        let params = {
             method: method || 'get',
-            headers: API_HEADERS,
-            body: JSON.stringify(apiProps)
-        });
+            headers: API_HEADERS
+        };
+
+        if (apiProps) {
+            params.body = JSON.stringify(apiProps);
+        }
+
+        return fetch(NOTIFICATIONS_API_ROOT.concat(path), params);
     }
 
     static checkForEmptyResponse(response) {
         return response.status === 204 ? { json: () => ({}) } : response;
     }
 
-    static checkForErrors(response) {
+    static checkForErrors(response, options = {}) {
+        if (response.status === 404 && options.ignore404) {
+            return { json: () => ({}) };
+        }
+
         if (response.status >= 400 && response.status <= 600) {
             return response.clone()
             .json()
@@ -48,8 +57,8 @@ class BackendAPIClient {
         return this.request(path, apiProps, 'put');
     }
 
-    static get(path) {
-        return this.request(path);
+    static get(path, options = {}) {
+        return this.request(path, null, 'get', options);
     }
 
     static destroy(path) {

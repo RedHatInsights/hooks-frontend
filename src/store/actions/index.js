@@ -111,7 +111,7 @@ export const testEndpoint = (endpointId) => ({
 
 export const fetchFilter = (endpointId) => ({
     type: FETCH_FILTER,
-    payload: ApiClient.get(`/endpoints/${ endpointId }/filter`)
+    payload: ApiClient.get(`/endpoints/${ endpointId }/filter`, { ignore404: true })
 });
 
 export const fetchApps = () => ({

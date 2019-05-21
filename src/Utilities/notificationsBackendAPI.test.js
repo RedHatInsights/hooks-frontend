@@ -90,7 +90,12 @@ describe('API calls', () => {
     describe('get', () => {
         it('calls request with path and get', () => {
             expect(ApiClient.get('/get')).toEqual({});
-            expect(ApiClient.request).toHaveBeenCalledWith('/get');
+            expect(ApiClient.request).toHaveBeenCalledWith('/get', null, 'get', {});
+        });
+
+        it('passes on options', () => {
+            expect(ApiClient.get('/get', { ignore404: true })).toEqual({});
+            expect(ApiClient.request).toHaveBeenCalledWith('/get', null, 'get', { ignore404: true });
         });
     });
 
