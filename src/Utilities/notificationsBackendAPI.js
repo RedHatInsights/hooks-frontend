@@ -36,10 +36,18 @@ class BackendAPIClient {
             return { json: () => ({}) };
         }
 
+        const responseCloneJson = response.clone().json();
+
+        if (response.status === 422) {
+            return responseCloneJson.then((json) =>
+                Promise.reject({ ...json, title: 'Validation error' })
+            );
+        }
+
         if (response.status >= 400 && response.status <= 600) {
-            return response.clone()
-            .json()
-            .then((json) => Promise.reject(response.status !== 422 ? json.errors[0] : json));
+            return responseCloneJson.then((json) =>
+                Promise.reject(json.errors[0])
+            );
         }
 
         return response;
