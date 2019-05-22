@@ -41,8 +41,10 @@ describe('checkForErrors', () => {
     it('returns the response if status is not between 400 and <600', () => {
         const response = {
             status: 200,
-            body: 'OK'
+            body: 'OK',
+            json: jest.fn(() => Promise.resolve(errors))
         };
+        response.clone = jest.fn(() => response);
         expect(ApiClient.checkForErrors(response)).toBe(response);
     });
 
