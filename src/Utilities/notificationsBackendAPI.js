@@ -36,7 +36,7 @@ class BackendAPIClient {
             return { json: () => ({}) };
         }
 
-        const responseCloneJson = response.clone().json();
+        const responseCloneJson = response.clone ? response.clone().json() : response;
 
         if (response.status === 422) {
             return responseCloneJson.then((json) =>
