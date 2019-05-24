@@ -45,7 +45,7 @@ describe('checkForErrors', () => {
             json: jest.fn(() => Promise.resolve(errors))
         };
         response.clone = jest.fn(() => response);
-        expect(ApiClient.checkForErrors(response)).toBe(response);
+        expect(ApiClient.checkForErrors(response)).toEqual(response);
     });
 
     it('rejects with first error if status is between 400 and <600', () => {
@@ -56,7 +56,7 @@ describe('checkForErrors', () => {
         };
         response.clone = jest.fn(() => response);
 
-        expect(ApiClient.checkForErrors(response)).rejects.toBe(errors.errors[0]);
+        expect(ApiClient.checkForErrors(response)).rejects.toEqual(errors.errors[0]);
         expect(response.json).toHaveBeenCalled();
     });
 
@@ -67,8 +67,9 @@ describe('checkForErrors', () => {
             json: jest.fn(() => Promise.resolve(errors))
         };
         response.clone = jest.fn(() => response);
+        const rejection = { ...errors,  title: 'Validation error' };
 
-        expect(ApiClient.checkForErrors(response)).rejects.toBe(errors);
+        expect(ApiClient.checkForErrors(response)).rejects.toEqual(rejection);
         expect(response.json).toHaveBeenCalled();
     });
 });
