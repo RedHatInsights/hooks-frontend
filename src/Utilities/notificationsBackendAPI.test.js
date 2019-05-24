@@ -38,17 +38,17 @@ describe('checkForErrors', () => {
         ]
     };
 
-    it('returns the response if status is not between 400 and <600', () => {
+    it('returns the response if status is not between 400 and <600', async () => {
         const response = {
             status: 200,
             body: 'OK',
             json: jest.fn(() => Promise.resolve(errors))
         };
         response.clone = jest.fn(() => response);
-        expect(ApiClient.checkForErrors(response)).toEqual(response);
+        await expect(ApiClient.checkForErrors(response)).toEqual(response);
     });
 
-    it('rejects with first error if status is between 400 and <600', () => {
+    it('rejects with first error if status is between 400 and <600', async () => {
         const response = {
             status: 404,
             body: 'Not found',
@@ -56,11 +56,11 @@ describe('checkForErrors', () => {
         };
         response.clone = jest.fn(() => response);
 
-        expect(ApiClient.checkForErrors(response)).rejects.toEqual(errors.errors[0]);
+        await expect(ApiClient.checkForErrors(response)).rejects.toEqual(errors.errors[0]);
         expect(response.json).toHaveBeenCalled();
     });
 
-    it('rejects with the all errors if status is 422', () => {
+    it('rejects with the all errors if status is 422', async () => {
         const response = {
             status: 422,
             body: 'Unprocessable entity',
@@ -69,7 +69,7 @@ describe('checkForErrors', () => {
         response.clone = jest.fn(() => response);
         const rejection = { ...errors,  title: 'Validation error' };
 
-        expect(ApiClient.checkForErrors(response)).rejects.toEqual(rejection);
+        await expect(ApiClient.checkForErrors(response)).rejects.toEqual(rejection);
         expect(response.json).toHaveBeenCalled();
     });
 });
