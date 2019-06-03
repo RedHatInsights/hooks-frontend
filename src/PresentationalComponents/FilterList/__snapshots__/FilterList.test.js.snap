@@ -180,6 +180,31 @@ Array [
                   Seed Type 1
                 </label>
               </div>
+              <ul
+                class="pf-c-list"
+                style="list-style:none"
+              >
+                <li>
+                  <div
+                    class="pf-c-check"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="level-0"
+                      class="pf-c-check__input"
+                      data-event-type-id="2"
+                      id="level-check-2"
+                      type="checkbox"
+                    />
+                    <label
+                      class="pf-c-check__label"
+                      for="level-check-2"
+                    >
+                      level-0
+                    </label>
+                  </div>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -329,6 +354,71 @@ Array [
                   Seed Type 1
                 </label>
               </div>
+              <ul
+                class="pf-c-list"
+                style="list-style:none"
+              >
+                <li>
+                  <div
+                    class="pf-c-check"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="level-0"
+                      class="pf-c-check__input"
+                      data-event-type-id="6"
+                      id="level-check-6"
+                      type="checkbox"
+                    />
+                    <label
+                      class="pf-c-check__label"
+                      for="level-check-6"
+                    >
+                      level-0
+                    </label>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="pf-c-check"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="level-1"
+                      class="pf-c-check__input"
+                      data-event-type-id="7"
+                      id="level-check-7"
+                      type="checkbox"
+                    />
+                    <label
+                      class="pf-c-check__label"
+                      for="level-check-7"
+                    >
+                      level-1
+                    </label>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="pf-c-check"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="level-2"
+                      class="pf-c-check__input"
+                      data-event-type-id="8"
+                      id="level-check-8"
+                      type="checkbox"
+                    />
+                    <label
+                      class="pf-c-check__label"
+                      for="level-check-8"
+                    >
+                      level-2
+                    </label>
+                  </div>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -594,6 +684,91 @@ Array [
                   Seed Type 1
                 </label>
               </div>
+              <ul
+                class="pf-c-list"
+                style="list-style:none"
+              >
+                <li>
+                  <div
+                    class="pf-c-check"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="level-0"
+                      class="pf-c-check__input"
+                      data-event-type-id="25"
+                      id="level-check-25"
+                      type="checkbox"
+                    />
+                    <label
+                      class="pf-c-check__label"
+                      for="level-check-25"
+                    >
+                      level-0
+                    </label>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="pf-c-check"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="level-1"
+                      class="pf-c-check__input"
+                      data-event-type-id="26"
+                      id="level-check-26"
+                      type="checkbox"
+                    />
+                    <label
+                      class="pf-c-check__label"
+                      for="level-check-26"
+                    >
+                      level-1
+                    </label>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="pf-c-check"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="level-2"
+                      class="pf-c-check__input"
+                      data-event-type-id="27"
+                      id="level-check-27"
+                      type="checkbox"
+                    />
+                    <label
+                      class="pf-c-check__label"
+                      for="level-check-27"
+                    >
+                      level-2
+                    </label>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="pf-c-check"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="level-3"
+                      class="pf-c-check__input"
+                      data-event-type-id="28"
+                      id="level-check-28"
+                      type="checkbox"
+                    />
+                    <label
+                      class="pf-c-check__label"
+                      for="level-check-28"
+                    >
+                      level-3
+                    </label>
+                  </div>
+                </li>
+              </ul>
             </li>
             <li>
               <div
@@ -614,6 +789,91 @@ Array [
                   Seed Type 2
                 </label>
               </div>
+              <ul
+                class="pf-c-list"
+                style="list-style:none"
+              >
+                <li>
+                  <div
+                    class="pf-c-check"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="level-0"
+                      class="pf-c-check__input"
+                      data-event-type-id="29"
+                      id="level-check-29"
+                      type="checkbox"
+                    />
+                    <label
+                      class="pf-c-check__label"
+                      for="level-check-29"
+                    >
+                      level-0
+                    </label>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="pf-c-check"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="level-1"
+                      class="pf-c-check__input"
+                      data-event-type-id="30"
+                      id="level-check-30"
+                      type="checkbox"
+                    />
+                    <label
+                      class="pf-c-check__label"
+                      for="level-check-30"
+                    >
+                      level-1
+                    </label>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="pf-c-check"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="level-2"
+                      class="pf-c-check__input"
+                      data-event-type-id="31"
+                      id="level-check-31"
+                      type="checkbox"
+                    />
+                    <label
+                      class="pf-c-check__label"
+                      for="level-check-31"
+                    >
+                      level-2
+                    </label>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="pf-c-check"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-label="level-3"
+                      class="pf-c-check__input"
+                      data-event-type-id="32"
+                      id="level-check-32"
+                      type="checkbox"
+                    />
+                    <label
+                      class="pf-c-check__label"
+                      for="level-check-32"
+                    >
+                      level-3
+                    </label>
+                  </div>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
