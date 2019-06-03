@@ -111,8 +111,7 @@ export class FilterList extends Component {
                     aria-label={ eventType.attributes.title }
                     onChange={ () => this.selectFilter('eventTypeIds', eventType.id) }
                     defaultChecked={ this.state.selected.eventTypeIds[eventType.id] } />
-                { this.state.selected.eventTypeIds[eventType.id] && _.keys(eventType.levels).length > 0 &&
-                      this.renderLevels(eventType, eventType.levels) }
+                { this.renderLevels(eventType, eventType.levels) }
             </ListItem>;
 
     eventTypesList = (eventTypes) => {
@@ -128,6 +127,19 @@ export class FilterList extends Component {
     selectFilter = (arrayName, id) => {
         let newState = { ...this.state };
         newState.selected[arrayName][id] = newState.selected[arrayName][id] ? false : true;
+        this.setState(newState);
+    }
+
+    appSelected = (app) => {
+        let newState = { ...this.state };
+        if (newState.selected.appIds[app.id] === undefined) {
+            Object.values(app.eventTypes).forEach((eventType) => {
+                newState.selected.eventTypeIds[eventType.id] = true;
+                Object.values(eventType.levels).forEach((level) => newState.selected.levelIds[level.id] = true);
+            });
+        }
+
+        newState.selected.appIds[app.id] = newState.selected.appIds[app.id] ? false : true;
         this.setState(newState);
     }
 
@@ -148,7 +160,7 @@ export class FilterList extends Component {
                                         data-event-type-id={ app.id }
                                         label={ <strong>{ app.attributes.title }</strong> }
                                         aria-label={ app.attributes.title }
-                                        onChange={ () => this.selectFilter('appIds', app.id) }
+                                        onChange={ () => this.appSelected(app) }
                                         defaultChecked={ this.state.selected.appIds[app.id]  }/>
                                 </CardHeader>
                                 { this.state.selected.appIds[app.id] && _.keys(app.eventTypes).length > 0 &&
