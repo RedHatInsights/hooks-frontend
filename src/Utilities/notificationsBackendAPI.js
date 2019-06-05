@@ -11,7 +11,9 @@ class BackendAPIClient {
         .then(() => this.fetch(path, apiProps, method))
         .then(this.checkForEmptyResponse)
         .then((response) => this.checkForErrors(response, options))
-        .then((response) => response.json());
+        .then((response) => {
+            return response ? response.json() : {};
+        });
     }
 
     static fetch(path, apiProps, method) {
