@@ -36,6 +36,10 @@ class BackendAPIClient {
             return { json: () => ({}) };
         }
 
+        if (response.status === 401) {
+            return window.insights.chrome.auth.logout();
+        }
+
         const responseCloneJson = response.clone ? response.clone().json() : response;
 
         if (response.status === 422) {
