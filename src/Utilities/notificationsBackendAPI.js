@@ -11,9 +11,8 @@ class BackendAPIClient {
         .then(() => this.fetch(path, apiProps, method))
         .then(this.checkForEmptyResponse)
         .then((response) => this.checkForErrors(response, options))
-        .then((response) => {
-            return response ? response.json() : {};
-        });
+        .then((response) => response.json())
+        .catch(() => Promise.reject({ title: 'Error parsing' }));
     }
 
     static fetch(path, apiProps, method) {
@@ -39,7 +38,7 @@ class BackendAPIClient {
         }
 
         if (response.status === 401) {
-            return window.insights.chrome.auth.logout();
+            return window.insights.chrome.auth.logout(true);
         }
 
         const responseCloneJson = response.clone ? response.clone().json() : response;
