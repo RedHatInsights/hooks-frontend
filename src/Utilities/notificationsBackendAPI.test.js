@@ -77,14 +77,14 @@ describe('checkForErrors', () => {
         expect(response.json).toHaveBeenCalled();
     });
 
-    it('rejects with the all errors if status is 422', async () => {
+    it('rejects if status is 401', async () => {
         const response = {
             status: 401,
             body: 'Authentication error:'
         };
 
         await expect(ApiClient.checkForErrors(response)).resolves.toEqual({});
-        expect(window.insights.chrome.auth.logout).toHaveBeenCalled();
+        expect(window.insights.chrome.auth.logout).toHaveBeenCalledWith(true);
     });
 });
 
