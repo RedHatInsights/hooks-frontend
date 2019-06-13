@@ -186,8 +186,9 @@ export class NotificationsIndex extends Component {
         }
 
     onFilterChange = (query) => {
-        this.setState({ query, search: query !== '' });
-        this.refreshData();
+        this.setState({ query, search: query !== '' }, async () => {
+            await this.refreshData();
+        });
     }
 
     noResults = () =>
