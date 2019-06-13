@@ -54,7 +54,7 @@ const deleteEndpointInCollectionObject = (object, id) => {
 
 const handleFetchEndpointsSuccess = (state, action) => {
     if (action.payload.data.length === 0) {
-        return { ...state, loading: false };
+        return { ...state, endpoints: {}, loading: false, total: 0 };
     }
 
     let normalizedData = normalizeEndpointData(action.payload, action.meta.endpoint, action.meta.sortBy);
@@ -67,7 +67,8 @@ const handleFetchEndpointsSuccess = (state, action) => {
         ...state,
         loading: false,
         endpoints: normalizedData,
-        total: action.payload.meta.total
+        total: action.payload.meta.total,
+        search: !action.meta.search
     };
 };
 
@@ -76,7 +77,7 @@ export const endpointsReducer = function(state = initialStateFor('endpoints', {}
         case pendingMessage(FETCH_ENDPOINTS):
             return {
                 ...state,
-                loading: !action.meta.partial,
+                loading: !action.meta.partial && !action.meta.search,
                 error: null
             };
 

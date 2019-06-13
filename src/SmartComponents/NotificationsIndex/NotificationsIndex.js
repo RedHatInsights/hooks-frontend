@@ -8,7 +8,8 @@ import {
     EmptyStateBody,
     Pagination,
     ToolbarGroup,
-    ToolbarItem
+    ToolbarItem,
+    TextInput
 } from '@patternfly/react-core';
 import { Link } from 'react-router-dom';
 import { CubesIcon } from '@patternfly/react-icons';
@@ -50,6 +51,8 @@ export class NotificationsIndex extends Component {
             page: 1,
             perPage: 10,
             rows: [ ],
+            query: null,
+            search: false,
             sortBy: {
                 index: 0,
                 direction: 'asc'
@@ -96,9 +99,12 @@ export class NotificationsIndex extends Component {
     onSetPage = (event, page) =>
         event.target.className === 'pf-c-form-control' || this.onPageChange(event, page, false)
 
-    refreshData = (page = this.state.page, perPage = this.state.perPage, { direction, index } = this.state.sortBy) => {
+    refreshData = (page = this.state.page,
+        perPage = this.state.perPage,
+        { direction, index } = this.state.sortBy,
+        query = this.state.query) => {
         const column = this.state.columns[index].key;
-        this.props.fetchEndpoints(page, perPage, `${column} ${direction}`).then(() =>
+        this.props.fetchEndpoints(page, perPage, `${column} ${direction}`, false, query).then(() =>
             this.filtersInRowsAndCells()
         );
     }
@@ -179,6 +185,11 @@ export class NotificationsIndex extends Component {
             this.props.testEndpoint(id).then(next, next);
         }
 
+    onFilterChange = (query) => {
+        this.setState({ query, search: query !== '' });
+        this.refreshData();
+    }
+
     noResults = () =>
         <Bullseye>
             <EmptyState>
@@ -194,7 +205,7 @@ export class NotificationsIndex extends Component {
         </Bullseye>
 
     resultsTable = () => {
-        const { perPage, page, rows, columns, sortBy } = this.state;
+        const { perPage, page, rows, columns, sortBy, query } = this.state;
         const pagination = <Pagination
             itemCount={ this.props.total }
             widgetId="pagination-options-menu-bottom"
@@ -205,10 +216,22 @@ export class NotificationsIndex extends Component {
             onPerPageSelect={ this.onPerPageSelect } />;
 
         return <React.Fragment>
-            <TableToolbar>
+            <TableToolbar className="pf-u-justify-content-space-between">
                 <ToolbarGroup>
-                    <ToolbarItem>
+                    <ToolbarItem style={ { marginLeft: '-0.5em' } }>
+                        <TextInput
+                            onChange={ this.onFilterChange }
+                            value={ query ? query : '' }
+                            placeholder="Filter by name or url"
+                            aria-label='Filter endpoints' />
+                    </ToolbarItem>
+                    <ToolbarItem style={ { marginLeft: 'var(--pf-global--spacer--lg)' } }>
                         <Button component={ Link } to={ '/new' } onClick={ this.props.newEndpoint }>New hook</Button>
+                    </ToolbarItem>
+                </ToolbarGroup>
+                <ToolbarGroup>
+                    <ToolbarItem style={ { marginRight: '-0.5em' } }>
+                        { pagination }
                     </ToolbarItem>
                 </ToolbarGroup>
             </TableToolbar>
@@ -229,7 +252,7 @@ export class NotificationsIndex extends Component {
 
     render() {
         const placeholder = <Skeleton size={ SkeletonSize.lg } />;
-        const { loading, total } = this.props;
+        const { loading, total, search } = this.props;
 
         return (
             <NotificationsPage
@@ -238,7 +261,7 @@ export class NotificationsIndex extends Component {
                 <LoadingState
                     loading={ loading }
                     placeholder={ placeholder } >
-                    { total > 0 ? this.resultsTable() : this.noResults() }
+                    { total > 0 || search ? this.resultsTable() : this.noResults() }
                 </LoadingState>
             </NotificationsPage>
         );
@@ -253,13 +276,15 @@ NotificationsIndex.propTypes = {
     testEndpoint: PropTypes.func.isRequired,
     endpoints: PropTypes.object.isRequired,
     loading: PropTypes.bool,
-    total: PropTypes.number
+    total: PropTypes.number,
+    search: PropTypes.bool
 };
 
-const mapStateToProps = ({ endpoints: { endpoints, loading, total }}) => ({
+const mapStateToProps = ({ endpoints: { endpoints, loading, total, search }}) => ({
     endpoints,
     loading,
-    total
+    total,
+    search
 });
 
 const mapDispatchToProps = (dispatch) =>
