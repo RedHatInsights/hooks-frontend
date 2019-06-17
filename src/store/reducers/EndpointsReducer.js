@@ -53,7 +53,7 @@ const deleteEndpointInCollectionObject = (object, id) => {
 };
 
 const handleFetchEndpointsSuccess = (state, action) => {
-    if (action.payload.data.length === 0) {
+    if (action.payload.data.length === 0 && !action.meta.search) {
         return { ...state, endpoints: {}, loading: false, total: 0 };
     }
 
@@ -68,7 +68,7 @@ const handleFetchEndpointsSuccess = (state, action) => {
         loading: false,
         endpoints: normalizedData,
         total: action.payload.meta.total,
-        search: !action.meta.search
+        search: action.meta.search
     };
 };
 

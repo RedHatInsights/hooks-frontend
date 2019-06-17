@@ -80,14 +80,23 @@ exports[`NotificationsIndex takes endpoints 1`] = `
       >
         <ToolbarItem
           className={null}
+          style={
+            Object {
+              "marginLeft": "-0.5em",
+            }
+          }
         >
-          <SimpleFilter
-            buttonTitle="Filter"
+          <TextInput
+            aria-label="Filter endpoints"
             className=""
-            onButtonClick={[Function]}
-            onFilterChange={[Function]}
-            onOptionSelect={[Function]}
-            placeholder="Search items"
+            isDisabled={false}
+            isReadOnly={false}
+            isRequired={false}
+            isValid={true}
+            onChange={[Function]}
+            placeholder="Filter by name or url"
+            type="text"
+            value=""
           />
         </ToolbarItem>
         <ToolbarItem
@@ -122,6 +131,11 @@ exports[`NotificationsIndex takes endpoints 1`] = `
       >
         <ToolbarItem
           className={null}
+          style={
+            Object {
+              "marginRight": "-0.5em",
+            }
+          }
         >
           <Pagination
             dropDirection="down"

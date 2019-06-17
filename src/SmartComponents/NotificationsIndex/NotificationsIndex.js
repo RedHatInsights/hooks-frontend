@@ -82,12 +82,10 @@ export class NotificationsIndex extends Component {
         this.refreshData();
     }
 
-    changePage = debounce(() => { this.refreshData(); }, 800);
-
     onPageChange = (_event, page, shouldDebounce) => {
         this.setState({ page });
         if (shouldDebounce) {
-            this.changePage();
+            this.refreshDataDebounced();
         } else {
             this.refreshData(page);
         }
@@ -108,6 +106,8 @@ export class NotificationsIndex extends Component {
             this.filtersInRowsAndCells()
         );
     }
+
+    refreshDataDebounced = debounce(() => { this.refreshData(); }, 800);
 
     getNextEndpoint = () => {
         const { direction, index } = this.state.sortBy;
@@ -187,7 +187,7 @@ export class NotificationsIndex extends Component {
 
     onFilterChange = (query) => {
         this.setState({ query, search: query !== '' }, async () => {
-            await this.refreshData();
+            await this.refreshDataDebounced();
         });
     }
 
@@ -260,9 +260,9 @@ export class NotificationsIndex extends Component {
                 title='Hooks'
                 showBreadcrumb={ false }>
                 <LoadingState
-                    loading={ loading }
+                    loading={ loading && !search }
                     placeholder={ placeholder } >
-                    { total > 0 || search ? this.resultsTable() : this.noResults() }
+                    { total === 0 && !search ? this.noResults() : this.resultsTable() }
                 </LoadingState>
             </NotificationsPage>
         );
@@ -278,7 +278,7 @@ NotificationsIndex.propTypes = {
     endpoints: PropTypes.object.isRequired,
     loading: PropTypes.bool,
     total: PropTypes.number,
-    search: PropTypes.bool
+    search: PropTypes.any
 };
 
 const mapStateToProps = ({ endpoints: { endpoints, loading, total, search }}) => ({
