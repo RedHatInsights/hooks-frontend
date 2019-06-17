@@ -54,7 +54,7 @@ const deleteEndpointInCollectionObject = (object, id) => {
 
 const handleFetchEndpointsSuccess = (state, action) => {
     if (action.payload.data.length === 0 && !action.meta.search) {
-        return { ...state, endpoints: {}, loading: false, total: 0 };
+        return { ...state, loading: false, total: action.payload.meta.total };
     }
 
     let normalizedData = normalizeEndpointData(action.payload, action.meta.endpoint, action.meta.sortBy);
