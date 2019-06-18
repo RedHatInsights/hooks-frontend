@@ -207,8 +207,9 @@ export class NotificationsIndex extends Component {
 
     resultsTable = () => {
         const { perPage, page, rows, columns, sortBy, query } = this.state;
+        const total = this.props.total ? this.props.total : 0;
         const pagination = <Pagination
-            itemCount={ this.props.total }
+            itemCount={ total }
             widgetId="pagination-options-menu-bottom"
             perPage={ perPage }
             page={ page }
