@@ -186,7 +186,7 @@ export class NotificationsIndex extends Component {
         }
 
     onFilterChange = (query) => {
-        this.setState({ query, search: query !== '' }, async () => {
+        this.setState({ query, search: query !== '', page: 1 }, async () => {
             await this.refreshDataDebounced();
         });
     }
