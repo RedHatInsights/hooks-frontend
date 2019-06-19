@@ -9,7 +9,9 @@ import {
     Pagination,
     ToolbarGroup,
     ToolbarItem,
-    TextInput
+    TextInput,
+    Split,
+    SplitItem
 } from '@patternfly/react-core';
 import { Link } from 'react-router-dom';
 import { CubesIcon } from '@patternfly/react-icons';
@@ -218,25 +220,25 @@ export class NotificationsIndex extends Component {
             onPerPageSelect={ this.onPerPageSelect } />;
 
         return <React.Fragment>
-            <TableToolbar className="pf-u-justify-content-space-between" style={ { paddingRight: '0' } }>
-                <ToolbarGroup style={ { marginRight: 'calc(var(--pf-global--spacer--lg) * 32)' } }>
-                    <ToolbarItem style={ { marginLeft: '-0.5em' } }>
-                        <TextInput
-                            onChange={ this.onFilterChange }
-                            value={ query ? query : '' }
-                            placeholder="Filter by name or url"
-                            aria-label='Filter endpoints' />
-                    </ToolbarItem>
-                    <ToolbarItem style={ { marginLeft: 'var(--pf-global--spacer--lg)' } }>
-                        <Button component={ Link } to={ '/new' } onClick={ this.props.newEndpoint }>New hook</Button>
-                    </ToolbarItem>
-                </ToolbarGroup>
-                <ToolbarGroup style={ { marginLeft: '.625em' } }>
-                    <ToolbarItem>
-                        { pagination }
-                    </ToolbarItem>
-                </ToolbarGroup>
-            </TableToolbar>
+            <Split component={ TableToolbar }>
+                <SplitItem isFilled={ true }>
+                    <ToolbarGroup>
+                        <ToolbarItem>
+                            <TextInput
+                                onChange={ this.onFilterChange }
+                                value={ query ? query : '' }
+                                placeholder="Filter by name or url"
+                                aria-label='Filter endpoints' />
+                        </ToolbarItem>
+                        <ToolbarItem style={ { marginLeft: 'var(--pf-global--spacer--lg)' } }>
+                            <Button component={ Link } to={ '/new' } onClick={ this.props.newEndpoint }>New hook</Button>
+                        </ToolbarItem>
+                    </ToolbarGroup>
+                </SplitItem>
+                <SplitItem>
+                    { pagination }
+                </SplitItem>
+            </Split>
             <Table aria-label='Hooks list'
                 rows={ rows }
                 cells={ columns }
@@ -245,10 +247,11 @@ export class NotificationsIndex extends Component {
                 gridBreakPoint={ TableGridBreakpoint.gridMd } >
                 <TableHeader />
                 <TableBody />
-                <tfoot><tr><td colSpan='6'>
-                    { pagination }
-                </td></tr></tfoot>
             </Table>
+            <Split component={ TableToolbar }>
+                <SplitItem isFilled={ true } />
+                <SplitItem>{ pagination }</SplitItem>
+            </Split>
         </React.Fragment>;
     }
 
