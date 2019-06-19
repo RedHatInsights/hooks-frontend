@@ -247,10 +247,11 @@ export class NotificationsIndex extends Component {
                 gridBreakPoint={ TableGridBreakpoint.gridMd } >
                 <TableHeader />
                 <TableBody />
-                <tfoot><tr><td colSpan='6'>
-                    { pagination }
-                </td></tr></tfoot>
             </Table>
+            <Split component={ TableToolbar }>
+                <SplitItem isFilled={ true } />
+                <SplitItem>{ pagination }</SplitItem>
+            </Split>
         </React.Fragment>;
     }
 
