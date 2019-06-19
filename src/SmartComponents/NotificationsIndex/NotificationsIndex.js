@@ -227,7 +227,7 @@ export class NotificationsIndex extends Component {
                             placeholder="Filter by name or url"
                             aria-label='Filter endpoints' />
                     </ToolbarItem>
-                    <ToolbarItem style={ { marginLeft: 'var(--pf-global--spacer--lg)' }}>
+                    <ToolbarItem style={ { marginLeft: 'var(--pf-global--spacer--lg)' } }>
                         <Button component={ Link } to={ '/new' } onClick={ this.props.newEndpoint }>New hook</Button>
                     </ToolbarItem>
                 </ToolbarGroup>
