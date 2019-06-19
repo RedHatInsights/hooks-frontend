@@ -218,8 +218,8 @@ export class NotificationsIndex extends Component {
             onPerPageSelect={ this.onPerPageSelect } />;
 
         return <React.Fragment>
-            <TableToolbar className="pf-u-justify-content-space-between">
-                <ToolbarGroup>
+            <TableToolbar className="pf-u-justify-content-space-between" style={ { paddingRight: '0' } }>
+                <ToolbarGroup style={ { marginRight: 'calc(var(--pf-global--spacer--lg) * 32)' } }>
                     <ToolbarItem style={ { marginLeft: '-0.5em' } }>
                         <TextInput
                             onChange={ this.onFilterChange }
@@ -227,12 +227,12 @@ export class NotificationsIndex extends Component {
                             placeholder="Filter by name or url"
                             aria-label='Filter endpoints' />
                     </ToolbarItem>
-                    <ToolbarItem style={ { marginLeft: 'var(--pf-global--spacer--lg)' } }>
+                    <ToolbarItem style={ { marginLeft: 'var(--pf-global--spacer--lg)' }}>
                         <Button component={ Link } to={ '/new' } onClick={ this.props.newEndpoint }>New hook</Button>
                     </ToolbarItem>
                 </ToolbarGroup>
-                <ToolbarGroup>
-                    <ToolbarItem style={ { marginRight: '-0.5em' } }>
+                <ToolbarGroup style={ { marginLeft: '.625em' } }>
+                    <ToolbarItem>
                         { pagination }
                     </ToolbarItem>
                 </ToolbarGroup>

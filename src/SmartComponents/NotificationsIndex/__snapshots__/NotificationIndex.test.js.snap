@@ -74,9 +74,19 @@ exports[`NotificationsIndex takes endpoints 1`] = `
     <TableToolbar
       className="pf-u-justify-content-space-between"
       isFooter={false}
+      style={
+        Object {
+          "paddingRight": "0",
+        }
+      }
     >
       <ToolbarGroup
         className={null}
+        style={
+          Object {
+            "marginRight": "calc(var(--pf-global--spacer--lg) * 32)",
+          }
+        }
       >
         <ToolbarItem
           className={null}
@@ -128,14 +138,14 @@ exports[`NotificationsIndex takes endpoints 1`] = `
       </ToolbarGroup>
       <ToolbarGroup
         className={null}
+        style={
+          Object {
+            "marginLeft": ".625em",
+          }
+        }
       >
         <ToolbarItem
           className={null}
-          style={
-            Object {
-              "marginRight": "-0.5em",
-            }
-          }
         >
           <Pagination
             dropDirection="down"
