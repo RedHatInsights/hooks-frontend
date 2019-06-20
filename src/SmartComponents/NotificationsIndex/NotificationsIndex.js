@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { filter } from 'lodash';
 import {
     Title,
     Button,
@@ -130,7 +131,7 @@ export class NotificationsIndex extends Component {
     }
 
     filtersInRowsAndCells = () => {
-        const endpoints = Object.values(this.props.endpoints);
+        const endpoints = filter(Object.values(this.props.endpoints), (el) => el !== undefined);
 
         let rows = [];
         if (endpoints.length > 0) {
