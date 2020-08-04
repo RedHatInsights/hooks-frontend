@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.org/RedHatInsights/insights-frontend-starter-app.svg?branch=master)](https://travis-ci.org/RedHatInsights/insights-frontend-starter-app)
 
-# Notifications Frontend
+# Hooks Frontend
 
-Notifications Frontend for Red Hat Insights based on [https://github.com/RedHatInsights/insights-frontend-starter-app](insights-frontend-starter-app)*
+Hooks Frontend for Red Hat Insights based on [https://github.com/RedHatInsights/insights-frontend-starter-app](insights-frontend-starter-app)*
 
 _* See for intro do basic workings of Insights frontend code_
 
