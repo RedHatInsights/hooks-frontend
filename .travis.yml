@@ -13,6 +13,6 @@ after_success:
   - curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh | bash -s
 env:
     global:
-    - REPO="git@github.com:RedHatInsights/notifications-frontend-build"
-    - REPO_DIR="notifications-frontend-build"
+    - REPO="git@github.com:RedHatInsights/hooks-frontend-build"
+    - REPO_DIR="hooks-frontend-build"
     - BRANCH=${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}
